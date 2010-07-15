@@ -1,0 +1,69 @@
+<div id="pageTitle">
+    <h1>New Customer</h1>
+</div>
+
+<div id="toolbar">
+    <%= link_to "Back", :action => :index %>
+</div>
+
+
+<div id="content">
+
+    <form method="POST" action="<%= url_for :action => :create %>">
+	    <input type="hidden" name="id" value="<%= @customer.object %>"/>
+        <table>
+    		
+    		  <tr>
+    			  <td class="itemLabel">First: </td>
+    			  <td class="itemValue"><input type="text" name="customer[first]"/></td>
+    		  </tr>
+    		
+    		  <tr>
+    			  <td class="itemLabel">Last: </td>
+    			  <td class="itemValue"><input type="text" name="customer[last]"/></td>
+    		  </tr>
+    		
+    		  <tr>
+    			  <td class="itemLabel">Email: </td>
+    			  <td class="itemValue"><input type="text" name="customer[email]"/></td>
+    		  </tr>
+    		
+    		  <tr>
+    			  <td class="itemLabel">Phone: </td>
+    			  <td class="itemValue"><input type="text" name="customer[phone]"/></td>
+    		  </tr>
+    		
+    		  <tr>
+    			  <td class="itemLabel">Address: </td>
+    			  <td class="itemValue"><input type="text" name="customer[address]"/></td>
+    		  </tr>
+    		
+    		  <tr>
+    			  <td class="itemLabel">City: </td>
+    			  <td class="itemValue"><input type="text" name="customer[city]"/></td>
+    		  </tr>
+    		
+    		  <tr>
+    			  <td class="itemLabel">State: </td>
+    			  <td class="itemValue"><input type="text" name="customer[state]"/></td>
+    		  </tr>
+    		
+    		  <tr>
+    			  <td class="itemLabel">Zip: </td>
+    			  <td class="itemValue"><input type="text" name="customer[zip]"/></td>
+    		  </tr>
+    		
+    		  <tr>
+    			  <td class="itemLabel">Lat: </td>
+    			  <td class="itemValue"><input type="text" name="customer[lat]"/></td>
+    		  </tr>
+    		
+    		  <tr>
+    			  <td class="itemLabel">Long: </td>
+    			  <td class="itemValue"><input type="text" name="customer[long]"/></td>
+    		  </tr>
+    		
+        </table>
+        <input type="submit" class="standardButton" value="Create" />
+    </form>
+</div>

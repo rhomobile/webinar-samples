@@ -1,0 +1,59 @@
+<div id="pageTitle">
+	<h1><%= @title %></h1>
+</div>
+
+<div id="toolbar">
+    <div id="leftItem" class="blueButton"><%= link_to "Sync", :controller => :Settings, :action => :do_sync %></div>
+    <% if SyncEngine::logged_in > 0 %>
+      <div id="rightItem" class="regularButton"><%= link_to "Logout", :controller => :Settings, :action => :logout %></div>
+    <% else %>
+      <div id="rightItem" class="regularButton"><%= link_to "Login", :controller => :Settings, :action => :login %></div>
+    <% end %>
+</div>
+
+<div id="content">
+    <ul>
+        <li>
+            <a href="<%= url_for :action => :show_popup %>">
+                <span class="title">Show Popup</span>
+                <span class="disclosure_indicator"></span>
+            </a>
+        </li>
+        <li>
+            <a href="<%= url_for :action => :show_popup2 %>">
+                <span class="title">Show Popup2</span>
+                <span class="disclosure_indicator"></span>
+            </a>
+        </li>
+        <li>
+            <a href="<%= url_for :action => :show_popup3 %>">
+                <span class="title">Show Popup3</span>
+                <span class="disclosure_indicator"></span>
+            </a>
+        </li>
+        <li>
+            <a href="<%= url_for :action => :vibrate %>">
+                <span class="title">Vibrate</span>
+                <span class="disclosure_indicator"></span>
+            </a>
+        </li>
+        <li>
+            <a href="<%= url_for :action => :vibrate10 %>">
+                <span class="title">Vibrate 10</span>
+                <span class="disclosure_indicator"></span>
+            </a>
+        </li>
+        <li>
+            <a href="<%= url_for :action => :play_file1 %>">
+                <span class="title">Play File 1</span>
+                <span class="disclosure_indicator"></span>
+            </a>
+        </li>
+        <li>
+            <a href="<%= url_for :action => :play_file2 %>">
+                <span class="title">Play File 2</span>
+                <span class="disclosure_indicator"></span>
+            </a>
+        </li>
+    </ul>
+</div>

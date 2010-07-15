@@ -1,0 +1,61 @@
+<div id="pageTitle">
+	<h1><%= @customer.first%></h1>
+</div>
+
+<div id="toolbar">
+    <div id="leftItem" class="backButton"><%= link_to "Back", :action => :index %></div>
+    <div id="rightItem" class="regularButton"><%= link_to "Edit", :action => :edit, :id => @customer.object %></div>
+</div>
+
+<div id="content">
+    <ul>
+        
+        <li>
+            <div class="itemLabel">First</div>
+            <div class="itemValue"><%= @customer.first%></div>
+        </li>
+        
+        <li>
+            <div class="itemLabel">Last</div>
+            <div class="itemValue"><%= @customer.last%></div>
+        </li>
+        
+        <li>
+            <div class="itemLabel">Email</div>
+            <div class="itemValue"><%= @customer.email%></div>
+        </li>
+        
+        <li>
+            <div class="itemLabel">Phone</div>
+            <div class="itemValue"><%= @customer.phone%></div>
+        </li>
+        
+        <li>
+            <div class="itemLabel">Address</div>
+            <div class="itemValue"><%= @customer.address%></div>
+        </li>
+        
+        <li>
+            <div class="itemLabel">City</div>
+            <div class="itemValue"><%= @customer.city%></div>
+        </li>
+        
+        <li>
+            <div class="itemLabel">State</div>
+            <div class="itemValue"><%= @customer.state%></div>
+        </li>
+        
+        <li>
+            <div class="itemLabel">Zip</div>
+            <div class="itemValue"><%= @customer.zip%></div>
+        </li>
+        
+		<li>
+			<a href="<%= url_for( :action => :map_it, :id => @customer.object) %>">
+				<span class="title">Show on map</span>
+				<span class="disclosure_indicator"></span>
+			</a>
+		</li>
+        
+    </ul>
+</div>

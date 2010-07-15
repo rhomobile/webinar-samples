@@ -1,0 +1,32 @@
+<div id="pageTitle">
+	<h1>Edit <%= @person['first_name']%></h1>
+</div>
+
+<div id="toolbar">
+    <div id="leftItem" class="backButton"><%= link_to "Cancel", :action => :show, :id => @person['id'] %></div>
+    <div id="rightItem" class="regularButton"><%= link_to "Delete", :action => :delete, :id => @person['id'] %></div>
+</div>
+
+<div id="content">
+    <form method="POST" action="<%= url_for :action => :update %>">
+            <input type="hidden" name="person[id]" value="<%= @person['id'] %>"/>
+            <ul>
+                
+                <li>
+                    <label for="person[first_name]" class="fieldLabel">First Name</label>
+                    <input type="text" name="person[first_name]" value="<%= @person['first_name']%>" <%= placeholder( "First Name" ) %> />
+                </li>
+                <li>
+                    <label for="person[last_name]" class="fieldLabel">Last Name</label>
+                    <input type="text" name="person[last_name]" value="<%= @person['last_name']%>" <%= placeholder( "Last Name" ) %> />
+                </li>
+
+                <li>
+                    <label for="person[mobile_number]" class="fieldLabel">Mobile</label>
+                    <input type="text" name="person[mobile_number]" value="<%= @person['mobile_number']%>" <%= placeholder( "Mobile" ) %> />
+                </li>
+                
+            </ul>
+            <input type="submit" class="standardButton" value="Update" />
+    </form>
+</div>

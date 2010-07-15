@@ -1,0 +1,29 @@
+<div id="pageTitle">
+	<h1>Customers</h1>
+</div>
+
+<div id="toolbar">
+    <div id="leftItem" class="regularButton"><%= link_to "Home", Rho::RhoConfig.start_path %></div>
+    <div id="rightItem" class="regularButton"><%= link_to "New", :controller => :Customer, :action => :new %></div>
+</div>
+
+<div id="content">
+    <ul>
+		<li>
+			<a href="<%= url_for :action => :map_all %>">
+				<span class="title">Map all</span>
+				<span class="disclosure_indicator"></span>
+			</a>
+		</li>
+        <% @customers.each do |obj| %>
+            
+            <li>
+                <a href="<%= url_for :action => :show, :id => obj.object %>">
+                    <span class="title"><%= obj.first %></span>
+                    <span class="disclosure_indicator"></span>
+                </a>
+            </li>
+            
+        <% end %>
+    </ul>
+</div>

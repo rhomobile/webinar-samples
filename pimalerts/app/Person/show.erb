@@ -1,0 +1,34 @@
+<div id="pageTitle">
+	<h1><%= @person['first_name']%></h1>
+</div>
+
+<div id="toolbar">
+    <div id="leftItem" class="backButton"><%= link_to "Back", :action => :index %></div>
+    <div id="rightItem" class="regularButton"><%= link_to "Edit", :action => :edit, :id => @person['id'] %></div>
+</div>
+
+<div id="content">
+    <ul>
+        
+        <li>
+            <div class="itemLabel">First Name</div>
+            <div class="itemValue"><%= @person['first_name']%></div>
+        </li>
+
+        <li>
+            <div class="itemLabel">Last Name</div>
+            <div class="itemValue"><%= @person['last_name']%></div>
+        </li>
+
+        <li>
+            <div class="itemLabel">Mobile Number</div>
+            <div class="itemValue"><%= @person['mobile_number']%></div>
+        </li>
+
+        <li>
+            <div class="itemLabel">Home Number</div>
+            <div class="itemValue"><%= @person['home_number']%></div>
+        </li>
+        
+    </ul>
+</div>

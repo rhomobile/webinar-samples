@@ -1,0 +1,31 @@
+<div id="pageTitle">
+	<h1>People</h1>
+</div>
+
+<div id="toolbar">
+    <div id="leftItem" class="regularButton"><%= link_to "Home", Rho::RhoConfig.start_path %></div>
+    <div id="rightItem" class="regularButton"><%= link_to "New", :controller => :Person, :action => :new %></div>
+</div>
+
+<div id="content">
+	<p>Test Date/Time Pickers</p>
+    <form action="DateTime/save">
+	  <b>Date and Time:</b><br/>
+      <input type="text" name="date0" readonly value="<%= $choosed['0'] %>"></input>
+      <%= link_to "Edit", { :action => "choose", :query => { :flag => '0', :title => 'Choose Date & Time' } } %><br/>
+      <b>Date Only:</b><br/>
+      <input type="text" name="date1" readonly value="<%= $choosed['1'] %>"></input>
+      <%= link_to "Edit", { :action => "choose", :query => { :flag => '1', :title => 'Choose Date' } } %><br/>
+      <b>Time Only:</b><br/>
+      <input type="text" name="date2" readonly value="<%= $choosed['2'] %>"></input>
+      <%= link_to "Edit", { :action => "choose", :query => { :flag => '2', :title => 'Choose Time' } } %><br/>
+      <input type="submit" value="Save"></input>
+    </form>
+    <br/>
+    <% if not $saved.nil? %>
+      Chosen date/time values:<br/>
+      <% $choosed.each do |k,v| %>
+        <b>Format (<%=k%>): <%= v %></b><br/>
+      <% end %>
+	<% end %>
+</div>

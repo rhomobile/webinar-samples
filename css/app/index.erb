@@ -1,0 +1,34 @@
+<div id="pageTitle">
+    <h1>Css</h1>
+</div>
+
+<div id="toolbar">
+    <div id="leftItem" class="blueButton"><%= link_to "Sync", :controller => :Settings, :action => :do_sync %></div>
+    <% if SyncEngine::logged_in > 0 %>
+      <div id="rightItem" class="regularButton"><%= link_to "Logout", :controller => :Settings, :action => :logout %></div>
+    <% else %>
+      <div id="rightItem" class="regularButton"><%= link_to "Login", :controller => :Settings, :action => :login %></div>
+    <% end %>
+</div>
+
+<div id="content">
+    <ul>
+        <li>
+            <a href="Person">
+                <span class="title">Person</span>
+                <span class="disclosure_indicator"></span>
+            </a>
+        </li>
+      <li>
+            <a href="Person">
+                <span class="title">Person</span>
+                <span class="detail_disclosure"></span>
+            </a>
+        </li>
+      <li>
+            <div class="itemLabel">Label</div>
+			<div class="itemValue">Value</div>
+      </li>
+
+    </ul>
+</div>

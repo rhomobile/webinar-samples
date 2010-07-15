@@ -1,0 +1,16 @@
+sdk: "/Library/Ruby/Gems/1.8/gems/rhodes-2.0.0.beta10"
+sdkversion: 2.0.0
+name: metastore
+version: 1.0
+vendor: rhomobile
+build: debug
+bbver: 4.6
+wmsdk: "Windows Mobile 6 Professional SDK (ARMV4I)"
+applog: rholog.txt
+iphone:
+  configuration: Debug
+  sdk: iphonesimulator3.0
+  provisionprofile:
+  codesignidentity:
+  entitlements:
+extensions: ["rhodes_translator"]

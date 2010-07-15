@@ -1,0 +1,29 @@
+<div id="pageTitle">
+	<h1>New Contact</h1>
+</div>
+
+<div id="toolbar">
+     <div id="leftItem" class="backButton"><%= link_to "Cancel", :action => :index %></div>
+</div>
+
+<div id="content">
+    <form method="POST" action="<%= url_for :action => :create %>">
+            <ul>
+                
+                <li>
+                    <label for="person[first_name]" class="fieldLabel">First Name</label>
+                    <input type="text" name="person[first_name]" <%= placeholder( "First Name" ) %> />
+                </li>
+                <li>
+                    <label for="person[last_name]" class="fieldLabel">Last Name</label>
+                    <input type="text" name="person[last_name]" <%= placeholder( "Last Name" ) %> />
+                </li>
+                <li>
+                    <label for="person[mobile_number]" class="fieldLabel">Mobile</label>
+                    <input type="text" name="person[mobile_number]" <%= placeholder( "Mobile" ) %> />
+                </li>
+                
+            </ul>
+            <input type="submit" class="standardButton" value="Create" />
+    </form>
+</div>

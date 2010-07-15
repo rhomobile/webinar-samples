@@ -1,0 +1,28 @@
+<div id="pageTitle">
+	<h1>Edit <%= @person.name%></h1>
+</div>
+
+<div id="toolbar">
+    <div id="leftItem" class="backButton"><%= link_to "Cancel", :action => :show, :id => @person.object %></div>
+    <div id="rightItem" class="regularButton"><%= link_to "Delete", :action => :delete, :id => @person.object %></div>
+</div>
+
+<div id="content">
+    <form method="POST" action="<%= url_for :action => :update %>">
+            <input type="hidden" name="id" value="<%= @person.object %>"/>
+            <ul>
+                
+                <li>
+                    <label for="person[name]" class="fieldLabel">Name</label>
+                    <input type="text" name="person[name]" value="<%= @person.name%>" <%= placeholder( "Name" ) %> />
+                </li>
+                
+                <li>
+                    <label for="person[age]" class="fieldLabel">Age</label>
+                    <input type="text" name="person[age]" value="<%= @person.age%>" <%= placeholder( "Age" ) %> />
+                </li>
+                
+            </ul>
+            <input type="submit" class="standardButton" value="Update" />
+    </form>
+</div>

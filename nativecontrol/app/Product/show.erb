@@ -1,0 +1,24 @@
+<div id="pageTitle">
+	<h1><%= @product.name%></h1>
+</div>
+
+<div id="toolbar">
+    <div id="leftItem" class="backButton"><%= link_to "Back", :action => :index %></div>
+    <div id="rightItem" class="regularButton"><%= link_to "Edit", :action => :edit, :id => @product.object %></div>
+</div>
+
+<div id="content">
+    <ul>
+        
+        <li>
+            <div class="itemLabel">Name</div>
+            <div class="itemValue"><%= @product.name%></div>
+        </li>
+        
+        <li>
+            <div class="itemLabel">Price</div>
+            <div class="itemValue"><%= @product.price%></div>
+        </li>
+        
+    </ul>
+</div>

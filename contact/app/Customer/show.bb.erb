@@ -1,0 +1,66 @@
+<div id="pageTitle">
+	<h1><%= @customer.first%></h1>
+</div>
+
+<div id="toolbar">
+        <%= link_to "Back", :action => :index %>
+        <%= link_to "Edit", :action => :edit, :id => @customer.object %>
+</div>
+
+
+<div id="content">
+
+    <table>
+      
+      <tr>
+    	<td class="itemLabel">First</td>
+        <td class="itemValue"><%= @customer.first%></td>
+      </tr>
+      
+      <tr>
+    	<td class="itemLabel">Last</td>
+        <td class="itemValue"><%= @customer.last%></td>
+      </tr>
+      
+      <tr>
+    	<td class="itemLabel">Email</td>
+        <td class="itemValue"><%= @customer.email%></td>
+      </tr>
+      
+      <tr>
+    	<td class="itemLabel">Phone</td>
+        <td class="itemValue"><%= @customer.phone%></td>
+      </tr>
+      
+      <tr>
+    	<td class="itemLabel">Address</td>
+        <td class="itemValue"><%= @customer.address%></td>
+      </tr>
+      
+      <tr>
+    	<td class="itemLabel">City</td>
+        <td class="itemValue"><%= @customer.city%></td>
+      </tr>
+      
+      <tr>
+    	<td class="itemLabel">State</td>
+        <td class="itemValue"><%= @customer.state%></td>
+      </tr>
+      
+      <tr>
+    	<td class="itemLabel">Zip</td>
+        <td class="itemValue"><%= @customer.zip%></td>
+      </tr>
+      
+      <tr>
+    	<td class="itemLabel">Lat</td>
+        <td class="itemValue"><%= @customer.lat%></td>
+      </tr>
+      
+      <tr>
+    	<td class="itemLabel">Long</td>
+        <td class="itemValue"><%= @customer.long%></td>
+      </tr>
+      
+    </table>
+</div>

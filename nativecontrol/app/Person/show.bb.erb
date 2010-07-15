@@ -1,0 +1,26 @@
+<div id="pageTitle">
+	<h1><%= @person.name%></h1>
+</div>
+
+<div id="toolbar">
+        <%= link_to "Back", :action => :index %>
+        <%= link_to "Edit", :action => :edit, :id => @person.object %>
+</div>
+
+
+<div id="content">
+
+    <table>
+      
+      <tr>
+    	<td class="itemLabel">Name</td>
+        <td class="itemValue"><%= @person.name%></td>
+      </tr>
+      
+      <tr>
+    	<td class="itemLabel">Age</td>
+        <td class="itemValue"><%= @person.age%></td>
+      </tr>
+      
+    </table>
+</div>
