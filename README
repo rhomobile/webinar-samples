@@ -1,0 +1,5 @@
+To run these samples, install Rhodes and Rhosync 2.0. 
+
+Each folder that has a name -server is a Rhosync app. 
+
+To run the Rhodes apps, run the command 'set-rhodes-sdk' in the app's folder. Then you can use the rake commands to run the applications
