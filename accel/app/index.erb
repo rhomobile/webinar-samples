@@ -1,0 +1,31 @@
+<div id="pageTitle">
+    <h1>Accel</h1>
+</div>
+
+<div id="toolbar">
+    <div id="leftItem" class="blueButton"><%= link_to "Sync", :controller => :Settings, :action => :do_sync %></div>
+    <% if SyncEngine::logged_in > 0 %>
+      <div id="rightItem" class="regularButton"><%= link_to "Logout", :controller => :Settings, :action => :logout %></div>
+    <% else %>
+      <div id="rightItem" class="regularButton"><%= link_to "Login", :controller => :Settings, :action => :login %></div>
+    <% end %>
+</div>
+
+<div id="content">
+    <ul>
+        <li>
+            <div onclick="setInterval(function(){loadXMLDoc('<%= url_for :controller => :Accel , :action => :accel %>','readings');},250);">
+                <span class="title">Go</span>
+                <span class="disclosure_indicator"></span>
+            </div>
+        </li>
+        <li>
+            <a href="<%= url_for :controller => :Accel , :action => :anim %>">
+                <span class="title">Draw</span>
+                <span class="disclosure_indicator"></span>
+            </a>
+        </li>
+		<div id="readings">
+		</div>
+    </ul>
+</div>

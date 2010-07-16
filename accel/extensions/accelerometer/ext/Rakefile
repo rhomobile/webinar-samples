@@ -1,0 +1,116 @@
+require 'fileutils'
+
+def build_extension(name, arch)
+  objects = []
+  mkdir_p $tempdir unless File.exists? $tempdir
+  
+  Dir.glob("*.o").each { |f| rm_rf f }
+  Dir.glob("*.a").each { |f| rm_rf f }
+  rm_rf "accelerometer_wrap.c"
+  
+  #swig
+  Dir.glob("*.i").each do |f|
+    puts "swig -ruby #{f}"
+    puts `swig -ruby #{f}`
+  end
+  
+  Dir.glob("*.c").each do |f|
+    objname = File.join( $tempdir, File.basename( f.gsub(/\.c$/, '.o') ) )
+    objects << objname
+
+    args = []
+    args << "-I."
+    args << "-I#{$rootdir}/platform/shared/ruby/include"
+    args << "-I#{$rootdir}/platform/shared"
+
+    if ENV['RHO_PLATFORM'] == 'android'
+    elsif ENV['RHO_PLATFORM'] == 'iphone'
+      args << "-I#{$rootdir}/platform/shared/ruby/iphone"
+      args << "-D_XOPEN_SOURCE"
+      args << "-D_DARWIN_C_SOURCE"
+      args << "-isysroot #{$sdkroot}"
+      args << "-fno-common"
+      args << "-arch #{arch}"
+      args << "-O2"
+      args << "-o #{objname}"
+      args << "-c"
+      args << f
+      cmdline = $gccbin + ' ' + args.join(' ')
+      puts cmdline
+      puts `#{cmdline}`
+      exit unless $? == 0
+    end
+  end    
+
+  #compile M files if iphone
+  if ENV['RHO_PLATFORM'] == 'iphone'
+    Dir.glob("*.m").each do |f|
+      objname = File.join( $tempdir, File.basename( f.gsub(/\.m$/, '.o') ) )
+      objects << objname
+
+      args = []
+      args << "-x objective-c"
+      args << "-arch #{arch}"
+      args << "-pipe -std=c99 -Wno-trigraphs -fpascal-strings  -O0 -Wreturn-type -Wunused-variable"
+      args << "-isysroot #{$sdkroot}"
+      args << "-D__IPHONE_OS_VERSION_MIN_REQUIRED=30200 "
+      args << "-fvisibility=hidden -mmacosx-version-min=10.6 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch"
+      args << "-I."
+      args << "-o #{objname}"
+      args << "-c"
+      args << f
+      cmdline = $gccbin + ' ' + args.join(' ')
+      puts cmdline
+      puts `#{cmdline}`
+      exit unless $? == 0
+    end    
+  end  
+  
+  mkdir_p $targetdir unless File.exist? $targetdir
+
+  if ENV['RHO_PLATFORM'] == 'android'
+  elsif ENV['RHO_PLATFORM'] == 'iphone'
+    args = []
+    args << 'rcs'
+    args << File.join( $targetdir, 'lib' + name + '.a' )
+    args += objects
+    cmdline = $arbin + ' ' + args.join(' ')
+    puts cmdline
+    puts `#{cmdline}`
+    exit unless $? == 0
+
+  elsif ENV['RHO_PLATFORM'] == 'wm'
+  end
+    
+end
+
+namespace "build" do
+  task :config do
+    $targetdir = ENV['TARGET_TEMP_DIR']
+    raise "TARGET_TEMP_DIR is not set" if $targetdir.nil?
+    $tempdir = ENV['TEMP_FILES_DIR']
+    raise "TEMP_FILES_DIR is not set" if $tempdir.nil?
+    $rootdir = ENV['RHO_ROOT']
+    raise "RHO_ROOT is not set" if $rootdir.nil?
+    
+    if ENV['RHO_PLATFORM'] == 'android'
+    elsif ENV['RHO_PLATFORM'] == 'wm'
+    elsif ENV['RHO_PLATFORM'] == 'iphone'
+       $bindir = ENV['PLATFORM_DEVELOPER_BIN_DIR']
+       raise "PLATFORM_DEVELOPER_BIN_DIR is not set" if $bindir.nil?
+       $sdkroot = ENV['SDKROOT']
+       raise "SDKROOT is not set" if $sdkroot.nil?
+       $arch = ENV['ARCHS']
+       raise "ARCHS is not set" if $arch.nil?
+       $gccbin = $bindir + '/gcc-4.2'
+       $arbin = $bindir + '/ar'
+    end
+    
+  end
+  
+  task :all => :config do
+    build_extension('accelerometer', $arch)
+  end
+end
+
+task :default => "build:all"

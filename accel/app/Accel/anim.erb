@@ -1,0 +1,172 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<title>Accel</title>	
+<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;"/>
+
+			<script language="javascript" src="/public/js/processing.init.js"></script> 
+			<script language="javascript" src="/public/js/processing.js"></script>
+				
+	</head>
+	<body style="margin: 0px; padding: 0px; border:0px; overflow-x:hidden; overflow-y:hidden;">
+<script type="application/processing"> 
+
+float getx(v) {
+	return midx + (v[0] * zscale / (v[2] + zscale));
+}
+
+float gety(v) {
+	return midx + (v[1] * zscale / (v[2] + zscale));
+}
+
+function rotz(v,theta) {
+	vt = [0,0,0];
+	vt[0] = (v[0] * Math.cos(theta)) + (v[1] * -1 * Math.sin(theta));
+	vt[1] = (v[0] * Math.sin(theta)) + (v[1] * Math.cos(theta));
+	vt[2] = v[2];
+	return vt
+} 
+
+function roty(v,theta) {
+	vt = [0,0,0];
+	vt[0] = (v[0] * Math.cos(theta)) + (v[2] * Math.sin(theta));
+	vt[1] = v[1];
+	vt[2] = (v[0] * -1 * Math.sin(theta)) + (v[2] * Math.cos(theta));
+	return vt
+} 
+
+function rotx(v,theta) {
+	vt = [0,0,0];
+	vt[0] = v[0];
+	vt[1] = (v[1] * Math.cos(theta)) + (v[2] * -1 * Math.sin(theta));
+	vt[2] = (v[1] * Math.sin(theta)) + (v[2] * Math.cos(theta));
+	return vt
+} 
+
+
+// Global variables
+float radius = 50.0;
+int X, Y;
+int nX, nY;
+int delay = 16;
+int zscale = 500;
+int width = 320;
+int height = 420;
+int midx = width/2;
+int midy = height/2;
+float rx, ry, rz;
+float z = 0;
+
+ov1 = rotx([-50,-50,-10],-1.57079633);
+ov2 = rotx([-50,50,-10],-1.57079633);
+ov3 = rotx([50,50,-10],-1.57079633);
+ov4 = rotx([50,-50,-10],-1.57079633);
+ov5 = rotx([-50,-50,10],-1.57079633);
+ov6 = rotx([-50,50,10],-1.57079633);
+ov7 = rotx([50,50,10],-1.57079633);
+ov8 = rotx([50,-50,10],-1.57079633);
+
+v1 = ov1;
+v2 = ov2;
+v3 = ov3;
+v4 = ov4;
+v5 = ov5;
+v6 = ov6;
+v7 = ov7;
+v8 = ov8;
+
+//gets accel data
+function getRotation(url)
+{
+  if (window.XMLHttpRequest)
+  {// code for IE7+, Firefox, Chrome, Opera, Safari
+    xmlhttp=new XMLHttpRequest();
+
+    xmlhttp.open("GET",url,false);
+    xmlhttp.send(null);
+	if (xmlhttp.responseText != null)
+    {
+		points_ary = xmlhttp.responseText.split(',');
+		rz = points_ary[0] * -1;
+		ry = points_ary[1];
+		rx = points_ary[2] * -1;
+	}
+  }
+}
+// Setup the Processing Canvas
+void setup(){
+  size( width, height );
+  strokeWeight( 2 );
+  frameRate( 15 );
+  X = width / 2;
+  Y = width / 2;
+  nX = X;
+  nY = Y;  
+  rx = 0.0;
+  ry = 0.0;
+  rz = 0.0;
+  setInterval(function() {getRotation('accel2');},50);
+}
+
+
+
+// Main draw loop
+void draw(){
+   zv1 = rotz(ov1,rz);
+   zv2 = rotz(ov2,rz);
+   zv3 = rotz(ov3,rz);
+   zv4 = rotz(ov4,rz);
+   zv5 = rotz(ov5,rz);
+   zv6 = rotz(ov6,rz);
+   zv7 = rotz(ov7,rz);
+   zv8 = rotz(ov8,rz);
+   
+   xv1 = rotx(zv1,rx);
+   xv2 = rotx(zv2,rx);
+   xv3 = rotx(zv3,rx);
+   xv4 = rotx(zv4,rx);
+   xv5 = rotx(zv5,rx);
+   xv6 = rotx(zv6,rx);
+   xv7 = rotx(zv7,rx);
+   xv8 = rotx(zv8,rx);
+   
+   v1 = roty(xv1,ry);
+   v2 = roty(xv2,ry);
+   v3 = roty(xv3,ry);
+   v4 = roty(xv4,ry);
+   v5 = roty(xv5,ry);
+   v6 = roty(xv6,ry);
+   v7 = roty(xv7,ry);
+   v8 = roty(xv8,ry);
+  
+  // Fill canvas grey
+  background( 100 );
+  
+  // Set stroke-color white
+
+  stroke(255);
+	line (getx(v4),gety(v4),getx(v8),gety(v8));
+	line (getx(v5),gety(v5),getx(v8),gety(v8));
+	line (getx(v5),gety(v5),getx(v6),gety(v6));
+	line (getx(v6),gety(v6),getx(v7),gety(v7));
+	line (getx(v7),gety(v7),getx(v8),gety(v8));
+	line (getx(v3),gety(v3),getx(v7),gety(v7));
+	line (getx(v1),gety(v1),getx(v5),gety(v5));
+	line (getx(v2),gety(v2),getx(v6),gety(v6));
+
+  stroke(255,0,0); 
+
+	line (getx(v1),gety(v1),getx(v2),gety(v2));
+	line (getx(v1),gety(v1),getx(v4),gety(v4));
+	line (getx(v2),gety(v2),getx(v3),gety(v3));
+	line (getx(v3),gety(v3),getx(v4),gety(v4));	
+} 
+// Set circle's next destination
+void mouseMoved(){
+  nX = mouseX;
+  nY = mouseY;  
+}
+</script><canvas width="240px" height="400px" style="margin: 0px; padding: 0px; border:0px;"></canvas>
+	</body>
+</html>
