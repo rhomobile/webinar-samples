@@ -1,0 +1,11 @@
+development:
+  rhosync_api_key: 069d6f3b15ce4e158463c772ce1d91d2
+  rhosync_url: http://localhost:9292
+  
+test: &test
+  rhosync_api_key: 069d6f3b15ce4e158463c772ce1d91d2
+  rhosync_url: http://localhost:9292
+    
+production:
+  rhosync_api_key: 069d6f3b15ce4e158463c772ce1d91d2
+  rhosync_url: http://localhost:9292

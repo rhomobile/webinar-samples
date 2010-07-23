@@ -1,0 +1,43 @@
+<div id="pageTitle">
+	<h1>Edit <%= @product.name%></h1>
+</div>
+
+<div id="toolbar">
+    <div id="leftItem" class="backButton"><%= link_to "Cancel", :action => :show, :id => @product.object %></div>
+    <div id="rightItem" class="regularButton"><%= link_to "Delete", :action => :delete, :id => @product.object %></div>
+</div>
+
+<div id="content">
+    <form method="POST" action="<%= url_for :action => :update %>">
+            <input type="hidden" name="id" value="<%= @product.object %>"/>
+            <ul>
+                
+                <li>
+                    <label for="product[name]" class="fieldLabel">Name</label>
+                    <input type="text" name="product[name]" value="<%= @product.name%>" <%= placeholder( "Name" ) %> />
+                </li>
+                
+                <li>
+                    <label for="product[brand]" class="fieldLabel">Brand</label>
+                    <input type="text" name="product[brand]" value="<%= @product.brand%>" <%= placeholder( "Brand" ) %> />
+                </li>
+                
+                <li>
+                    <label for="product[price]" class="fieldLabel">Price</label>
+                    <input type="text" name="product[price]" value="<%= @product.price%>" <%= placeholder( "Price" ) %> />
+                </li>
+                
+                <li>
+                    <label for="product[quantity]" class="fieldLabel">Quantity</label>
+                    <input type="text" name="product[quantity]" value="<%= @product.quantity%>" <%= placeholder( "Quantity" ) %> />
+                </li>
+                
+                <li>
+                    <label for="product[sku]" class="fieldLabel">Sku</label>
+                    <input type="text" name="product[sku]" value="<%= @product.sku%>" <%= placeholder( "Sku" ) %> />
+                </li>
+                
+            </ul>
+            <input type="submit" class="standardButton" value="Update" />
+    </form>
+</div>

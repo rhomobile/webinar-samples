@@ -1,0 +1,957 @@
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (2.4ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("schema_migrations")[0m
+  [4;36;1mSQL (2.5ms)[0m   [0;1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;35;1mSQL (0.4ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to CreateProducts (20100723005631)
+  [4;35;1mSQL (0.5ms)[0m   [0mCREATE TABLE "products" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "brand" varchar(255), "price" varchar(255), "quantity" varchar(255), "sku" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100723005631')[0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("products")[0m
+
+
+Processing ProductsController#index (for 127.0.0.1 at 2010-07-22 17:56:51) [GET]
+  [4;36;1mProduct Load (0.4ms)[0m   [0;1mSELECT * FROM "products" [0m
+Rendering template within layouts/products
+Rendering products/index
+Completed in 23ms (View: 19, DB: 0) | 200 OK [http://localhost/products]
+
+
+Processing ProductsController#index to json (for 127.0.0.1 at 2010-07-22 17:57:01) [GET]
+  [4;35;1mProduct Load (0.4ms)[0m   [0mSELECT * FROM "products" [0m
+Completed in 5ms (View: 1, DB: 0) | 406 Not Acceptable [http://localhost/products.json]
+
+
+Processing ProductsController#new (for 127.0.0.1 at 2010-07-22 17:57:09) [GET]
+Rendering template within layouts/products
+Rendering products/new
+Completed in 19ms (View: 14, DB: 0) | 200 OK [http://localhost/products/new]
+
+
+Processing ProductsController#create (for 127.0.0.1 at 2010-07-22 17:57:23) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"Q/IDTP2cWx18cqQwkJXD+TEwHsswR9QFKuRCbA2tZFg=", "product"=>{"price"=>"$199.99", "brand"=>"Apple", "name"=>"iPhone", "quantity"=>"2", "sku"=>"12345"}}
+  [4;36;1mProduct Create (0.4ms)[0m   [0;1mINSERT INTO "products" ("name", "brand", "price", "created_at", "quantity", "updated_at", "sku") VALUES('iPhone', 'Apple', '$199.99', '2010-07-23 00:57:23', '2', '2010-07-23 00:57:23', '12345')[0m
+Redirected to http://localhost:3000/products/1
+Completed in 10ms (DB: 0) | 302 Found [http://localhost/products]
+
+
+Processing ProductsController#show (for 127.0.0.1 at 2010-07-22 17:57:23) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mProduct Load (0.2ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+Rendering template within layouts/products
+Rendering products/show
+Completed in 11ms (View: 6, DB: 0) | 200 OK [http://localhost/products/1]
+
+
+Processing ProductsController#show to json (for 127.0.0.1 at 2010-07-22 17:57:25) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mProduct Load (0.2ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+Completed in 75ms (View: 1, DB: 0) | 406 Not Acceptable [http://localhost/products/1.json]
+
+
+Processing ProductsController#index to json (for 127.0.0.1 at 2010-07-22 17:57:33) [GET]
+  [4;35;1mProduct Load (0.5ms)[0m   [0mSELECT * FROM "products" [0m
+Completed in 5ms (View: 1, DB: 0) | 406 Not Acceptable [http://localhost/products.json]
+
+
+Processing ProductsController#index to json (for 127.0.0.1 at 2010-07-22 17:58:01) [GET]
+  [4;36;1mProduct Load (0.6ms)[0m   [0;1mSELECT * FROM "products" [0m
+Completed in 14ms (View: 9, DB: 1) | 200 OK [http://localhost/products.json]
+
+
+Processing ProductsController#create (for 127.0.0.1 at 2010-07-22 18:16:15) [POST]
+  Parameters: {"product"=>{"price"=>"$299.99", "name"=>"iPhone", "brand"=>"Apple", "quantity"=>"5", "sku"=>"1234"}}
+
+ActionController::InvalidAuthenticityToken (ActionController::InvalidAuthenticityToken):
+  
+
+Rendered rescues/_trace (31.4ms)
+Rendered rescues/_request_and_response (1.3ms)
+Rendering rescues/layout (unprocessable_entity)
+
+
+Processing ProductsController#index to json (for 127.0.0.1 at 2010-07-22 18:16:15) [GET]
+  [4;35;1mProduct Load (0.6ms)[0m   [0mSELECT * FROM "products" [0m
+Completed in 8ms (View: 3, DB: 1) | 200 OK [http://localhost/products.json]
+
+
+Processing ProductsController#create (for 127.0.0.1 at 2010-07-22 18:16:16) [POST]
+  Parameters: {"product"=>{"price"=>"$299.99", "name"=>"iPhone", "brand"=>"Apple", "quantity"=>"5", "sku"=>"1234"}}
+
+ActionController::InvalidAuthenticityToken (ActionController::InvalidAuthenticityToken):
+  
+
+Rendered rescues/_trace (110.0ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (unprocessable_entity)
+
+
+Processing ProductsController#create (for 127.0.0.1 at 2010-07-22 18:16:16) [POST]
+  Parameters: {"product"=>{"price"=>"$299.99", "name"=>"iPhone", "brand"=>"Apple", "quantity"=>"5", "sku"=>"1234"}}
+
+ActionController::InvalidAuthenticityToken (ActionController::InvalidAuthenticityToken):
+  
+
+Rendered rescues/_trace (34.5ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (unprocessable_entity)
+
+
+Processing ProductsController#create (for 127.0.0.1 at 2010-07-22 18:16:16) [POST]
+  Parameters: {"product"=>{"price"=>"$299.99", "name"=>"iPhone", "brand"=>"Apple", "quantity"=>"5", "sku"=>"1234"}}
+
+ActionController::InvalidAuthenticityToken (ActionController::InvalidAuthenticityToken):
+  
+
+Rendered rescues/_trace (33.4ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (unprocessable_entity)
+
+
+Processing ProductsController#create (for 127.0.0.1 at 2010-07-22 18:17:34) [POST]
+  Parameters: {"product"=>{"price"=>"$299.99", "name"=>"iPhone", "brand"=>"Apple", "quantity"=>"5", "sku"=>"1234"}}
+
+ActionController::InvalidAuthenticityToken (ActionController::InvalidAuthenticityToken):
+  
+
+Rendered rescues/_trace (110.2ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (unprocessable_entity)
+
+
+Processing ProductsController#index to json (for 127.0.0.1 at 2010-07-22 18:17:34) [GET]
+  [4;36;1mProduct Load (0.5ms)[0m   [0;1mSELECT * FROM "products" [0m
+Completed in 8ms (View: 3, DB: 0) | 200 OK [http://localhost/products.json]
+
+
+Processing ProductsController#create (for 127.0.0.1 at 2010-07-22 18:17:34) [POST]
+  Parameters: {"product"=>{"price"=>"$299.99", "name"=>"iPhone", "brand"=>"Apple", "quantity"=>"5", "sku"=>"1234"}}
+
+ActionController::InvalidAuthenticityToken (ActionController::InvalidAuthenticityToken):
+  
+
+Rendered rescues/_trace (30.2ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (unprocessable_entity)
+
+
+Processing ProductsController#create (for 127.0.0.1 at 2010-07-22 18:17:34) [POST]
+  Parameters: {"product"=>{"price"=>"$299.99", "name"=>"iPhone", "brand"=>"Apple", "quantity"=>"5", "sku"=>"1234"}}
+
+ActionController::InvalidAuthenticityToken (ActionController::InvalidAuthenticityToken):
+  
+
+Rendered rescues/_trace (112.4ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (unprocessable_entity)
+
+
+Processing ProductsController#create (for 127.0.0.1 at 2010-07-22 18:17:35) [POST]
+  Parameters: {"product"=>{"price"=>"$299.99", "name"=>"iPhone", "brand"=>"Apple", "quantity"=>"5", "sku"=>"1234"}}
+
+ActionController::InvalidAuthenticityToken (ActionController::InvalidAuthenticityToken):
+  
+
+Rendered rescues/_trace (32.6ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (unprocessable_entity)
+
+
+Processing ApplicationController#create (for 127.0.0.1 at 2010-07-22 18:18:32) [POST]
+  Parameters: {"product"=>{"price"=>"$299.99", "name"=>"iPhone", "brand"=>"Apple", "quantity"=>"5", "sku"=>"1234"}}
+
+SyntaxError (/Users/lars/Dev/code/rhomobile/webinar-samples/store-rails/app/controllers/products_controller.rb:3: syntax error, unexpected ',', expecting tASSOC
+  protect_from_forgery :except => :create, :update, :delete
+                                                   ^):
+  
+
+Rendered rescues/_trace (27.0ms)
+Rendered rescues/_request_and_response (1.2ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ApplicationController#index to json (for 127.0.0.1 at 2010-07-22 18:18:32) [GET]
+
+SyntaxError (/Users/lars/Dev/code/rhomobile/webinar-samples/store-rails/app/controllers/products_controller.rb:3: syntax error, unexpected ',', expecting tASSOC
+  protect_from_forgery :except => :create, :update, :delete
+                                                   ^):
+  
+
+Rendered rescues/_trace (30.4ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ApplicationController#create (for 127.0.0.1 at 2010-07-22 18:18:32) [POST]
+  Parameters: {"product"=>{"price"=>"$299.99", "name"=>"iPhone", "brand"=>"Apple", "quantity"=>"5", "sku"=>"1234"}}
+
+SyntaxError (/Users/lars/Dev/code/rhomobile/webinar-samples/store-rails/app/controllers/products_controller.rb:3: syntax error, unexpected ',', expecting tASSOC
+  protect_from_forgery :except => :create, :update, :delete
+                                                   ^):
+  
+
+Rendered rescues/_trace (103.6ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ApplicationController#create (for 127.0.0.1 at 2010-07-22 18:18:32) [POST]
+  Parameters: {"product"=>{"price"=>"$299.99", "name"=>"iPhone", "brand"=>"Apple", "quantity"=>"5", "sku"=>"1234"}}
+
+SyntaxError (/Users/lars/Dev/code/rhomobile/webinar-samples/store-rails/app/controllers/products_controller.rb:3: syntax error, unexpected ',', expecting tASSOC
+  protect_from_forgery :except => :create, :update, :delete
+                                                   ^):
+  
+
+Rendered rescues/_trace (26.8ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ApplicationController#create (for 127.0.0.1 at 2010-07-22 18:18:33) [POST]
+  Parameters: {"product"=>{"price"=>"$299.99", "name"=>"iPhone", "brand"=>"Apple", "quantity"=>"5", "sku"=>"1234"}}
+
+SyntaxError (/Users/lars/Dev/code/rhomobile/webinar-samples/store-rails/app/controllers/products_controller.rb:3: syntax error, unexpected ',', expecting tASSOC
+  protect_from_forgery :except => :create, :update, :delete
+                                                   ^):
+  
+
+Rendered rescues/_trace (27.5ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ProductsController#create (for 127.0.0.1 at 2010-07-22 18:19:04) [POST]
+  Parameters: {"product"=>{"price"=>"$299.99", "name"=>"iPhone", "brand"=>"Apple", "quantity"=>"5", "sku"=>"1234"}}
+  [4;36;1mProduct Create (0.5ms)[0m   [0;1mINSERT INTO "products" ("name", "brand", "price", "created_at", "quantity", "updated_at", "sku") VALUES('iPhone', 'Apple', '$299.99', '2010-07-23 01:19:04', '5', '2010-07-23 01:19:04', '1234')[0m
+Completed in 128ms (View: 116, DB: 0) | 201 Created [http://localhost/products]
+
+
+Processing ProductsController#show to json (for 127.0.0.1 at 2010-07-22 18:19:04) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mProduct Load (0.2ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 2) [0m
+Completed in 6ms (View: 1, DB: 0) | 406 Not Acceptable [http://localhost/products/2.json]
+
+
+Processing ProductsController#index to json (for 127.0.0.1 at 2010-07-22 18:19:04) [GET]
+  [4;36;1mProduct Load (0.6ms)[0m   [0;1mSELECT * FROM "products" [0m
+Completed in 8ms (View: 4, DB: 1) | 200 OK [http://localhost/products.json]
+
+
+Processing ProductsController#create (for 127.0.0.1 at 2010-07-22 18:19:04) [POST]
+  Parameters: {"product"=>{"price"=>"$299.99", "name"=>"iPhone", "brand"=>"Apple", "quantity"=>"5", "sku"=>"1234"}}
+  [4;35;1mProduct Create (0.4ms)[0m   [0mINSERT INTO "products" ("name", "brand", "price", "created_at", "quantity", "updated_at", "sku") VALUES('iPhone', 'Apple', '$299.99', '2010-07-23 01:19:04', '5', '2010-07-23 01:19:04', '1234')[0m
+Completed in 12ms (View: 2, DB: 0) | 201 Created [http://localhost/products]
+
+
+Processing ProductsController#show to json (for 127.0.0.1 at 2010-07-22 18:19:04) [GET]
+  Parameters: {"id"=>"3"}
+  [4;36;1mProduct Load (0.2ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 3) [0m
+Completed in 6ms (View: 1, DB: 0) | 406 Not Acceptable [http://localhost/products/3.json]
+
+
+Processing ProductsController#create (for 127.0.0.1 at 2010-07-22 18:19:04) [POST]
+  Parameters: {"product"=>{"price"=>"$299.99", "name"=>"iPhone", "brand"=>"Apple", "quantity"=>"5", "sku"=>"1234"}}
+  [4;35;1mProduct Create (0.5ms)[0m   [0mINSERT INTO "products" ("name", "brand", "price", "created_at", "quantity", "updated_at", "sku") VALUES('iPhone', 'Apple', '$299.99', '2010-07-23 01:19:04', '5', '2010-07-23 01:19:04', '1234')[0m
+Completed in 15ms (View: 2, DB: 0) | 201 Created [http://localhost/products]
+
+
+Processing ProductsController#show to json (for 127.0.0.1 at 2010-07-22 18:19:04) [GET]
+  Parameters: {"id"=>"4"}
+  [4;36;1mProduct Load (0.3ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 4) [0m
+Completed in 6ms (View: 1, DB: 0) | 406 Not Acceptable [http://localhost/products/4.json]
+
+
+Processing ProductsController#create (for 127.0.0.1 at 2010-07-22 18:19:04) [POST]
+  Parameters: {"product"=>{"price"=>"$299.99", "name"=>"iPhone", "brand"=>"Apple", "quantity"=>"5", "sku"=>"1234"}}
+  [4;35;1mProduct Create (0.4ms)[0m   [0mINSERT INTO "products" ("name", "brand", "price", "created_at", "quantity", "updated_at", "sku") VALUES('iPhone', 'Apple', '$299.99', '2010-07-23 01:19:05', '5', '2010-07-23 01:19:05', '1234')[0m
+Completed in 88ms (View: 2, DB: 0) | 201 Created [http://localhost/products]
+
+
+Processing ProductsController#show to json (for 127.0.0.1 at 2010-07-22 18:19:05) [GET]
+  Parameters: {"id"=>"5"}
+  [4;36;1mProduct Load (0.2ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 5) [0m
+Completed in 6ms (View: 1, DB: 0) | 406 Not Acceptable [http://localhost/products/5.json]
+
+
+Processing ProductsController#index to json (for 127.0.0.1 at 2010-07-22 18:19:29) [GET]
+  [4;35;1mProduct Load (0.8ms)[0m   [0mSELECT * FROM "products" [0m
+Completed in 10ms (View: 5, DB: 1) | 200 OK [http://localhost/products.json]
+
+
+Processing ProductsController#index (for 127.0.0.1 at 2010-07-22 18:19:36) [GET]
+  [4;36;1mProduct Load (0.8ms)[0m   [0;1mSELECT * FROM "products" [0m
+Rendering template within layouts/products
+Rendering products/index
+Completed in 35ms (View: 28, DB: 1) | 200 OK [http://localhost/products]
+
+
+Processing ProductsController#destroy (for 127.0.0.1 at 2010-07-22 18:19:39) [DELETE]
+  Parameters: {"authenticity_token"=>"Q/IDTP2cWx18cqQwkJXD+TEwHsswR9QFKuRCbA2tZFg=", "id"=>"2"}
+  [4;35;1mProduct Load (0.4ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 2) [0m
+  [4;36;1mProduct Destroy (0.3ms)[0m   [0;1mDELETE FROM "products" WHERE "id" = 2[0m
+Redirected to http://localhost:3000/products
+Completed in 14ms (DB: 1) | 302 Found [http://localhost/products/2]
+
+
+Processing ProductsController#index (for 127.0.0.1 at 2010-07-22 18:19:39) [GET]
+  [4;35;1mProduct Load (0.8ms)[0m   [0mSELECT * FROM "products" [0m
+Rendering template within layouts/products
+Rendering products/index
+Completed in 18ms (View: 13, DB: 1) | 200 OK [http://localhost/products]
+
+
+Processing ProductsController#destroy (for 127.0.0.1 at 2010-07-22 18:19:40) [DELETE]
+  Parameters: {"authenticity_token"=>"Q/IDTP2cWx18cqQwkJXD+TEwHsswR9QFKuRCbA2tZFg=", "id"=>"3"}
+  [4;36;1mProduct Load (0.2ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 3) [0m
+  [4;35;1mProduct Destroy (0.3ms)[0m   [0mDELETE FROM "products" WHERE "id" = 3[0m
+Redirected to http://localhost:3000/products
+Completed in 11ms (DB: 0) | 302 Found [http://localhost/products/3]
+
+
+Processing ProductsController#index (for 127.0.0.1 at 2010-07-22 18:19:40) [GET]
+  [4;36;1mProduct Load (0.6ms)[0m   [0;1mSELECT * FROM "products" [0m
+Rendering template within layouts/products
+Rendering products/index
+Completed in 96ms (View: 91, DB: 1) | 200 OK [http://localhost/products]
+
+
+Processing ProductsController#destroy (for 127.0.0.1 at 2010-07-22 18:19:41) [DELETE]
+  Parameters: {"authenticity_token"=>"Q/IDTP2cWx18cqQwkJXD+TEwHsswR9QFKuRCbA2tZFg=", "id"=>"4"}
+  [4;35;1mProduct Load (0.3ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 4) [0m
+  [4;36;1mProduct Destroy (0.4ms)[0m   [0;1mDELETE FROM "products" WHERE "id" = 4[0m
+Redirected to http://localhost:3000/products
+Completed in 11ms (DB: 1) | 302 Found [http://localhost/products/4]
+
+
+Processing ProductsController#index (for 127.0.0.1 at 2010-07-22 18:19:41) [GET]
+  [4;35;1mProduct Load (0.6ms)[0m   [0mSELECT * FROM "products" [0m
+Rendering template within layouts/products
+Rendering products/index
+Completed in 13ms (View: 8, DB: 1) | 200 OK [http://localhost/products]
+
+
+Processing ProductsController#destroy (for 127.0.0.1 at 2010-07-22 18:19:41) [DELETE]
+  Parameters: {"authenticity_token"=>"Q/IDTP2cWx18cqQwkJXD+TEwHsswR9QFKuRCbA2tZFg=", "id"=>"5"}
+  [4;36;1mProduct Load (0.2ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 5) [0m
+  [4;35;1mProduct Destroy (0.4ms)[0m   [0mDELETE FROM "products" WHERE "id" = 5[0m
+Redirected to http://localhost:3000/products
+Completed in 10ms (DB: 1) | 302 Found [http://localhost/products/5]
+
+
+Processing ProductsController#index (for 127.0.0.1 at 2010-07-22 18:19:41) [GET]
+  [4;36;1mProduct Load (0.6ms)[0m   [0;1mSELECT * FROM "products" [0m
+Rendering template within layouts/products
+Rendering products/index
+Completed in 11ms (View: 6, DB: 1) | 200 OK [http://localhost/products]
+
+
+Processing ProductsController#create (for 127.0.0.1 at 2010-07-22 18:20:30) [POST]
+  Parameters: {"product"=>{"price"=>"$299.99", "name"=>"iPhone", "brand"=>"Apple", "quantity"=>"5", "sku"=>"1234"}}
+  [4;36;1mProduct Create (0.4ms)[0m   [0;1mINSERT INTO "products" ("name", "brand", "price", "created_at", "quantity", "updated_at", "sku") VALUES('iPhone', 'Apple', '$299.99', '2010-07-23 01:20:30', '5', '2010-07-23 01:20:30', '1234')[0m
+Completed in 21ms (View: 9, DB: 0) | 201 Created [http://localhost/products]
+
+
+Processing ProductsController#show to json (for 127.0.0.1 at 2010-07-22 18:20:30) [GET]
+  Parameters: {"id"=>"6"}
+  [4;35;1mProduct Load (0.2ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 6) [0m
+Completed in 8ms (View: 3, DB: 0) | 200 OK [http://localhost/products/6.json]
+
+
+Processing ProductsController#index to json (for 127.0.0.1 at 2010-07-22 18:20:30) [GET]
+  [4;36;1mProduct Load (0.6ms)[0m   [0;1mSELECT * FROM "products" [0m
+Completed in 9ms (View: 4, DB: 1) | 200 OK [http://localhost/products.json]
+
+
+Processing ProductsController#create (for 127.0.0.1 at 2010-07-22 18:20:30) [POST]
+  Parameters: {"product"=>{"price"=>"$299.99", "name"=>"iPhone", "brand"=>"Apple", "quantity"=>"5", "sku"=>"1234"}}
+  [4;35;1mProduct Create (0.4ms)[0m   [0mINSERT INTO "products" ("name", "brand", "price", "created_at", "quantity", "updated_at", "sku") VALUES('iPhone', 'Apple', '$299.99', '2010-07-23 01:20:30', '5', '2010-07-23 01:20:30', '1234')[0m
+Completed in 13ms (View: 2, DB: 0) | 201 Created [http://localhost/products]
+
+
+Processing ProductsController#show to json (for 127.0.0.1 at 2010-07-22 18:20:30) [GET]
+  Parameters: {"id"=>"7"}
+  [4;36;1mProduct Load (0.2ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 7) [0m
+Completed in 8ms (View: 3, DB: 0) | 200 OK [http://localhost/products/7.json]
+
+
+Processing ProductsController#create (for 127.0.0.1 at 2010-07-22 18:20:30) [POST]
+  Parameters: {"product"=>{"price"=>"$299.99", "name"=>"iPhone", "brand"=>"Apple", "quantity"=>"5", "sku"=>"1234"}}
+  [4;35;1mProduct Create (0.6ms)[0m   [0mINSERT INTO "products" ("name", "brand", "price", "created_at", "quantity", "updated_at", "sku") VALUES('iPhone', 'Apple', '$299.99', '2010-07-23 01:20:30', '5', '2010-07-23 01:20:30', '1234')[0m
+Completed in 15ms (View: 2, DB: 1) | 201 Created [http://localhost/products]
+
+
+Processing ProductsController#show to json (for 127.0.0.1 at 2010-07-22 18:20:30) [GET]
+  Parameters: {"id"=>"8"}
+  [4;36;1mProduct Load (0.2ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 8) [0m
+Completed in 8ms (View: 2, DB: 0) | 200 OK [http://localhost/products/8.json]
+
+
+Processing ProductsController#update (for 127.0.0.1 at 2010-07-22 18:20:30) [PUT]
+  Parameters: {"id"=>"8", "product"=>{"price"=>"$199.99"}}
+  [4;35;1mProduct Load (0.2ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 8) [0m
+  [4;36;1mProduct Update (0.3ms)[0m   [0;1mUPDATE "products" SET "updated_at" = '2010-07-23 01:20:30', "price" = '$199.99' WHERE "id" = 8[0m
+Completed in 10ms (View: 1, DB: 1) | 200 OK [http://localhost/products/8]
+
+
+Processing ProductsController#index to json (for 127.0.0.1 at 2010-07-22 18:20:30) [GET]
+  [4;35;1mProduct Load (0.7ms)[0m   [0mSELECT * FROM "products" [0m
+Completed in 10ms (View: 5, DB: 1) | 200 OK [http://localhost/products.json]
+
+
+Processing ProductsController#create (for 127.0.0.1 at 2010-07-22 18:20:30) [POST]
+  Parameters: {"product"=>{"price"=>"$299.99", "name"=>"iPhone", "brand"=>"Apple", "quantity"=>"5", "sku"=>"1234"}}
+  [4;36;1mProduct Create (0.4ms)[0m   [0;1mINSERT INTO "products" ("name", "brand", "price", "created_at", "quantity", "updated_at", "sku") VALUES('iPhone', 'Apple', '$299.99', '2010-07-23 01:20:30', '5', '2010-07-23 01:20:30', '1234')[0m
+Completed in 14ms (View: 2, DB: 0) | 201 Created [http://localhost/products]
+
+
+Processing ProductsController#show to json (for 127.0.0.1 at 2010-07-22 18:20:30) [GET]
+  Parameters: {"id"=>"9"}
+  [4;35;1mProduct Load (0.2ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 9) [0m
+Completed in 8ms (View: 2, DB: 0) | 200 OK [http://localhost/products/9.json]
+
+
+Processing ProductsController#destroy (for 127.0.0.1 at 2010-07-22 18:20:30) [DELETE]
+  Parameters: {"id"=>"9"}
+  [4;36;1mProduct Load (0.2ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 9) [0m
+  [4;35;1mProduct Destroy (0.3ms)[0m   [0mDELETE FROM "products" WHERE "id" = 9[0m
+Completed in 9ms (View: 1, DB: 0) | 200 OK [http://localhost/products/9]
+
+
+Processing ProductsController#index to json (for 127.0.0.1 at 2010-07-22 18:27:56) [GET]
+  [4;36;1mProduct Load (0.7ms)[0m   [0;1mSELECT * FROM "products" [0m
+Completed in 9ms (View: 5, DB: 1) | 200 OK [http://localhost/products.json]
+
+
+Processing ProductsController#index (for 127.0.0.1 at 2010-07-22 18:28:34) [GET]
+  [4;35;1mProduct Load (0.7ms)[0m   [0mSELECT * FROM "products" [0m
+Rendering template within layouts/products
+Rendering products/index
+Completed in 25ms (View: 20, DB: 1) | 200 OK [http://localhost/products]
+
+
+Processing ProductsController#destroy (for 127.0.0.1 at 2010-07-22 18:28:37) [DELETE]
+  Parameters: {"authenticity_token"=>"Q/IDTP2cWx18cqQwkJXD+TEwHsswR9QFKuRCbA2tZFg=", "id"=>"6"}
+  [4;36;1mProduct Load (0.3ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 6) [0m
+  [4;35;1mProduct Destroy (0.3ms)[0m   [0mDELETE FROM "products" WHERE "id" = 6[0m
+Redirected to http://localhost:3000/products
+Completed in 91ms (DB: 1) | 302 Found [http://localhost/products/6]
+
+
+Processing ProductsController#index (for 127.0.0.1 at 2010-07-22 18:28:38) [GET]
+  [4;36;1mProduct Load (0.6ms)[0m   [0;1mSELECT * FROM "products" [0m
+Rendering template within layouts/products
+Rendering products/index
+Completed in 15ms (View: 11, DB: 1) | 200 OK [http://localhost/products]
+
+
+Processing ProductsController#destroy (for 127.0.0.1 at 2010-07-22 18:28:38) [DELETE]
+  Parameters: {"authenticity_token"=>"Q/IDTP2cWx18cqQwkJXD+TEwHsswR9QFKuRCbA2tZFg=", "id"=>"7"}
+  [4;35;1mProduct Load (0.3ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 7) [0m
+  [4;36;1mProduct Destroy (0.3ms)[0m   [0;1mDELETE FROM "products" WHERE "id" = 7[0m
+Redirected to http://localhost:3000/products
+Completed in 10ms (DB: 1) | 302 Found [http://localhost/products/7]
+
+
+Processing ProductsController#index (for 127.0.0.1 at 2010-07-22 18:28:38) [GET]
+  [4;35;1mProduct Load (0.6ms)[0m   [0mSELECT * FROM "products" [0m
+Rendering template within layouts/products
+Rendering products/index
+Completed in 13ms (View: 8, DB: 1) | 200 OK [http://localhost/products]
+
+
+Processing ProductsController#destroy (for 127.0.0.1 at 2010-07-22 18:28:39) [DELETE]
+  Parameters: {"authenticity_token"=>"Q/IDTP2cWx18cqQwkJXD+TEwHsswR9QFKuRCbA2tZFg=", "id"=>"8"}
+  [4;36;1mProduct Load (0.2ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 8) [0m
+  [4;35;1mProduct Destroy (0.3ms)[0m   [0mDELETE FROM "products" WHERE "id" = 8[0m
+Redirected to http://localhost:3000/products
+Completed in 10ms (DB: 0) | 302 Found [http://localhost/products/8]
+
+
+Processing ProductsController#index (for 127.0.0.1 at 2010-07-22 18:28:39) [GET]
+  [4;36;1mProduct Load (0.5ms)[0m   [0;1mSELECT * FROM "products" [0m
+Rendering template within layouts/products
+Rendering products/index
+Completed in 11ms (View: 6, DB: 0) | 200 OK [http://localhost/products]
+
+
+Processing ProductsController#index to json (for 127.0.0.1 at 2010-07-22 18:35:14) [GET]
+  [4;35;1mProduct Load (0.5ms)[0m   [0mSELECT * FROM "products" [0m
+Completed in 8ms (View: 4, DB: 1) | 200 OK [http://localhost/products.json]
+
+
+Processing ProductsController#index to json (for 127.0.0.1 at 2010-07-22 18:40:15) [GET]
+  [4;36;1mProduct Load (0.5ms)[0m   [0;1mSELECT * FROM "products" [0m
+Completed in 8ms (View: 3, DB: 0) | 200 OK [http://localhost/products.json]
+
+
+Processing ProductsController#index to json (for 127.0.0.1 at 2010-07-22 18:45:15) [GET]
+  [4;35;1mProduct Load (0.5ms)[0m   [0mSELECT * FROM "products" [0m
+Completed in 8ms (View: 3, DB: 0) | 200 OK [http://localhost/products.json]
+
+
+Processing ProductsController#index (for 127.0.0.1 at 2010-07-22 18:50:20) [GET]
+  [4;36;1mProduct Load (0.6ms)[0m   [0;1mSELECT * FROM "products" [0m
+Rendering template within layouts/products
+Rendering products/index
+Completed in 291ms (View: 89, DB: 1) | 200 OK [http://localhost/products]
+
+
+Processing ProductsController#new (for 127.0.0.1 at 2010-07-22 18:50:22) [GET]
+Rendering template within layouts/products
+Rendering products/new
+Completed in 20ms (View: 13, DB: 0) | 200 OK [http://localhost/products/new]
+
+
+Processing ProductsController#create (for 127.0.0.1 at 2010-07-22 18:50:26) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"Q/IDTP2cWx18cqQwkJXD+TEwHsswR9QFKuRCbA2tZFg=", "product"=>{"price"=>"", "brand"=>"bar", "name"=>"foo", "quantity"=>"", "sku"=>""}}
+  [4;35;1mProduct Create (0.5ms)[0m   [0mINSERT INTO "products" ("name", "brand", "price", "created_at", "quantity", "updated_at", "sku") VALUES('foo', 'bar', '', '2010-07-23 01:50:26', '', '2010-07-23 01:50:26', '')[0m
+
+NoMethodError (undefined method `to_hash' for #<Product:0x1034471f0>):
+  app/models/product.rb:7:in `push_rhosync_create'
+  app/controllers/products_controller.rb:50:in `create'
+  app/controllers/products_controller.rb:49:in `create'
+
+Rendered rescues/_trace (44.7ms)
+Rendered rescues/_request_and_response (1.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ProductsController#index (for 127.0.0.1 at 2010-07-22 18:51:10) [GET]
+  [4;36;1mProduct Load (0.5ms)[0m   [0;1mSELECT * FROM "products" [0m
+Rendering template within layouts/products
+Rendering products/index
+Completed in 234ms (View: 90, DB: 1) | 200 OK [http://localhost/products]
+
+
+Processing ProductsController#new (for 127.0.0.1 at 2010-07-22 18:51:12) [GET]
+Rendering template within layouts/products
+Rendering products/new
+Completed in 20ms (View: 14, DB: 0) | 200 OK [http://localhost/products/new]
+
+
+Processing ProductsController#create (for 127.0.0.1 at 2010-07-22 18:51:14) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"Q/IDTP2cWx18cqQwkJXD+TEwHsswR9QFKuRCbA2tZFg=", "product"=>{"price"=>"", "brand"=>"bar", "name"=>"foo", "quantity"=>"", "sku"=>""}}
+  [4;35;1mProduct Create (0.4ms)[0m   [0mINSERT INTO "products" ("name", "brand", "price", "created_at", "quantity", "updated_at", "sku") VALUES('foo', 'bar', '', '2010-07-23 01:51:14', '', '2010-07-23 01:51:14', '')[0m
+Redirected to http://localhost:3000/products/10
+Completed in 14ms (DB: 0) | 302 Found [http://localhost/products]
+
+
+Processing ProductsController#show (for 127.0.0.1 at 2010-07-22 18:51:14) [GET]
+  Parameters: {"id"=>"10"}
+  [4;36;1mProduct Load (0.3ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 10) [0m
+Rendering template within layouts/products
+Rendering products/show
+Completed in 14ms (View: 6, DB: 0) | 200 OK [http://localhost/products/10]
+
+
+Processing ProductsController#index (for 127.0.0.1 at 2010-07-22 18:52:36) [GET]
+
+SyntaxError (/Users/lars/Dev/code/rhomobile/webinar-samples/store-rails/app/models/product.rb:9: odd number list for Hash):
+  app/controllers/products_controller.rb:7:in `index'
+
+Rendered rescues/_trace (34.7ms)
+Rendered rescues/_request_and_response (1.2ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ProductsController#index (for 127.0.0.1 at 2010-07-22 18:52:41) [GET]
+
+SyntaxError (/Users/lars/Dev/code/rhomobile/webinar-samples/store-rails/app/models/product.rb:9: odd number list for Hash):
+  app/controllers/products_controller.rb:7:in `index'
+
+Rendered rescues/_trace (36.3ms)
+Rendered rescues/_request_and_response (74.9ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ProductsController#index to json (for 127.0.0.1 at 2010-07-22 18:55:15) [GET]
+  [4;36;1mProduct Load (0.6ms)[0m   [0;1mSELECT * FROM "products" [0m
+Completed in 148ms (View: 9, DB: 1) | 200 OK [http://localhost/products.json]
+
+
+Processing ProductsController#index (for 127.0.0.1 at 2010-07-22 18:57:01) [GET]
+  [4;36;1mProduct Load (0.6ms)[0m   [0;1mSELECT * FROM "products" [0m
+Rendering template within layouts/products
+Rendering products/index
+Completed in 232ms (View: 90, DB: 1) | 200 OK [http://localhost/products]
+
+
+Processing ProductsController#destroy (for 127.0.0.1 at 2010-07-22 18:57:04) [DELETE]
+  Parameters: {"authenticity_token"=>"Q/IDTP2cWx18cqQwkJXD+TEwHsswR9QFKuRCbA2tZFg=", "id"=>"10"}
+  [4;35;1mProduct Load (0.3ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 10) [0m
+  [4;36;1mProduct Destroy (0.5ms)[0m   [0;1mDELETE FROM "products" WHERE "id" = 10[0m
+Redirected to http://localhost:3000/products
+Completed in 15ms (DB: 1) | 302 Found [http://localhost/products/10]
+
+
+Processing ProductsController#index (for 127.0.0.1 at 2010-07-22 18:57:04) [GET]
+  [4;35;1mProduct Load (0.5ms)[0m   [0mSELECT * FROM "products" [0m
+Rendering template within layouts/products
+Rendering products/index
+Completed in 13ms (View: 6, DB: 1) | 200 OK [http://localhost/products]
+
+
+Processing ProductsController#new (for 127.0.0.1 at 2010-07-22 18:57:04) [GET]
+Rendering template within layouts/products
+Rendering products/new
+Completed in 20ms (View: 13, DB: 0) | 200 OK [http://localhost/products/new]
+
+
+Processing ProductsController#create (for 127.0.0.1 at 2010-07-22 18:57:07) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"Q/IDTP2cWx18cqQwkJXD+TEwHsswR9QFKuRCbA2tZFg=", "product"=>{"price"=>"", "brand"=>"bar", "name"=>"foo", "quantity"=>"", "sku"=>""}}
+  [4;36;1mProduct Create (371.4ms)[0m   [0;1mINSERT INTO "products" ("name", "brand", "price", "created_at", "quantity", "updated_at", "sku") VALUES('foo', 'bar', '', '2010-07-23 01:57:07', '', '2010-07-23 01:57:07', '')[0m
+
+NoMethodError (You have a nil object when you didn't expect it!
+You might have expected an instance of Array.
+The error occurred while evaluating nil.+):
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/net/http.rb:1112:in `addr_port'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/net/http.rb:1072:in `begin_transport'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/net/http.rb:1047:in `__request__'
+  /Library/Ruby/Gems/1.8/gems/rest-client-1.6.0/lib/restclient/net_http_ext.rb:15:in `request'
+  /Library/Ruby/Gems/1.8/gems/rest-client-1.6.0/lib/restclient/request.rb:167:in `transmit'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/net/http.rb:543:in `start'
+  /Library/Ruby/Gems/1.8/gems/rest-client-1.6.0/lib/restclient/request.rb:166:in `transmit'
+  /Library/Ruby/Gems/1.8/gems/rest-client-1.6.0/lib/restclient/request.rb:60:in `execute'
+  /Library/Ruby/Gems/1.8/gems/rest-client-1.6.0/lib/restclient/request.rb:31:in `execute'
+  /Library/Ruby/Gems/1.8/gems/rest-client-1.6.0/lib/restclient.rb:72:in `post'
+  app/models/product.rb:12:in `push_rhosync_create'
+  app/controllers/products_controller.rb:50:in `create'
+  app/controllers/products_controller.rb:49:in `create'
+
+Rendered rescues/_trace (128.4ms)
+Rendered rescues/_request_and_response (1.2ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ProductsController#create (for 127.0.0.1 at 2010-07-22 18:57:50) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"Q/IDTP2cWx18cqQwkJXD+TEwHsswR9QFKuRCbA2tZFg=", "product"=>{"price"=>"", "brand"=>"bar", "name"=>"foo", "quantity"=>"", "sku"=>""}}
+  [4;36;1mProduct Create (0.4ms)[0m   [0;1mINSERT INTO "products" ("name", "brand", "price", "created_at", "quantity", "updated_at", "sku") VALUES('foo', 'bar', '', '2010-07-23 01:57:50', '', '2010-07-23 01:57:50', '')[0m
+
+NoMethodError (You have a nil object when you didn't expect it!
+You might have expected an instance of Array.
+The error occurred while evaluating nil.+):
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/net/http.rb:1112:in `addr_port'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/net/http.rb:1072:in `begin_transport'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/net/http.rb:1047:in `__request__'
+  /Library/Ruby/Gems/1.8/gems/rest-client-1.6.0/lib/restclient/net_http_ext.rb:15:in `request'
+  /Library/Ruby/Gems/1.8/gems/rest-client-1.6.0/lib/restclient/request.rb:167:in `transmit'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/net/http.rb:543:in `start'
+  /Library/Ruby/Gems/1.8/gems/rest-client-1.6.0/lib/restclient/request.rb:166:in `transmit'
+  /Library/Ruby/Gems/1.8/gems/rest-client-1.6.0/lib/restclient/request.rb:60:in `execute'
+  /Library/Ruby/Gems/1.8/gems/rest-client-1.6.0/lib/restclient/request.rb:31:in `execute'
+  /Library/Ruby/Gems/1.8/gems/rest-client-1.6.0/lib/restclient.rb:72:in `post'
+  app/models/product.rb:12:in `push_rhosync_create'
+  app/controllers/products_controller.rb:50:in `create'
+  app/controllers/products_controller.rb:49:in `create'
+
+Rendered rescues/_trace (52.0ms)
+Rendered rescues/_request_and_response (1.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ProductsController#create (for 127.0.0.1 at 2010-07-22 18:58:10) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"Q/IDTP2cWx18cqQwkJXD+TEwHsswR9QFKuRCbA2tZFg=", "product"=>{"price"=>"", "brand"=>"bar", "name"=>"foo", "quantity"=>"", "sku"=>""}}
+  [4;36;1mProduct Create (0.4ms)[0m   [0;1mINSERT INTO "products" ("name", "brand", "price", "created_at", "quantity", "updated_at", "sku") VALUES('foo', 'bar', '', '2010-07-23 01:58:11', '', '2010-07-23 01:58:11', '')[0m
+
+NoMethodError (You have a nil object when you didn't expect it!
+You might have expected an instance of Array.
+The error occurred while evaluating nil.+):
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/net/http.rb:1112:in `addr_port'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/net/http.rb:1072:in `begin_transport'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/net/http.rb:1047:in `__request__'
+  /Library/Ruby/Gems/1.8/gems/rest-client-1.6.0/lib/restclient/net_http_ext.rb:15:in `request'
+  /Library/Ruby/Gems/1.8/gems/rest-client-1.6.0/lib/restclient/request.rb:167:in `transmit'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/net/http.rb:543:in `start'
+  /Library/Ruby/Gems/1.8/gems/rest-client-1.6.0/lib/restclient/request.rb:166:in `transmit'
+  /Library/Ruby/Gems/1.8/gems/rest-client-1.6.0/lib/restclient/request.rb:60:in `execute'
+  /Library/Ruby/Gems/1.8/gems/rest-client-1.6.0/lib/restclient/request.rb:31:in `execute'
+  /Library/Ruby/Gems/1.8/gems/rest-client-1.6.0/lib/restclient.rb:72:in `post'
+  app/models/product.rb:12:in `push_rhosync_create'
+  app/controllers/products_controller.rb:50:in `create'
+  app/controllers/products_controller.rb:49:in `create'
+
+Rendered rescues/_trace (48.6ms)
+Rendered rescues/_request_and_response (1.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ProductsController#create (for 127.0.0.1 at 2010-07-22 18:59:29) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"Q/IDTP2cWx18cqQwkJXD+TEwHsswR9QFKuRCbA2tZFg=", "product"=>{"price"=>"", "brand"=>"bar", "name"=>"foo", "quantity"=>"", "sku"=>""}}
+  [4;36;1mProduct Create (0.4ms)[0m   [0;1mINSERT INTO "products" ("name", "brand", "price", "created_at", "quantity", "updated_at", "sku") VALUES('foo', 'bar', '', '2010-07-23 01:59:30', '', '2010-07-23 01:59:30', '')[0m
+
+NoMethodError (You have a nil object when you didn't expect it!
+You might have expected an instance of Array.
+The error occurred while evaluating nil.+):
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/net/http.rb:1112:in `addr_port'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/net/http.rb:1072:in `begin_transport'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/net/http.rb:1047:in `__request__'
+  /Library/Ruby/Gems/1.8/gems/rest-client-1.6.0/lib/restclient/net_http_ext.rb:15:in `request'
+  /Library/Ruby/Gems/1.8/gems/rest-client-1.6.0/lib/restclient/request.rb:167:in `transmit'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/net/http.rb:543:in `start'
+  /Library/Ruby/Gems/1.8/gems/rest-client-1.6.0/lib/restclient/request.rb:166:in `transmit'
+  /Library/Ruby/Gems/1.8/gems/rest-client-1.6.0/lib/restclient/request.rb:60:in `execute'
+  /Library/Ruby/Gems/1.8/gems/rest-client-1.6.0/lib/restclient/request.rb:31:in `execute'
+  /Library/Ruby/Gems/1.8/gems/rest-client-1.6.0/lib/restclient.rb:72:in `post'
+  app/models/product.rb:12:in `push_rhosync_create'
+  app/controllers/products_controller.rb:50:in `create'
+  app/controllers/products_controller.rb:49:in `create'
+
+Rendered rescues/_trace (50.1ms)
+Rendered rescues/_request_and_response (1.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ProductsController#index to json (for 127.0.0.1 at 2010-07-22 19:00:15) [GET]
+  [4;35;1mProduct Load (0.5ms)[0m   [0mSELECT * FROM "products" [0m
+Completed in 11ms (View: 6, DB: 1) | 200 OK [http://localhost/products.json]
+
+
+Processing ProductsController#index (for 127.0.0.1 at 2010-07-22 19:00:53) [GET]
+  [4;36;1mProduct Load (0.7ms)[0m   [0;1mSELECT * FROM "products" [0m
+Rendering template within layouts/products
+Rendering products/index
+Completed in 237ms (View: 91, DB: 1) | 200 OK [http://localhost/products]
+
+
+Processing ProductsController#new (for 127.0.0.1 at 2010-07-22 19:00:55) [GET]
+Rendering template within layouts/products
+Rendering products/new
+Completed in 20ms (View: 13, DB: 0) | 200 OK [http://localhost/products/new]
+
+
+Processing ProductsController#create (for 127.0.0.1 at 2010-07-22 19:00:58) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"Q/IDTP2cWx18cqQwkJXD+TEwHsswR9QFKuRCbA2tZFg=", "product"=>{"price"=>"", "brand"=>"blah", "name"=>"blah", "quantity"=>"", "sku"=>""}}
+  [4;35;1mProduct Create (0.4ms)[0m   [0mINSERT INTO "products" ("name", "brand", "price", "created_at", "quantity", "updated_at", "sku") VALUES('blah', 'blah', '', '2010-07-23 02:00:58', '', '2010-07-23 02:00:58', '')[0m
+
+NoMethodError (You have a nil object when you didn't expect it!
+You might have expected an instance of Array.
+The error occurred while evaluating nil.+):
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/net/http.rb:1112:in `addr_port'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/net/http.rb:1072:in `begin_transport'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/net/http.rb:1047:in `__request__'
+  /Library/Ruby/Gems/1.8/gems/rest-client-1.6.0/lib/restclient/net_http_ext.rb:15:in `request'
+  /Library/Ruby/Gems/1.8/gems/rest-client-1.6.0/lib/restclient/request.rb:167:in `transmit'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/net/http.rb:543:in `start'
+  /Library/Ruby/Gems/1.8/gems/rest-client-1.6.0/lib/restclient/request.rb:166:in `transmit'
+  /Library/Ruby/Gems/1.8/gems/rest-client-1.6.0/lib/restclient/request.rb:60:in `execute'
+  /Library/Ruby/Gems/1.8/gems/rest-client-1.6.0/lib/restclient/request.rb:31:in `execute'
+  /Library/Ruby/Gems/1.8/gems/rest-client-1.6.0/lib/restclient.rb:72:in `post'
+  app/models/product.rb:12:in `push_rhosync_create'
+  app/controllers/products_controller.rb:50:in `create'
+  app/controllers/products_controller.rb:49:in `create'
+
+Rendered rescues/_trace (55.0ms)
+Rendered rescues/_request_and_response (1.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ProductsController#create (for 127.0.0.1 at 2010-07-22 19:02:13) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"Q/IDTP2cWx18cqQwkJXD+TEwHsswR9QFKuRCbA2tZFg=", "product"=>{"price"=>"", "brand"=>"blah", "name"=>"blah", "quantity"=>"", "sku"=>""}}
+  [4;36;1mProduct Create (0.4ms)[0m   [0;1mINSERT INTO "products" ("name", "brand", "price", "created_at", "quantity", "updated_at", "sku") VALUES('blah', 'blah', '', '2010-07-23 02:02:13', '', '2010-07-23 02:02:13', '')[0m
+Redirected to http://localhost:3000/products/11
+Completed in 254ms (DB: 0) | 302 Found [http://localhost/products]
+
+
+Processing ProductsController#show (for 127.0.0.1 at 2010-07-22 19:02:13) [GET]
+  Parameters: {"id"=>"11"}
+  [4;35;1mProduct Load (0.2ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 11) [0m
+Rendering template within layouts/products
+Rendering products/show
+Completed in 24ms (View: 16, DB: 0) | 200 OK [http://localhost/products/11]
+
+
+Processing ProductsController#index to json (for 127.0.0.1 at 2010-07-22 19:03:11) [GET]
+  [4;36;1mProduct Load (0.8ms)[0m   [0;1mSELECT * FROM "products" [0m
+Completed in 19ms (View: 10, DB: 1) | 200 OK [http://localhost/products.json]
+
+
+Processing ProductsController#show (for 127.0.0.1 at 2010-07-22 19:03:21) [GET]
+  Parameters: {"id"=>"11"}
+  [4;35;1mProduct Load (0.2ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 11) [0m
+Rendering template within layouts/products
+Rendering products/show
+Completed in 11ms (View: 3, DB: 0) | 200 OK [http://localhost/products/11]
+
+
+Processing ProductsController#index (for 127.0.0.1 at 2010-07-22 19:03:22) [GET]
+  [4;36;1mProduct Load (0.5ms)[0m   [0;1mSELECT * FROM "products" [0m
+Rendering template within layouts/products
+Rendering products/index
+Completed in 19ms (View: 13, DB: 1) | 200 OK [http://localhost/products]
+
+
+Processing ProductsController#new (for 127.0.0.1 at 2010-07-22 19:03:23) [GET]
+Rendering template within layouts/products
+Rendering products/new
+Completed in 21ms (View: 14, DB: 0) | 200 OK [http://localhost/products/new]
+
+
+Processing ProductsController#create (for 127.0.0.1 at 2010-07-22 19:03:28) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"Q/IDTP2cWx18cqQwkJXD+TEwHsswR9QFKuRCbA2tZFg=", "product"=>{"price"=>"", "brand"=>"world", "name"=>"hello", "quantity"=>"", "sku"=>""}}
+  [4;35;1mProduct Create (0.4ms)[0m   [0mINSERT INTO "products" ("name", "brand", "price", "created_at", "quantity", "updated_at", "sku") VALUES('hello', 'world', '', '2010-07-23 02:03:28', '', '2010-07-23 02:03:28', '')[0m
+Redirected to http://localhost:3000/products/12
+Completed in 30ms (DB: 0) | 302 Found [http://localhost/products]
+
+
+Processing ProductsController#show (for 127.0.0.1 at 2010-07-22 19:03:28) [GET]
+  Parameters: {"id"=>"12"}
+  [4;36;1mProduct Load (0.2ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 12) [0m
+Rendering template within layouts/products
+Rendering products/show
+Completed in 10ms (View: 3, DB: 0) | 200 OK [http://localhost/products/12]
+
+
+Processing ProductsController#index (for 127.0.0.1 at 2010-07-22 19:03:29) [GET]
+  [4;35;1mProduct Load (0.6ms)[0m   [0mSELECT * FROM "products" [0m
+Rendering template within layouts/products
+Rendering products/index
+Completed in 17ms (View: 10, DB: 1) | 200 OK [http://localhost/products]
+
+
+Processing ProductsController#destroy (for 127.0.0.1 at 2010-07-22 19:04:19) [DELETE]
+  Parameters: {"authenticity_token"=>"Q/IDTP2cWx18cqQwkJXD+TEwHsswR9QFKuRCbA2tZFg=", "id"=>"12"}
+  [4;36;1mProduct Load (0.3ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 12) [0m
+  [4;35;1mProduct Destroy (0.3ms)[0m   [0mDELETE FROM "products" WHERE "id" = 12[0m
+Redirected to http://localhost:3000/products
+Completed in 16ms (DB: 1) | 302 Found [http://localhost/products/12]
+
+
+Processing ProductsController#index (for 127.0.0.1 at 2010-07-22 19:04:19) [GET]
+  [4;36;1mProduct Load (0.6ms)[0m   [0;1mSELECT * FROM "products" [0m
+Rendering template within layouts/products
+Rendering products/index
+Completed in 16ms (View: 9, DB: 1) | 200 OK [http://localhost/products]
+
+
+Processing ProductsController#new (for 127.0.0.1 at 2010-07-22 19:04:20) [GET]
+Rendering template within layouts/products
+Rendering products/new
+Completed in 14ms (View: 8, DB: 0) | 200 OK [http://localhost/products/new]
+
+
+Processing ProductsController#create (for 127.0.0.1 at 2010-07-22 19:04:25) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"Q/IDTP2cWx18cqQwkJXD+TEwHsswR9QFKuRCbA2tZFg=", "product"=>{"price"=>"", "brand"=>"apple", "name"=>"newproduct", "quantity"=>"", "sku"=>""}}
+  [4;35;1mProduct Create (0.4ms)[0m   [0mINSERT INTO "products" ("name", "brand", "price", "created_at", "quantity", "updated_at", "sku") VALUES('newproduct', 'apple', '', '2010-07-23 02:04:25', '', '2010-07-23 02:04:25', '')[0m
+Redirected to http://localhost:3000/products/13
+Completed in 24ms (DB: 0) | 302 Found [http://localhost/products]
+
+
+Processing ProductsController#show (for 127.0.0.1 at 2010-07-22 19:04:26) [GET]
+  Parameters: {"id"=>"13"}
+  [4;36;1mProduct Load (0.2ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 13) [0m
+Rendering template within layouts/products
+Rendering products/show
+Completed in 11ms (View: 3, DB: 0) | 200 OK [http://localhost/products/13]
+
+
+Processing ProductsController#index to json (for 127.0.0.1 at 2010-07-22 19:09:43) [GET]
+  [4;35;1mProduct Load (0.6ms)[0m   [0mSELECT * FROM "products" [0m
+Completed in 11ms (View: 4, DB: 1) | 200 OK [http://localhost/products.json]
+
+
+Processing ProductsController#index to json (for 127.0.0.1 at 2010-07-22 21:51:16) [GET]
+  [4;36;1mProduct Load (0.6ms)[0m   [0;1mSELECT * FROM "products" [0m
+Completed in 11ms (View: 4, DB: 1) | 200 OK [http://localhost/products.json]
+
+
+Processing ProductsController#index to json (for 127.0.0.1 at 2010-07-22 21:56:16) [GET]
+  [4;35;1mProduct Load (0.6ms)[0m   [0mSELECT * FROM "products" [0m
+Completed in 10ms (View: 4, DB: 1) | 200 OK [http://localhost/products.json]
+
+
+Processing ProductsController#index to json (for 127.0.0.1 at 2010-07-22 22:35:13) [GET]
+
+SyntaxError (/Users/lars/Dev/code/rhomobile/webinar-samples/store-rails/app/models/product.rb:27: odd number list for Hash
+/Users/lars/Dev/code/rhomobile/webinar-samples/store-rails/app/models/product.rb:50: odd number list for Hash):
+  app/controllers/products_controller.rb:7:in `index'
+
+Rendered rescues/_trace (33.9ms)
+Rendered rescues/_request_and_response (1.2ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ProductsController#index to json (for 127.0.0.1 at 2010-07-22 22:36:58) [GET]
+  [4;36;1mSQL (0.5ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+NoMethodError (undefined method `after_delete' for #<Class:0x102dbce48>):
+  app/models/product.rb:6
+  app/controllers/products_controller.rb:7:in `index'
+
+Rendered rescues/_trace (37.2ms)
+Rendered rescues/_request_and_response (1.1ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ProductsController#index to json (for 127.0.0.1 at 2010-07-22 22:37:56) [GET]
+  [4;36;1mProduct Load (0.7ms)[0m   [0;1mSELECT * FROM "products" [0m
+Completed in 229ms (View: 83, DB: 1) | 200 OK [http://localhost/products.json]
+
+
+Processing ProductsController#index (for 127.0.0.1 at 2010-07-22 22:38:29) [GET]
+  [4;35;1mProduct Load (0.7ms)[0m   [0mSELECT * FROM "products" [0m
+Rendering template within layouts/products
+Rendering products/index
+Completed in 26ms (View: 19, DB: 1) | 200 OK [http://localhost/products]
+
+
+Processing ProductsController#destroy (for 127.0.0.1 at 2010-07-22 22:38:34) [DELETE]
+  Parameters: {"authenticity_token"=>"Q/IDTP2cWx18cqQwkJXD+TEwHsswR9QFKuRCbA2tZFg=", "id"=>"11"}
+  [4;36;1mProduct Load (0.2ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 11) [0m
+  [4;35;1mProduct Destroy (0.3ms)[0m   [0mDELETE FROM "products" WHERE "id" = 11[0m
+Redirected to http://localhost:3000/products
+Completed in 22ms (DB: 1) | 302 Found [http://localhost/products/11]
+
+
+Processing ProductsController#index (for 127.0.0.1 at 2010-07-22 22:38:34) [GET]
+  [4;36;1mProduct Load (0.6ms)[0m   [0;1mSELECT * FROM "products" [0m
+Rendering template within layouts/products
+Rendering products/index
+Completed in 20ms (View: 13, DB: 1) | 200 OK [http://localhost/products]
+
+
+Processing ProductsController#edit (for 127.0.0.1 at 2010-07-22 22:46:16) [GET]
+  Parameters: {"id"=>"13"}
+  [4;35;1mProduct Load (0.2ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 13) [0m
+Rendering template within layouts/products
+Rendering products/edit
+Completed in 23ms (View: 16, DB: 0) | 200 OK [http://localhost/products/13/edit]
+
+
+Processing ProductsController#update (for 127.0.0.1 at 2010-07-22 22:46:26) [PUT]
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"Q/IDTP2cWx18cqQwkJXD+TEwHsswR9QFKuRCbA2tZFg=", "id"=>"13", "product"=>{"price"=>"$299.99", "brand"=>"apple", "name"=>"iphone 4", "quantity"=>"", "sku"=>""}}
+  [4;36;1mProduct Load (0.2ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 13) [0m
+  [4;35;1mProduct Update (0.3ms)[0m   [0mUPDATE "products" SET "updated_at" = '2010-07-23 05:46:26', "name" = 'iphone 4', "price" = '$299.99' WHERE "id" = 13[0m
+Redirected to http://localhost:3000/products/13
+Completed in 33ms (DB: 1) | 302 Found [http://localhost/products/13]
+
+
+Processing ProductsController#show (for 127.0.0.1 at 2010-07-22 22:46:26) [GET]
+  Parameters: {"id"=>"13"}
+  [4;36;1mProduct Load (0.2ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 13) [0m
+Rendering template within layouts/products
+Rendering products/show
+Completed in 92ms (View: 85, DB: 0) | 200 OK [http://localhost/products/13]
