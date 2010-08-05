@@ -1,0 +1,19 @@
+<div id="pageTitle">
+	<h1><%= @signature.foo%></h1>
+</div>
+
+<div id="toolbar">
+    <div id="leftItem" class="backButton"><%= link_to "Back", :action => :index %></div>
+    <div id="rightItem" class="regularButton"><%= link_to "Edit", :action => :edit, :id => @signature.object %></div>
+</div>
+
+<div id="content">
+    <ul>
+        
+        <li>
+            <div class="itemLabel">Foo</div>
+            <div class="itemValue"><%= @signature.foo%></div>
+        </li>
+        
+    </ul>
+</div>

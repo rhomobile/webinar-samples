@@ -1,0 +1,23 @@
+<div id="pageTitle">
+	<h1>Scanners</h1>
+</div>
+
+<div id="toolbar">
+    <div id="leftItem" class="regularButton"><%= link_to "Home", Rho::RhoConfig.start_path %></div>
+    <div id="rightItem" class="regularButton"><%= link_to "New", :controller => :Scanner, :action => :new %></div>
+</div>
+
+<div id="content">
+    <ul>
+        <% if System::get_property('has_camera') %>
+            
+            <li>
+                <a href="<%= url_for :action => :new %>">
+                    <span class="title">Scan Barcode</span>
+                    <span class="disclosure_indicator"></span>
+                </a>
+            </li>
+            
+        <% end %>
+    </ul>
+</div>

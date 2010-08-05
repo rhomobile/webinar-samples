@@ -1,0 +1,23 @@
+<div id="pageTitle">
+	<h1>Edit <%= @signature.foo%></h1>
+</div>
+
+<div id="toolbar">
+    <div id="leftItem" class="backButton"><%= link_to "Cancel", :action => :show, :id => @signature.object %></div>
+    <div id="rightItem" class="regularButton"><%= link_to "Delete", :action => :delete, :id => @signature.object %></div>
+</div>
+
+<div id="content">
+    <form method="POST" action="<%= url_for :action => :update %>">
+            <input type="hidden" name="id" value="<%= @signature.object %>"/>
+            <ul>
+                
+                <li>
+                    <label for="signature[foo]" class="fieldLabel">Foo</label>
+                    <input type="text" name="signature[foo]" value="<%= @signature.foo%>" <%= placeholder( "Foo" ) %> />
+                </li>
+                
+            </ul>
+            <input type="submit" class="standardButton" value="Update" />
+    </form>
+</div>

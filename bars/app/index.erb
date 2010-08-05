@@ -1,0 +1,29 @@
+<div id="pageTitle">
+    <h1>Bars</h1>
+</div>
+
+<div id="toolbar">
+    <div id="leftItem" class="blueButton"><%= link_to "Sync", :controller => :Settings, :action => :do_sync %></div>
+    <% if SyncEngine::logged_in > 0 %>
+      <div id="rightItem" class="regularButton"><%= link_to "Logout", :controller => :Settings, :action => :logout %></div>
+    <% else %>
+      <div id="rightItem" class="regularButton"><%= link_to "Login", :controller => :Settings, :action => :login %></div>
+    <% end %>
+</div>
+
+<div id="content">
+    <ul>
+        <li>
+            <a href="Scanner">
+                <span class="title">Barcode Scanner</span>
+                <span class="disclosure_indicator"></span>
+            </a>
+        </li>
+        <li>
+            <a href="Signature">
+                <span class="title">Signature Capture</span>
+                <span class="disclosure_indicator"></span>
+            </a>
+        </li>
+    </ul>
+</div>
