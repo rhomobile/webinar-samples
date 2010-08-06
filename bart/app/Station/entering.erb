@@ -1,0 +1,24 @@
+<div id="pageTitle">
+	<h1></h1>
+</div>
+
+<div id="toolbar">
+    <div id="leftItem" class="backButton"><%= link_to "Back", :action => :show, :id => @params["id"] %></div>
+</div>
+<style>
+div#content ul li div.text {
+	font-size: 15px;
+    float: left;
+    width: 90%;
+    padding: 15px 0 15px 10px;
+}
+
+
+</style>
+<div id="content">
+    <ul>
+        <li>
+            <div class="text"><%= @station.entering %></div>
+        </li>
+    </ul>
+</div>

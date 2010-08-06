@@ -1,0 +1,91 @@
+<div id="pageTitle">
+	<h1><%= @station.name%></h1>
+</div>
+
+<div id="toolbar">
+        <%= link_to "Back", :action => :index %>
+        <%= link_to "Edit", :action => :edit, :id => @station.object %>
+</div>
+
+
+<div id="content">
+
+    <table>
+      
+      <tr>
+    	<td class="itemLabel">Name</td>
+        <td class="itemValue"><%= @station.name%></td>
+      </tr>
+      
+      <tr>
+    	<td class="itemLabel">Abbr</td>
+        <td class="itemValue"><%= @station.abbr%></td>
+      </tr>
+      
+      <tr>
+    	<td class="itemLabel">Address</td>
+        <td class="itemValue"><%= @station.address%></td>
+      </tr>
+      
+      <tr>
+    	<td class="itemLabel">City</td>
+        <td class="itemValue"><%= @station.city%></td>
+      </tr>
+      
+      <tr>
+    	<td class="itemLabel">County</td>
+        <td class="itemValue"><%= @station.county%></td>
+      </tr>
+      
+      <tr>
+    	<td class="itemLabel">State</td>
+        <td class="itemValue"><%= @station.state%></td>
+      </tr>
+      
+      <tr>
+    	<td class="itemLabel">Zip</td>
+        <td class="itemValue"><%= @station.zip%></td>
+      </tr>
+      
+      <tr>
+    	<td class="itemLabel">Entering</td>
+        <td class="itemValue"><%= @station.entering%></td>
+      </tr>
+      
+      <tr>
+    	<td class="itemLabel">Lockers</td>
+        <td class="itemValue"><%= @station.lockers%></td>
+      </tr>
+      
+      <tr>
+    	<td class="itemLabel">Parking</td>
+        <td class="itemValue"><%= @station.parking%></td>
+      </tr>
+      
+      <tr>
+    	<td class="itemLabel">Bikeracks</td>
+        <td class="itemValue"><%= @station.bikeracks%></td>
+      </tr>
+      
+      <tr>
+    	<td class="itemLabel">Lat</td>
+        <td class="itemValue"><%= @station.lat%></td>
+      </tr>
+      
+      <tr>
+    	<td class="itemLabel">Long</td>
+        <td class="itemValue"><%= @station.long%></td>
+      </tr>
+      
+      <tr>
+    	<td class="itemLabel">Intro</td>
+        <td class="itemValue"><%= @station.intro%></td>
+      </tr>
+      
+      <tr>
+    	<td class="itemLabel">Cross</td>
+        <td class="itemValue"><%= @station.cross%></td>
+      </tr>
+      
+    </table>
+</div>

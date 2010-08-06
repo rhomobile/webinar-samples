@@ -1,0 +1,54 @@
+<div id="pageTitle">
+    <h1>Bart</h1>
+</div>
+
+<div id="toolbar">
+    <div id="leftItem" class="blueButton"><%= link_to "Sync", :controller => :Settings, :action => :do_sync %></div>
+    <% if SyncEngine::logged_in > 0 %>
+      <div id="rightItem" class="regularButton"><%= link_to "Logout", :controller => :Settings, :action => :logout %></div>
+    <% else %>
+      <div id="rightItem" class="regularButton"><%= link_to "Login", :controller => :Settings, :action => :login %></div>
+    <% end %>
+</div>
+
+<script type="text/javascript">
+	var syncing = false;
+	function login() {
+		if(syncing) { return; }
+		syncing = true;
+		loadXMLDoc('<%=url_for(:controller =>:Settings, :action => :do_login) + "?login=foo&password=bar"%>','trash');
+		element = document.getElementById('login');
+        if (element != null)
+		{
+			element.innerHTML="Loading Stations: 0%";
+		}
+	}
+</script>
+
+<div id="content">
+    <ul>
+  		<% if Station.find(:all).length > 0 %>
+      	<li>
+            <a href="<%=url_for(:controller => :Station, :action => :index)%>">
+                <span class="title">Stations</span>
+                <span class="disclosure_indicator"></span>
+            </a>
+        </li>
+        <li>
+            <a href="<%=url_for(:controller => :Route, :action => :index)%>">
+                <span class="title">Routes</span>
+                <span class="disclosure_indicator"></span>
+            </a>
+        </li>
+		<% else %>
+		<li>
+			<a href="#" onclick="login()">
+				<span id="login" class="title">Fetch Routes</span>
+				<span class="disclosure_indicator"></span>
+			</a>
+		</li>
+		<% end %>
+    </ul>
+</div>
+
+<div id="trash" style="display:none;"></div>

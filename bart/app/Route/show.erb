@@ -1,0 +1,54 @@
+<div id="pageTitle">
+	<h1><%= @route.name%></h1>
+</div>
+
+<div id="toolbar">
+    <div id="leftItem" class="backButton"><%= link_to "Back", :action => :index %></div>
+    <div id="rightItem" class="regularButton"><%= link_to "Edit", :action => :edit, :id => @route.object %></div>
+</div>
+
+<div id="content">
+    <ul>
+        
+        <li>
+            <div class="itemLabel">Name</div>
+            <div class="itemValue"><%= @route.name%></div>
+        </li>
+        
+        <li>
+            <div class="itemLabel">Abbr</div>
+            <div class="itemValue"><%= @route.abbr%></div>
+        </li>
+        
+        <li>
+            <div class="itemLabel">RouteId</div>
+            <div class="itemValue"><%= @route.route_id%></div>
+        </li>
+        
+        <li>
+            <div class="itemLabel">Color</div>
+            <div class="itemValue"><%= @route.color%></div>
+        </li>
+        
+        <li>
+            <div class="itemLabel">Origin</div>
+            <div class="itemValue"><%= @route.origin%></div>
+        </li>
+        
+        <li>
+            <div class="itemLabel">Destination</div>
+            <div class="itemValue"><%= @route.destination%></div>
+        </li>
+        
+        <li>
+            <div class="itemLabel">NumStations</div>
+            <div class="itemValue"><%= @route.num_stations%></div>
+        </li>
+        
+        <li>
+            <div class="itemLabel">Stations</div>
+            <div class="itemValue"><%= @route.stations%></div>
+        </li>
+        
+    </ul>
+</div>

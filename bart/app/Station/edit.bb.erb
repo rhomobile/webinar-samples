@@ -1,0 +1,94 @@
+<div id="pageTitle">
+		<h1>Edit <%= @station.name%></h1>
+</div>
+
+<div id="toolbar">
+    <%= link_to "Back", :action => :show, :id => @station.object %>
+    <%= link_to "Delete", :action => :delete, :id => @station.object %>
+</div>
+
+
+<div id="content">
+    <form method="POST" action="<%= url_for :action => :update %>">
+    	<input type="hidden" name="id" value="<%= @station.object %>"/>
+            <table>
+        		
+                    <tr>
+            			<td class="itemLabel">Name: </td>
+              			<td class="itemValue"><input type="text" name="station[name]" value="<%= @station.name %>"/></td>
+          		    </tr>
+        		
+                    <tr>
+            			<td class="itemLabel">Abbr: </td>
+              			<td class="itemValue"><input type="text" name="station[abbr]" value="<%= @station.abbr %>"/></td>
+          		    </tr>
+        		
+                    <tr>
+            			<td class="itemLabel">Address: </td>
+              			<td class="itemValue"><input type="text" name="station[address]" value="<%= @station.address %>"/></td>
+          		    </tr>
+        		
+                    <tr>
+            			<td class="itemLabel">City: </td>
+              			<td class="itemValue"><input type="text" name="station[city]" value="<%= @station.city %>"/></td>
+          		    </tr>
+        		
+                    <tr>
+            			<td class="itemLabel">County: </td>
+              			<td class="itemValue"><input type="text" name="station[county]" value="<%= @station.county %>"/></td>
+          		    </tr>
+        		
+                    <tr>
+            			<td class="itemLabel">State: </td>
+              			<td class="itemValue"><input type="text" name="station[state]" value="<%= @station.state %>"/></td>
+          		    </tr>
+        		
+                    <tr>
+            			<td class="itemLabel">Zip: </td>
+              			<td class="itemValue"><input type="text" name="station[zip]" value="<%= @station.zip %>"/></td>
+          		    </tr>
+        		
+                    <tr>
+            			<td class="itemLabel">Entering: </td>
+              			<td class="itemValue"><input type="text" name="station[entering]" value="<%= @station.entering %>"/></td>
+          		    </tr>
+        		
+                    <tr>
+            			<td class="itemLabel">Lockers: </td>
+              			<td class="itemValue"><input type="text" name="station[lockers]" value="<%= @station.lockers %>"/></td>
+          		    </tr>
+        		
+                    <tr>
+            			<td class="itemLabel">Parking: </td>
+              			<td class="itemValue"><input type="text" name="station[parking]" value="<%= @station.parking %>"/></td>
+          		    </tr>
+        		
+                    <tr>
+            			<td class="itemLabel">Bikeracks: </td>
+              			<td class="itemValue"><input type="text" name="station[bikeracks]" value="<%= @station.bikeracks %>"/></td>
+          		    </tr>
+        		
+                    <tr>
+            			<td class="itemLabel">Lat: </td>
+              			<td class="itemValue"><input type="text" name="station[lat]" value="<%= @station.lat %>"/></td>
+          		    </tr>
+        		
+                    <tr>
+            			<td class="itemLabel">Long: </td>
+              			<td class="itemValue"><input type="text" name="station[long]" value="<%= @station.long %>"/></td>
+          		    </tr>
+        		
+                    <tr>
+            			<td class="itemLabel">Intro: </td>
+              			<td class="itemValue"><input type="text" name="station[intro]" value="<%= @station.intro %>"/></td>
+          		    </tr>
+        		
+                    <tr>
+            			<td class="itemLabel">Cross: </td>
+              			<td class="itemValue"><input type="text" name="station[cross]" value="<%= @station.cross %>"/></td>
+          		    </tr>
+        		
+            </table>
+            <input type="submit" class="standardButton" value="Update" />
+    </form>
+</div>

@@ -1,0 +1,89 @@
+<div id="pageTitle">
+	<h1></h1>
+</div>
+
+<div id="toolbar">
+    <div id="leftItem" class="backButton"><%= link_to "Back", :action => :index %></div>
+</div>
+
+<style>
+div#content ul li div.itemLabel {
+    width: 30%;
+    padding: 10px 0 10px 10px;
+}
+
+div#content ul li div.itemValue {
+    width: 60%;
+    padding: 10px 10px 10px 0;
+}
+
+div#content ul li div.text {
+	font-size: 15px;
+    float: left;
+    width: 90%;
+    padding: 10px 0 10px 10px;
+}
+div#content ul li span.title {
+    font-size: 15px;
+}
+div#content ul li a {
+    font-size: 15px;
+    padding: 10px 0 10px 0;
+}
+
+</style>
+
+<div id="content">
+    <ul>
+        
+        <li>
+			<div class="text"><h3><center><%= @station.name %></center></h3></div>
+        </li>
+        
+        <li>
+			<div class="text"><%= @fulladdr%></div>
+		</li>
+ 
+       <li>
+            <div class="text"><%= @station.cross%></div>
+        </li>
+
+        <li>
+			<a href="<%=url_for :action => :routes, :id => @params["id"] %>">
+                <span class="title">Routes</span>
+                <span class="disclosure_indicator"></span>
+			</a>
+        </li>
+
+        <li>
+			<a href="<%=url_for :action => :entering, :id => @params["id"] %>">
+                <span class="title">Entrances</span>
+                <span class="disclosure_indicator"></span>
+			</a>
+        </li>
+
+        <li>
+			<a href="<%=url_for :action => :about, :id => @params["id"] %>">
+                <span class="title">About</span>
+                <span class="disclosure_indicator"></span>
+			</a>
+        </li>        
+ 
+
+        <li>
+            <div class="itemLabel">Lockers?</div>
+            <div class="itemValue"><%= @station.lockers == "1" ? "Yes" : "No" %></div>
+        </li>
+        
+        <li>
+            <div class="itemLabel">Parking?</div>
+            <div class="itemValue"><%= @station.parking == "1" ? "Yes" : "No" %></div>
+        </li>
+        
+        <li>
+            <div class="itemLabel">Bike Racks?</div>
+            <div class="itemValue"><%= @station.bikeracks == "1" ? "Yes" : "No" %></div>
+        </li>
+        
+    </ul>
+</div>

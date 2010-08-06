@@ -1,0 +1,58 @@
+<div id="pageTitle">
+	<h1>Edit <%= @route.name%></h1>
+</div>
+
+<div id="toolbar">
+    <div id="leftItem" class="backButton"><%= link_to "Cancel", :action => :show, :id => @route.object %></div>
+    <div id="rightItem" class="regularButton"><%= link_to "Delete", :action => :delete, :id => @route.object %></div>
+</div>
+
+<div id="content">
+    <form method="POST" action="<%= url_for :action => :update %>">
+            <input type="hidden" name="id" value="<%= @route.object %>"/>
+            <ul>
+                
+                <li>
+                    <label for="route[name]" class="fieldLabel">Name</label>
+                    <input type="text" name="route[name]" value="<%= @route.name%>" <%= placeholder( "Name" ) %> />
+                </li>
+                
+                <li>
+                    <label for="route[abbr]" class="fieldLabel">Abbr</label>
+                    <input type="text" name="route[abbr]" value="<%= @route.abbr%>" <%= placeholder( "Abbr" ) %> />
+                </li>
+                
+                <li>
+                    <label for="route[route_id]" class="fieldLabel">Route</label>
+                    <input type="text" name="route[route_id]" value="<%= @route.route_id%>" <%= placeholder( "Route" ) %> />
+                </li>
+                
+                <li>
+                    <label for="route[color]" class="fieldLabel">Color</label>
+                    <input type="text" name="route[color]" value="<%= @route.color%>" <%= placeholder( "Color" ) %> />
+                </li>
+                
+                <li>
+                    <label for="route[origin]" class="fieldLabel">Origin</label>
+                    <input type="text" name="route[origin]" value="<%= @route.origin%>" <%= placeholder( "Origin" ) %> />
+                </li>
+                
+                <li>
+                    <label for="route[destination]" class="fieldLabel">Destination</label>
+                    <input type="text" name="route[destination]" value="<%= @route.destination%>" <%= placeholder( "Destination" ) %> />
+                </li>
+                
+                <li>
+                    <label for="route[num_stations]" class="fieldLabel">Num stations</label>
+                    <input type="text" name="route[num_stations]" value="<%= @route.num_stations%>" <%= placeholder( "Num stations" ) %> />
+                </li>
+                
+                <li>
+                    <label for="route[stations]" class="fieldLabel">Stations</label>
+                    <input type="text" name="route[stations]" value="<%= @route.stations%>" <%= placeholder( "Stations" ) %> />
+                </li>
+                
+            </ul>
+            <input type="submit" class="standardButton" value="Update" />
+    </form>
+</div>

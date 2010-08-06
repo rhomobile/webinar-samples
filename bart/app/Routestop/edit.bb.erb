@@ -1,0 +1,49 @@
+<div id="pageTitle">
+		<h1>Edit <%= @routestop.route%></h1>
+</div>
+
+<div id="toolbar">
+    <%= link_to "Back", :action => :show, :id => @routestop.object %>
+    <%= link_to "Delete", :action => :delete, :id => @routestop.object %>
+</div>
+
+
+<div id="content">
+    <form method="POST" action="<%= url_for :action => :update %>">
+    	<input type="hidden" name="id" value="<%= @routestop.object %>"/>
+            <table>
+        		
+                    <tr>
+            			<td class="itemLabel">Route: </td>
+              			<td class="itemValue"><input type="text" name="routestop[route]" value="<%= @routestop.route %>"/></td>
+          		    </tr>
+        		
+                    <tr>
+            			<td class="itemLabel">Date: </td>
+              			<td class="itemValue"><input type="text" name="routestop[date]" value="<%= @routestop.date %>"/></td>
+          		    </tr>
+        		
+                    <tr>
+            			<td class="itemLabel">Train: </td>
+              			<td class="itemValue"><input type="text" name="routestop[train]" value="<%= @routestop.train %>"/></td>
+          		    </tr>
+        		
+                    <tr>
+            			<td class="itemLabel">Station: </td>
+              			<td class="itemValue"><input type="text" name="routestop[station]" value="<%= @routestop.station %>"/></td>
+          		    </tr>
+        		
+                    <tr>
+            			<td class="itemLabel">Time: </td>
+              			<td class="itemValue"><input type="text" name="routestop[time]" value="<%= @routestop.time %>"/></td>
+          		    </tr>
+        		
+                    <tr>
+            			<td class="itemLabel">Bikes: </td>
+              			<td class="itemValue"><input type="text" name="routestop[bikes]" value="<%= @routestop.bikes %>"/></td>
+          		    </tr>
+        		
+            </table>
+            <input type="submit" class="standardButton" value="Update" />
+    </form>
+</div>

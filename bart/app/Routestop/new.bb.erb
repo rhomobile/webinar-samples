@@ -1,0 +1,49 @@
+<div id="pageTitle">
+    <h1>New Routestop</h1>
+</div>
+
+<div id="toolbar">
+    <%= link_to "Back", :action => :index %>
+</div>
+
+
+<div id="content">
+
+    <form method="POST" action="<%= url_for :action => :create %>">
+	    <input type="hidden" name="id" value="<%= @routestop.object %>"/>
+        <table>
+    		
+    		  <tr>
+    			  <td class="itemLabel">Route: </td>
+    			  <td class="itemValue"><input type="text" name="routestop[route]"/></td>
+    		  </tr>
+    		
+    		  <tr>
+    			  <td class="itemLabel">Date: </td>
+    			  <td class="itemValue"><input type="text" name="routestop[date]"/></td>
+    		  </tr>
+    		
+    		  <tr>
+    			  <td class="itemLabel">Train: </td>
+    			  <td class="itemValue"><input type="text" name="routestop[train]"/></td>
+    		  </tr>
+    		
+    		  <tr>
+    			  <td class="itemLabel">Station: </td>
+    			  <td class="itemValue"><input type="text" name="routestop[station]"/></td>
+    		  </tr>
+    		
+    		  <tr>
+    			  <td class="itemLabel">Time: </td>
+    			  <td class="itemValue"><input type="text" name="routestop[time]"/></td>
+    		  </tr>
+    		
+    		  <tr>
+    			  <td class="itemLabel">Bikes: </td>
+    			  <td class="itemValue"><input type="text" name="routestop[bikes]"/></td>
+    		  </tr>
+    		
+        </table>
+        <input type="submit" class="standardButton" value="Create" />
+    </form>
+</div>

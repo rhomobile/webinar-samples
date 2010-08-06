@@ -1,0 +1,44 @@
+<div id="pageTitle">
+	<h1><%= @routestop.route%></h1>
+</div>
+
+<div id="toolbar">
+    <div id="leftItem" class="backButton"><%= link_to "Back", :action => :index %></div>
+    <div id="rightItem" class="regularButton"><%= link_to "Edit", :action => :edit, :id => @routestop.object %></div>
+</div>
+
+<div id="content">
+    <ul>
+        
+        <li>
+            <div class="itemLabel">Route</div>
+            <div class="itemValue"><%= @routestop.route%></div>
+        </li>
+        
+        <li>
+            <div class="itemLabel">Date</div>
+            <div class="itemValue"><%= @routestop.date%></div>
+        </li>
+        
+        <li>
+            <div class="itemLabel">Train</div>
+            <div class="itemValue"><%= @routestop.train%></div>
+        </li>
+        
+        <li>
+            <div class="itemLabel">Station</div>
+            <div class="itemValue"><%= @routestop.station%></div>
+        </li>
+        
+        <li>
+            <div class="itemLabel">Time</div>
+            <div class="itemValue"><%= @routestop.time%></div>
+        </li>
+        
+        <li>
+            <div class="itemLabel">Bikes</div>
+            <div class="itemValue"><%= @routestop.bikes%></div>
+        </li>
+        
+    </ul>
+</div>

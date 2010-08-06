@@ -1,0 +1,59 @@
+<div id="pageTitle">
+    <h1>New Route</h1>
+</div>
+
+<div id="toolbar">
+    <%= link_to "Back", :action => :index %>
+</div>
+
+
+<div id="content">
+
+    <form method="POST" action="<%= url_for :action => :create %>">
+	    <input type="hidden" name="id" value="<%= @route.object %>"/>
+        <table>
+    		
+    		  <tr>
+    			  <td class="itemLabel">Name: </td>
+    			  <td class="itemValue"><input type="text" name="route[name]"/></td>
+    		  </tr>
+    		
+    		  <tr>
+    			  <td class="itemLabel">Abbr: </td>
+    			  <td class="itemValue"><input type="text" name="route[abbr]"/></td>
+    		  </tr>
+    		
+    		  <tr>
+    			  <td class="itemLabel">Route: </td>
+    			  <td class="itemValue"><input type="text" name="route[route_id]"/></td>
+    		  </tr>
+    		
+    		  <tr>
+    			  <td class="itemLabel">Color: </td>
+    			  <td class="itemValue"><input type="text" name="route[color]"/></td>
+    		  </tr>
+    		
+    		  <tr>
+    			  <td class="itemLabel">Origin: </td>
+    			  <td class="itemValue"><input type="text" name="route[origin]"/></td>
+    		  </tr>
+    		
+    		  <tr>
+    			  <td class="itemLabel">Destination: </td>
+    			  <td class="itemValue"><input type="text" name="route[destination]"/></td>
+    		  </tr>
+    		
+    		  <tr>
+    			  <td class="itemLabel">Num stations: </td>
+    			  <td class="itemValue"><input type="text" name="route[num_stations]"/></td>
+    		  </tr>
+    		
+    		  <tr>
+    			  <td class="itemLabel">Stations: </td>
+    			  <td class="itemValue"><input type="text" name="route[stations]"/></td>
+    		  </tr>
+    		
+        </table>
+        <input type="submit" class="standardButton" value="Create" />
+    </form>
+</div>

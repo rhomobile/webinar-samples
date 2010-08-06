@@ -1,0 +1,48 @@
+<div id="pageTitle">
+	<h1>Edit <%= @routestop.route%></h1>
+</div>
+
+<div id="toolbar">
+    <div id="leftItem" class="backButton"><%= link_to "Cancel", :action => :show, :id => @routestop.object %></div>
+    <div id="rightItem" class="regularButton"><%= link_to "Delete", :action => :delete, :id => @routestop.object %></div>
+</div>
+
+<div id="content">
+    <form method="POST" action="<%= url_for :action => :update %>">
+            <input type="hidden" name="id" value="<%= @routestop.object %>"/>
+            <ul>
+                
+                <li>
+                    <label for="routestop[route]" class="fieldLabel">Route</label>
+                    <input type="text" name="routestop[route]" value="<%= @routestop.route%>" <%= placeholder( "Route" ) %> />
+                </li>
+                
+                <li>
+                    <label for="routestop[date]" class="fieldLabel">Date</label>
+                    <input type="text" name="routestop[date]" value="<%= @routestop.date%>" <%= placeholder( "Date" ) %> />
+                </li>
+                
+                <li>
+                    <label for="routestop[train]" class="fieldLabel">Train</label>
+                    <input type="text" name="routestop[train]" value="<%= @routestop.train%>" <%= placeholder( "Train" ) %> />
+                </li>
+                
+                <li>
+                    <label for="routestop[station]" class="fieldLabel">Station</label>
+                    <input type="text" name="routestop[station]" value="<%= @routestop.station%>" <%= placeholder( "Station" ) %> />
+                </li>
+                
+                <li>
+                    <label for="routestop[time]" class="fieldLabel">Time</label>
+                    <input type="text" name="routestop[time]" value="<%= @routestop.time%>" <%= placeholder( "Time" ) %> />
+                </li>
+                
+                <li>
+                    <label for="routestop[bikes]" class="fieldLabel">Bikes</label>
+                    <input type="text" name="routestop[bikes]" value="<%= @routestop.bikes%>" <%= placeholder( "Bikes" ) %> />
+                </li>
+                
+            </ul>
+            <input type="submit" class="standardButton" value="Update" />
+    </form>
+</div>

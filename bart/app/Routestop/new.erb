@@ -1,0 +1,47 @@
+<div id="pageTitle">
+	<h1>New <%= @routestop.title %></h1>
+</div>
+
+<div id="toolbar">
+     <div id="leftItem" class="backButton"><%= link_to "Cancel", :action => :index %></div>
+</div>
+
+<div id="content">
+    <form method="POST" action="<%= url_for :action => :create %>">
+            <input type="hidden" name="id" value="<%= @routestop.object %>"/>
+            <ul>
+                
+                <li>
+                    <label for="routestop[route]" class="fieldLabel">Route</label>
+                    <input type="text" name="routestop[route]" <%= placeholder( "Route" ) %> />
+                </li>
+                
+                <li>
+                    <label for="routestop[date]" class="fieldLabel">Date</label>
+                    <input type="text" name="routestop[date]" <%= placeholder( "Date" ) %> />
+                </li>
+                
+                <li>
+                    <label for="routestop[train]" class="fieldLabel">Train</label>
+                    <input type="text" name="routestop[train]" <%= placeholder( "Train" ) %> />
+                </li>
+                
+                <li>
+                    <label for="routestop[station]" class="fieldLabel">Station</label>
+                    <input type="text" name="routestop[station]" <%= placeholder( "Station" ) %> />
+                </li>
+                
+                <li>
+                    <label for="routestop[time]" class="fieldLabel">Time</label>
+                    <input type="text" name="routestop[time]" <%= placeholder( "Time" ) %> />
+                </li>
+                
+                <li>
+                    <label for="routestop[bikes]" class="fieldLabel">Bikes</label>
+                    <input type="text" name="routestop[bikes]" <%= placeholder( "Bikes" ) %> />
+                </li>
+                
+            </ul>
+            <input type="submit" class="standardButton" value="Create" />
+    </form>
+</div>

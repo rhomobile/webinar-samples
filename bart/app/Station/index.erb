@@ -1,0 +1,44 @@
+<div id="pageTitle">
+	<h1>Stations</h1>
+</div>
+
+<div id="toolbar">
+    <div id="leftItem" class="regularButton"><%= link_to "Home", Rho::RhoConfig.start_path %></div>
+</div>
+
+<style>
+div#content ul li {
+    border-bottom: 1px solid #848284;
+		min-height: 20px;
+}
+div#content ul li a {
+    display: block;
+    color: black;
+    font-size: 20px;
+    height: 100%;
+    width: 100%;
+    padding: 5px 0 5px 0;
+}
+div#content ul li span.title {
+    padding: 0 5px 0 5px;
+    font-size: 15px;
+		font-weight: bold;
+		display: inline;
+}
+</style>
+
+
+<div id="content">
+    <ul>
+        <% @stations.each do |obj| %>
+            
+            <li>
+                <a href="<%= url_for :action => :show, :id => obj.object %>">
+                    <span class="title"><%= obj.name %></span>
+                    <span class="disclosure_indicator"></span>
+                </a>
+            </li>
+            
+        <% end %>
+    </ul>
+</div>

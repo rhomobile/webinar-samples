@@ -1,0 +1,72 @@
+<div id="pageTitle">
+	<h1></h1>
+</div>
+
+<div id="toolbar">
+    <div id="leftItem" class="backButton"><%= link_to "Back", :action => :show, :id => @params["id"] %></div>
+</div>
+<style>
+div#content ul li div.itemLabel {
+    width: 30%;
+    padding: 10px 0 10px 10px;
+}
+
+div#content ul li div.itemValue {
+    width: 60%;
+    padding: 10px 10px 10px 0;
+}
+
+div#content ul li div.text {
+	font-size: 15px;
+    float: left;
+    width: 90%;
+    padding: 10px 0 10px 10px;
+}
+
+
+div#content ul li span.title {
+    font-size: 15px;
+}
+div#content ul li a {
+    font-size: 15px;
+    padding: 10px 0 10px 0;
+}
+
+
+</style>
+<script type="text/javascript">
+function toggle(id) {
+	ID = document.getElementById(id);
+	        if(ID.style.display == "") {
+	          ID.style.display = "none";
+	          return;
+	        } else {
+	          ID.style.display = "";
+	        }
+}
+</script>
+
+<div id="content">
+    <ul>
+		<div style="display:none">
+		<% oldroute = nil %>
+		<% @routes.each do |route| %>
+		<% if route.route != oldroute %>
+		<% oldroute = route.route %>
+		<% theroute = Route.find(:first, :conditions => {'route_id' => route.route})%>
+		</div>
+		<li style="background-color:<%=theroute.color%>">
+			<div class="text" onclick="toggle('route<%=oldroute%>')"><b><%= theroute.name %></b></div>
+        </li>
+		<div id="route<%=oldroute%>" style="display:none">
+		<% end %>
+        <li>
+			<div class="text" >
+				<span width="30%" style="display:inline; float:left"><%= route.time %></span>
+				<span width="30%" style="display:inline; float:right">Train: <%=route.train%></span>
+			</div>
+		</li>
+		<% end %>
+  
+    </ul>
+</div>
