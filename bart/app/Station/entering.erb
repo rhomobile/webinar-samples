@@ -1,12 +1,12 @@
-<div id="pageTitle">
+<div class="pageTitle">
 	<h1></h1>
 </div>
 
-<div id="toolbar">
-    <div id="leftItem" class="backButton"><%= link_to "Back", :action => :show, :id => @params["id"] %></div>
+<div class="toolbar">
+    <div class="leftItem backButton"><%= link_to "Back", :action => :show, :id => @params["id"] %></div>
 </div>
 <style>
-div#content ul li div.text {
+div.content ul li div.text {
 	font-size: 15px;
     float: left;
     width: 90%;
@@ -15,7 +15,7 @@ div#content ul li div.text {
 
 
 </style>
-<div id="content">
+<div class="content">
     <ul>
         <li>
             <div class="text"><%= @station.entering %></div>

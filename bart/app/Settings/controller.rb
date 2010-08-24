@@ -62,6 +62,7 @@ class SettingsController < Rho::RhoController
     if @params['login'] and @params['password']
       begin
         SyncEngine.set_notification(-1,url_for(:action => :sync_callback),"")
+        Rho::RhoConfig.bulksync_state = '0'
         SyncEngine.login(@params['login'], @params['password'], (url_for :action => :login_callback) )
         render :action => :wait
       rescue Rho::RhoError => e

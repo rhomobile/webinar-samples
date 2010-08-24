@@ -1,0 +1,21 @@
+#Sources 
+:sources: 
+  Product: 
+    :poll_interval: 300
+ 
+:test: 
+  :syncserver: http://localhost:9292/application/
+  :licensefile: settings/license.key
+  :redis: localhost:6379
+:development: 
+  :syncserver: http://localhost:9292/application/
+  :licensefile: settings/license.key
+  :iphonecertfile: settings/apple_push_cert.pem
+  :iphonepassphrase: #=> empty or put your password for your certificate
+  :iphoneserver: gateway.sandbox.push.apple.com
+  :iphoneport: 2195
+  :redis: localhost:6379
+:production: 
+  :syncserver: http://localhost:9292/application/
+  :licensefile: settings/license.key
+  :redis: localhost:6379

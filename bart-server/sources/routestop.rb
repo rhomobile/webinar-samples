@@ -9,27 +9,42 @@ class Routestop < SourceAdapter
  
   def query(params=nil)
     @result = {}
+    resultlist = []
     #first get list of routes
-    id = 0
     routes = XmlSimple.xml_in open(BART_API + "route.aspx?cmd=routes&key=" + BART_KEY).read
     routes["routes"][0]["route"].each do |e|
       number = e["number"][0]
       
       routesched = XmlSimple.xml_in open(BART_API + "sched.aspx?cmd=routesched&route=" + number + "&key=" + BART_KEY).read
-      routesched["route"][0]["train"].each do |e|
-        e["stop"].each do |s|
-          stop = {}
-          stop["route"] = number
-          stop["date"] = routesched["date"][0]
-          stop["train"] = e["index"]
-          stop["station"] = s["station"]
-          stop["bikes"] = s["bikeflag"]
-          stop["time"] = s["origTime"]
-          @result[id.to_s] = stop
-          id += 1
+      unless routesched["route"][0]["train"].nil?
+        routesched["route"][0]["train"].each do |e|
+          e["stop"].each do |s|
+            stop = {}
+            stop["route"] = number
+            stop["date"] = routesched["date"][0]
+            stop["train"] = e["index"]
+            stop["station"] = s["station"]
+            stop["bikes"] = s["bikeflag"]
+            stop["time"] = s["origTime"]
+            resultlist << stop
+
+          end
         end
       end
     end
+    
+    resultlist.sort! do |x,y| 
+       sort = x["route"].to_i <=> y["route"].to_i 
+       sort = Time.parse(x["time"]).to_i <=> Time.parse(y["time"]).to_i if sort == 0 and x["time"] and y["time"]
+       sort
+     end   
+    i = 0
+
+     resultlist.each do |x|
+       x["sort_id"] = "%07d" % i
+        @result[i.to_s] = x
+        i = i + 1
+     end   
   end
  
   def sync

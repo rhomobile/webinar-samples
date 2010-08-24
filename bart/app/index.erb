@@ -1,13 +1,13 @@
-<div id="pageTitle">
+<div class="pageTitle">
     <h1>Bart</h1>
 </div>
 
-<div id="toolbar">
-    <div id="leftItem" class="blueButton"><%= link_to "Sync", :controller => :Settings, :action => :do_sync %></div>
+<div class="toolbar">
+    <div class="leftItem blueButton"><%= link_to "Sync", :controller => :Settings, :action => :do_sync %></div>
     <% if SyncEngine::logged_in > 0 %>
-      <div id="rightItem" class="regularButton"><%= link_to "Logout", :controller => :Settings, :action => :logout %></div>
+      <div class="rightItem regularButton"><%= link_to "Logout", :controller => :Settings, :action => :logout %></div>
     <% else %>
-      <div id="rightItem" class="regularButton"><%= link_to "Login", :controller => :Settings, :action => :login %></div>
+      <div class="rightItem regularButton"><%= link_to "Login", :controller => :Settings, :action => :login %></div>
     <% end %>
 </div>
 
@@ -25,7 +25,7 @@
 	}
 </script>
 
-<div id="content">
+<div class="content">
     <ul>
   		<% if Station.find(:all).length > 0 %>
       	<li>

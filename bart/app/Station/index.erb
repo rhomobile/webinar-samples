@@ -1,17 +1,17 @@
-<div id="pageTitle">
+<div class="pageTitle">
 	<h1>Stations</h1>
 </div>
 
-<div id="toolbar">
-    <div id="leftItem" class="regularButton"><%= link_to "Home", Rho::RhoConfig.start_path %></div>
+<div class="toolbar">
+    <div class="leftItem backButton"><%= link_to "Back", :action => :index %></div>
 </div>
 
 <style>
-div#content ul li {
+div.content ul li {
     border-bottom: 1px solid #848284;
 		min-height: 20px;
 }
-div#content ul li a {
+div.content ul li a {
     display: block;
     color: black;
     font-size: 20px;
@@ -19,7 +19,7 @@ div#content ul li a {
     width: 100%;
     padding: 5px 0 5px 0;
 }
-div#content ul li span.title {
+div.content ul li span.title {
     padding: 0 5px 0 5px;
     font-size: 15px;
 		font-weight: bold;
@@ -28,7 +28,7 @@ div#content ul li span.title {
 </style>
 
 
-<div id="content">
+<div class="content">
     <ul>
         <% @stations.each do |obj| %>
             

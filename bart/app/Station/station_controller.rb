@@ -34,12 +34,10 @@ class StationController < Rho::RhoController
   
   def routes
     @station = Station.find(@params['id'])
-    @routes = Routestop.find(:all, :conditions => {'station' => @station.abbr })
-    @routes.sort! do |x,y| 
-       sort = x.route.to_i <=> y.route.to_i
-       sort = Time.parse(x.time).to_i <=> Time.parse(y.time).to_i if sort == 0
-       sort
-     end
+    @routes = Routestop.find(:all, :order => 'sort_id',  :conditions => {'station' => @station.abbr })
+    #@routes.each {|x| puts x.sort_id.to_s }
+    
+
   end    
   
 end

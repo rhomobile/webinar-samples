@@ -28,17 +28,17 @@
         <tbody>
           <tr>
             <td class="left_align"><a href="sources-routestop_rb.html">sources/routestop.rb</a></td>
-            <td class='right_align'><tt>64</tt></td>
-            <td class='right_align'><tt>42</tt></td>
-            <td class="left_align"><div class="percent_graph_legend"><tt class=''>87.50%</tt></div>
-          <div class="percent_graph">
-            <div class="covered" style="width:88px"></div>
-            <div class="uncovered" style="width:12px"></div>
-          </div></td>
-            <td class="left_align"><div class="percent_graph_legend"><tt class=''>90.48%</tt></div>
+            <td class='right_align'><tt>79</tt></td>
+            <td class='right_align'><tt>54</tt></td>
+            <td class="left_align"><div class="percent_graph_legend"><tt class=''>89.87%</tt></div>
           <div class="percent_graph">
             <div class="covered" style="width:90px"></div>
             <div class="uncovered" style="width:10px"></div>
+          </div></td>
+            <td class="left_align"><div class="percent_graph_legend"><tt class=''>92.59%</tt></div>
+          <div class="percent_graph">
+            <div class="covered" style="width:93px"></div>
+            <div class="uncovered" style="width:7px"></div>
           </div></td>
           </tr>
         </tbody>
@@ -122,14 +122,14 @@
         
           
           
-          <tr class="inferred">
-            <td><pre><a name="line12">12</a>     #first get list of routes</pre></td>
+          <tr class="marked">
+            <td><pre><a name="line12">12</a>     resultlist = []</pre></td>
           </tr>
         
           
           
-          <tr class="marked">
-            <td><pre><a name="line13">13</a>     id = 0</pre></td>
+          <tr class="inferred">
+            <td><pre><a name="line13">13</a>     #first get list of routes</pre></td>
           </tr>
         
           
@@ -165,283 +165,373 @@
           
           
           <tr class="marked">
-            <td><pre><a name="line19">19</a>       routesched[&quot;route&quot;][0][&quot;train&quot;].each do |e|</pre></td>
+            <td><pre><a name="line19">19</a>       unless routesched[&quot;route&quot;][0][&quot;train&quot;].nil?</pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line20">20</a>         e[&quot;stop&quot;].each do |s|</pre></td>
+            <td><pre><a name="line20">20</a>         routesched[&quot;route&quot;][0][&quot;train&quot;].each do |e|</pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line21">21</a>           stop = {}</pre></td>
+            <td><pre><a name="line21">21</a>           e[&quot;stop&quot;].each do |s|</pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line22">22</a>           stop[&quot;route&quot;] = number</pre></td>
+            <td><pre><a name="line22">22</a>             stop = {}</pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line23">23</a>           stop[&quot;date&quot;] = routesched[&quot;date&quot;][0]</pre></td>
+            <td><pre><a name="line23">23</a>             stop[&quot;route&quot;] = number</pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line24">24</a>           stop[&quot;train&quot;] = e[&quot;index&quot;]</pre></td>
+            <td><pre><a name="line24">24</a>             stop[&quot;date&quot;] = routesched[&quot;date&quot;][0]</pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line25">25</a>           stop[&quot;station&quot;] = s[&quot;station&quot;]</pre></td>
+            <td><pre><a name="line25">25</a>             stop[&quot;train&quot;] = e[&quot;index&quot;]</pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line26">26</a>           stop[&quot;bikes&quot;] = s[&quot;bikeflag&quot;]</pre></td>
+            <td><pre><a name="line26">26</a>             stop[&quot;station&quot;] = s[&quot;station&quot;]</pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line27">27</a>           stop[&quot;time&quot;] = s[&quot;origTime&quot;]</pre></td>
+            <td><pre><a name="line27">27</a>             stop[&quot;bikes&quot;] = s[&quot;bikeflag&quot;]</pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line28">28</a>           @result[id.to_s] = stop</pre></td>
+            <td><pre><a name="line28">28</a>             stop[&quot;time&quot;] = s[&quot;origTime&quot;]</pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line29">29</a>           id += 1</pre></td>
+            <td><pre><a name="line29">29</a>             resultlist &lt;&lt; stop</pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line30">30</a>         end</pre></td>
+            <td><pre><a name="line30">30</a> </pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line31">31</a>       end</pre></td>
+            <td><pre><a name="line31">31</a>           end</pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line32">32</a>     end</pre></td>
+            <td><pre><a name="line32">32</a>         end</pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line33">33</a>   end</pre></td>
+            <td><pre><a name="line33">33</a>       end</pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line34">34</a>  </pre></td>
+            <td><pre><a name="line34">34</a>     end</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line35">35</a>     </pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line35">35</a>   def sync</pre></td>
-          </tr>
-        
-          
-          
-          <tr class="inferred">
-            <td><pre><a name="line36">36</a>     # Manipulate @result before it is saved, or save it </pre></td>
-          </tr>
-        
-          
-          
-          <tr class="inferred">
-            <td><pre><a name="line37">37</a>     # yourself using the Rhosync::Store interface.</pre></td>
-          </tr>
-        
-          
-          
-          <tr class="inferred">
-            <td><pre><a name="line38">38</a>     # By default, super is called below which simply saves @result</pre></td>
+            <td><pre><a name="line36">36</a>     resultlist.sort! do |x,y| </pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line39">39</a>     super</pre></td>
-          </tr>
-        
-          
-          
-          <tr class="inferred">
-            <td><pre><a name="line40">40</a>   end</pre></td>
-          </tr>
-        
-          
-          
-          <tr class="inferred">
-            <td><pre><a name="line41">41</a>  </pre></td>
+            <td><pre><a name="line37">37</a>        sort = x[&quot;route&quot;].to_i &lt;=&gt; y[&quot;route&quot;].to_i </pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line42">42</a>   def create(create_hash,blob=nil)</pre></td>
+            <td><pre><a name="line38">38</a>        sort = Time.parse(x[&quot;time&quot;]).to_i &lt;=&gt; Time.parse(y[&quot;time&quot;]).to_i if sort == 0 and x[&quot;time&quot;] and y[&quot;time&quot;]</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line39">39</a>        sort</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line40">40</a>      end   </pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line41">41</a>     i = 0</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line42">42</a> </pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line43">43</a>      resultlist.each do |x|</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line44">44</a>        x[&quot;sort_id&quot;] = &quot;%07d&quot; % i</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line45">45</a>         @result[i.to_s] = x</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line46">46</a>         i = i + 1</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line47">47</a>      end   </pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line48">48</a>   end</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line49">49</a>  </pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line50">50</a>   def sync</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line51">51</a>     # Manipulate @result before it is saved, or save it </pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line52">52</a>     # yourself using the Rhosync::Store interface.</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line53">53</a>     # By default, super is called below which simply saves @result</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line54">54</a>     super</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line55">55</a>   end</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line56">56</a>  </pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line57">57</a>   def create(create_hash,blob=nil)</pre></td>
           </tr>
         
           
           
           <tr class="uncovered">
-            <td><pre><a name="line43">43</a>     # TODO: Create a new record in your backend data source</pre></td>
+            <td><pre><a name="line58">58</a>     # TODO: Create a new record in your backend data source</pre></td>
           </tr>
         
           
           
           <tr class="uncovered">
-            <td><pre><a name="line44">44</a>     # If your rhodes rhom object contains image/binary data </pre></td>
+            <td><pre><a name="line59">59</a>     # If your rhodes rhom object contains image/binary data </pre></td>
           </tr>
         
           
           
           <tr class="uncovered">
-            <td><pre><a name="line45">45</a>     # (has the image_uri attribute), then a blob will be provided</pre></td>
+            <td><pre><a name="line60">60</a>     # (has the image_uri attribute), then a blob will be provided</pre></td>
           </tr>
         
           
           
           <tr class="uncovered">
-            <td><pre><a name="line46">46</a>     raise &quot;Please provide some code to create a single record in the backend data source using the create_hash&quot;</pre></td>
+            <td><pre><a name="line61">61</a>     raise &quot;Please provide some code to create a single record in the backend data source using the create_hash&quot;</pre></td>
           </tr>
         
           
           
           <tr class="uncovered">
-            <td><pre><a name="line47">47</a>   end</pre></td>
+            <td><pre><a name="line62">62</a>   end</pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line48">48</a>  </pre></td>
+            <td><pre><a name="line63">63</a>  </pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line49">49</a>   def update(update_hash)</pre></td>
+            <td><pre><a name="line64">64</a>   def update(update_hash)</pre></td>
           </tr>
         
           
           
           <tr class="uncovered">
-            <td><pre><a name="line50">50</a>     # TODO: Update an existing record in your backend data source</pre></td>
+            <td><pre><a name="line65">65</a>     # TODO: Update an existing record in your backend data source</pre></td>
           </tr>
         
           
           
           <tr class="uncovered">
-            <td><pre><a name="line51">51</a>     raise &quot;Please provide some code to update a single record in the backend data source using the update_hash&quot;</pre></td>
+            <td><pre><a name="line66">66</a>     raise &quot;Please provide some code to update a single record in the backend data source using the update_hash&quot;</pre></td>
           </tr>
         
           
           
           <tr class="uncovered">
-            <td><pre><a name="line52">52</a>   end</pre></td>
+            <td><pre><a name="line67">67</a>   end</pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line53">53</a>  </pre></td>
+            <td><pre><a name="line68">68</a>  </pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line54">54</a>   def delete(object_id)</pre></td>
+            <td><pre><a name="line69">69</a>   def delete(object_id)</pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line55">55</a>     # TODO: write some code here if applicable</pre></td>
+            <td><pre><a name="line70">70</a>     # TODO: write some code here if applicable</pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line56">56</a>     # be sure to have a hash key and value for &quot;object&quot;</pre></td>
+            <td><pre><a name="line71">71</a>     # be sure to have a hash key and value for &quot;object&quot;</pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line57">57</a>     # for now, we'll say that its OK to not have a delete operation</pre></td>
+            <td><pre><a name="line72">72</a>     # for now, we'll say that its OK to not have a delete operation</pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line58">58</a>     # raise &quot;Please provide some code to delete a single object in the backend application using the hash values in name_value_list&quot;</pre></td>
+            <td><pre><a name="line73">73</a>     # raise &quot;Please provide some code to delete a single object in the backend application using the hash values in name_value_list&quot;</pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line59">59</a>   end</pre></td>
+            <td><pre><a name="line74">74</a>   end</pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line60">60</a>  </pre></td>
+            <td><pre><a name="line75">75</a>  </pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line61">61</a>   def logoff</pre></td>
+            <td><pre><a name="line76">76</a>   def logoff</pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line62">62</a>     # TODO: Logout from the data source if necessary</pre></td>
+            <td><pre><a name="line77">77</a>     # TODO: Logout from the data source if necessary</pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line63">63</a>   end</pre></td>
+            <td><pre><a name="line78">78</a>   end</pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line64">64</a> end</pre></td>
+            <td><pre><a name="line79">79</a> end</pre></td>
           </tr>
         
       </tbody>
     </table>
 
-    <p>Generated on Fri Aug 06 09:32:27 -0700 2010 with <a href="http://github.com/relevance/rcov">rcov 0.9.7.1</a></p>
+    <p>Generated on Sun Aug 15 22:23:10 -0700 2010 with <a href="http://github.com/relevance/rcov">rcov 0.9.7.1</a></p>
 
   </body>
 </html>
