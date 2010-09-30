@@ -1,0 +1,32 @@
+<div class="pageTitle">
+  <h1>Edit <%= @contact.contactFullName %></h1>
+</div>
+
+<div class="toolbar">
+  <div class="leftItem backButton">
+    <a href="<%= url_for :action => :show, :id => @contact.object %>">Cancel</a>
+  </div>
+  <div class="rightItem regularButton">
+    <a class="button" href="<%= url_for :action => :delete, :id => @contact.object %>">Delete</a>
+  </div>
+</div>
+
+<div class="content">
+  <form method="POST" action="<%= url_for :action => :update %>">
+    <input type="hidden" name="id" value="<%= @contact.object %>"/>
+    <ul>
+      
+          <li>
+            <label for="contact[contactFullName]" class="fieldLabel">Contactfullname</label>
+            <input type="text" name="contact[contactFullName]" value="<%= @contact.contactFullName %>" <%= placeholder( "Contactfullname" ) %> />
+          </li>
+      
+          <li>
+            <label for="contact[workPhone]" class="fieldLabel">Workphone</label>
+            <input type="text" name="contact[workPhone]" value="<%= @contact.workPhone %>" <%= placeholder( "Workphone" ) %> />
+          </li>
+      
+    </ul>
+    <input type="submit" class="standardButton" value="Update"/>
+  </form>
+</div>

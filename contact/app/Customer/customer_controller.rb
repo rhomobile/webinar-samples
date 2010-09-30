@@ -32,16 +32,33 @@ class CustomerController < Rho::RhoController
       @customers = Customer.find(:all)
       annotations = []
       @customers.each do |customer|
-        annotations << {
-          :latitude => customer.lat,
-          :longitude => customer.long,
-          :title => "#{customer.first} #{customer.last}",
-          :subtitle => "",
-          :url => "/app/Customer/{#{customer.object}}"
-        }
+        orglat = customer.lat
+        100.times do 
+          customer.lat = customer.lat.to_f + 0.01
+          customer.lat = customer.lat.to_s
+          annotations << {
+            :latitude => customer.lat,
+            :longitude => customer.long,
+            :title => "#{customer.first} #{customer.last}",
+            :subtitle => "",
+            :url => "/app/Customer/{#{customer.object}}"
+          }
+        end
+        customer.lat = orglat
+        100.times do 
+          customer.long = customer.long.to_f + 0.05
+          customer.long = customer.long.to_s
+          annotations << {
+            :latitude => customer.lat,
+            :longitude => customer.long,
+            :title => "#{customer.first} #{customer.last}",
+            :subtitle => "",
+            :url => "/app/Customer/{#{customer.object}}"
+          }
+        end
       end
       map_params = {
-                :settings => {:map_type => "hybrid",:region => [GeoLocation.latitude, GeoLocation.longitude, 0.21, 0.21],
+                :settings => {:map_type => "hybrid",:region => [GeoLocation.latitude, GeoLocation.longitude, 1, 1],
                               :zoom_enabled => true,:scroll_enabled => true,:shows_user_location => false,
                               :api_key => 'Google Maps API Key'},   
                 :annotations => annotations

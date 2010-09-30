@@ -27,10 +27,10 @@ class Route < SourceAdapter
         route["stations"] = ""
         e["config"][0]["station"].each do |e|
           route["stations"] += (e.to_s + ",")
-        end
-      end
+        end if e["config"][0]["station"]
+      end if routeinfo["routes"][0]["route"]
       @result[route["route_id"]] = route
-    end
+    end if routes["routes"][0]["route"]
   end
  
   def sync

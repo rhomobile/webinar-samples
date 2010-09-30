@@ -30,15 +30,15 @@
             <td class="left_align"><a href="sources-route_rb.html">sources/route.rb</a></td>
             <td class='right_align'><tt>65</tt></td>
             <td class='right_align'><tt>42</tt></td>
-            <td class="left_align"><div class="percent_graph_legend"><tt class=''>87.69%</tt></div>
+            <td class="left_align"><div class="percent_graph_legend"><tt class=''>84.62%</tt></div>
           <div class="percent_graph">
-            <div class="covered" style="width:88px"></div>
-            <div class="uncovered" style="width:12px"></div>
+            <div class="covered" style="width:85px"></div>
+            <div class="uncovered" style="width:15px"></div>
           </div></td>
-            <td class="left_align"><div class="percent_graph_legend"><tt class=''>90.48%</tt></div>
+            <td class="left_align"><div class="percent_graph_legend"><tt class=''>85.71%</tt></div>
           <div class="percent_graph">
-            <div class="covered" style="width:90px"></div>
-            <div class="uncovered" style="width:10px"></div>
+            <div class="covered" style="width:86px"></div>
+            <div class="uncovered" style="width:14px"></div>
           </div></td>
           </tr>
         </tbody>
@@ -188,7 +188,7 @@
         
           
           
-          <tr class="marked">
+          <tr class="inferred">
             <td><pre><a name="line23">23</a>       routeinfo[&quot;routes&quot;][0][&quot;route&quot;].each do |e|</pre></td>
           </tr>
         
@@ -218,26 +218,26 @@
         
           
           
-          <tr class="marked">
+          <tr class="uncovered">
             <td><pre><a name="line28">28</a>         e[&quot;config&quot;][0][&quot;station&quot;].each do |e|</pre></td>
           </tr>
         
           
           
-          <tr class="marked">
+          <tr class="uncovered">
             <td><pre><a name="line29">29</a>           route[&quot;stations&quot;] += (e.to_s + &quot;,&quot;)</pre></td>
           </tr>
         
           
           
-          <tr class="inferred">
-            <td><pre><a name="line30">30</a>         end</pre></td>
+          <tr class="marked">
+            <td><pre><a name="line30">30</a>         end if e[&quot;config&quot;][0][&quot;station&quot;]</pre></td>
           </tr>
         
           
           
-          <tr class="inferred">
-            <td><pre><a name="line31">31</a>       end</pre></td>
+          <tr class="marked">
+            <td><pre><a name="line31">31</a>       end if routeinfo[&quot;routes&quot;][0][&quot;route&quot;]</pre></td>
           </tr>
         
           
@@ -248,8 +248,8 @@
         
           
           
-          <tr class="inferred">
-            <td><pre><a name="line33">33</a>     end</pre></td>
+          <tr class="marked">
+            <td><pre><a name="line33">33</a>     end if routes[&quot;routes&quot;][0][&quot;route&quot;]</pre></td>
           </tr>
         
           
@@ -447,7 +447,7 @@
       </tbody>
     </table>
 
-    <p>Generated on Sun Aug 15 22:23:09 -0700 2010 with <a href="http://github.com/relevance/rcov">rcov 0.9.7.1</a></p>
+    <p>Generated on Mon Sep 20 16:40:20 -0700 2010 with <a href="http://github.com/relevance/rcov">rcov 0.9.7.1</a></p>
 
   </body>
 </html>

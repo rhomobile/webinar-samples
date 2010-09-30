@@ -26,7 +26,7 @@ class Station < SourceAdapter
          station["lockers"] = e["locker_flag"]
          station["bikeracks"] = e["bike_flag"]
          station["entering"] = e["entering"][0]
-       end   
+       end if stnaccess["stations"][0]["station"]
        
        stninfo = XmlSimple.xml_in open(BART_API + "stn.aspx?cmd=stninfo&orig=" + station["abbr"] + "&key=" + BART_KEY).read
        stninfo["stations"][0]["station"].each do |e|
@@ -34,10 +34,10 @@ class Station < SourceAdapter
          station["long"] = e["gtfs_longitude"][0]
          station["intro"] = e["intro"][0]
          station["cross"] = e["cross_street"][0]
-       end
+       end  if stninfo["stations"][0]["station"]
        
        @result[station["abbr"]] = station
-    end
+    end  if stns["stations"][0]["station"]
   end
  
   def sync

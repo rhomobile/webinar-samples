@@ -1,25 +1,26 @@
 --- 
+name: contact
 extensions: 
 - extension-name-here
 - second-extension-name
-name: contact
 capabilities: 
 - gps
 bbver: 4.6
+sdk: /Users/brian/work/rhodes
 android: 
   version: 2.1
-  apikey: 0iQD6Wk5WtjLaoD4-g5eXbsfsyNSroB8KmRJkkA
   mapping: true
-sdk: /Users/brian/work/rhodes
-applog: rholog.txt
+  apikey: 0iQD6Wk5WtjLaoD4-g5eXbsfsyNSroB8KmRJkkA
 build: debug
-wmsdk: Windows Mobile 6 Professional SDK (ARMV4I)
+applog: rholog.txt
 version: 1.0
-vendor: rhomobile
+wmsdk: Windows Mobile 6 Professional SDK (ARMV4I)
 sdkversion: 2.0.0
+vendor: rhomobile
 iphone: 
+  emulator: 4.0.2
   provisionprofile: 
-  sdk: iphonesimulator3.0
-  entitlements: 
+  sdk: iphonesimulator4.0
   codesignidentity: 
+  entitlements: 
   configuration: Debug

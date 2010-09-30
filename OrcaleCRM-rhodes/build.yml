@@ -1,0 +1,20 @@
+--- 
+extensions: 
+- json
+- another-extension
+name: OrcaleCRM-rhodes
+bbver: 4.6
+sdk: /Users/brian/work/rhodes
+applog: rholog.txt
+build: debug
+wmsdk: Windows Mobile 6 Professional SDK (ARMV4I)
+version: 1.0
+vendor: rhomobile
+sdkversion: 2.1.0
+iphone: 
+  provisionprofile: 
+  sdk: iphonesimulator4.0
+  entitlements: 
+  codesignidentity: 
+  configuration: Debug
+  emulator: 4.0.1
