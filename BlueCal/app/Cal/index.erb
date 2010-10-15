@@ -1,0 +1,20 @@
+<h1><%= CalController::MONTHS[@month-1]%></h1>
+<table cellspacing="0"> 
+	<thead> 
+		<tr> 
+			<th>Mon</th><th>Tue</th><th>Wed</th> 
+			<th>Thu</th><th>Fri</th><th>Sat</th> 
+			<th>Sun</th> 
+		</tr> 
+	</thead> 
+	<tbody> 
+<%=@caltext%>
+	</tbody> 
+	<tfoot> 
+		<th>Mon</th><th>Tue</th><th>Wed</th> 
+		<th>Thu</th><th>Fri</th><th>Sat</th> 
+		<th>Sun</th> 
+	</tfoot> 
+</table>
+<br/>
+<input style="font-size:20px;" type="submit" value="Recieve Meeting" onclick="javascript:window.location='<%= url_for :action => 'receive_day'%>';"/>

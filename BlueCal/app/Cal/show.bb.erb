@@ -1,0 +1,21 @@
+<div id="pageTitle">
+	<h1><%= @cal.name%></h1>
+</div>
+
+<div id="toolbar">
+        <%= link_to "Back", :action => :index %>
+        <%= link_to "Edit", :action => :edit, :id => @cal.object %>
+</div>
+
+
+<div id="content">
+
+    <table>
+      
+      <tr>
+    	<td class="itemLabel">Name</td>
+        <td class="itemValue"><%= @cal.name%></td>
+      </tr>
+      
+    </table>
+</div>

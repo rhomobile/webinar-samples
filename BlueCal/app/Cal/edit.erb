@@ -1,0 +1,27 @@
+<div class="pageTitle">
+  <h1>Edit <%= @cal.name %></h1>
+</div>
+
+<div class="toolbar">
+  <div class="leftItem backButton">
+    <a href="<%= url_for :action => :show, :id => @cal.object %>">Cancel</a>
+  </div>
+  <div class="rightItem regularButton">
+    <a class="button" href="<%= url_for :action => :delete, :id => @cal.object %>">Delete</a>
+  </div>
+</div>
+
+<div class="content">
+  <form method="POST" action="<%= url_for :action => :update %>">
+    <input type="hidden" name="id" value="<%= @cal.object %>"/>
+    <ul>
+      
+          <li>
+            <label for="cal[name]" class="fieldLabel">Name</label>
+            <input type="text" name="cal[name]" value="<%= @cal.name %>" <%= placeholder( "Name" ) %> />
+          </li>
+      
+    </ul>
+    <input type="submit" class="standardButton" value="Update"/>
+  </form>
+</div>

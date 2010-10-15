@@ -1,0 +1,19 @@
+sdk: "/Users/brian/work/rhodes"
+sdkversion: 2.2.0
+name: BlueCal
+version: 1.0
+vendor: rhomobile
+build: debug
+bbver: 4.6
+wmsdk: "Windows Mobile 6 Professional SDK (ARMV4I)"
+applog: rholog.txt
+iphone:
+  configuration: Debug
+  sdk: iphoneos4.1
+  provisionprofile:
+  codesignidentity:
+  entitlements:
+extensions: ["json", "another-extension"]
+capabilities:
+- bluetooth
+- calendar
