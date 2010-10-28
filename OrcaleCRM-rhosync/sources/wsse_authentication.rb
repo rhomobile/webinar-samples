@@ -4,8 +4,6 @@ require 'xsd/datatypes'
 
 class WsseAuthHeader < SOAP::Header::Handler
 	NAMESPACE = 'http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd'
-	#USERNAME = 'PARIVEDASOL/ALLEN_NGUYEN@LIVE.COM'
-	#PASSWORD = 'Pariveda1'
 	@username = nil
 	@password = nil
 	
