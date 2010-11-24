@@ -1,0 +1,216 @@
+<?xml version="1.0" standalone="yes"?>
+<svg width="100%" height="100%" version="1.1" xmlns = 'http://www.w3.org/2000/svg'>
+	<defs>
+		<style type="text/css">
+		<![CDATA[
+			.cvi-sans-serif-font {
+				/* do not modify below */
+				font-family: cvi-sans-serif, sans-serif;
+				fill: none !important;
+				stroke-linecap: round !important; 
+				stroke-linejoin: round !important; 
+				stroke-miterlimit: 0 !important; 
+			}
+		]]>
+		</style>	
+		<font id="cvi-sans-serif" horiz-adv-x="32" horiz-origin-x="0">
+			<font-face font-family="cvi-sans-serif" font-weight="all" font-style="all" font-stretch="all" units-per-em="32" ascent="25" descent="7" alphabetic="0">
+				<font-face-src>
+					<font-face-name name="cvi-sans-serif"/>
+				</font-face-src>
+			</font-face>
+			<missing-glyph horiz-adv-x='20' d='M 4,0 L 16,0,4,21,16,21 M 4,21 L 4,0,16,21,16,0'/>
+			<glyph unicode=' ' horiz-adv-x='16' d='M 0,0'/>
+			<glyph unicode='!' horiz-adv-x='10' d='M 5,21 L 5,7 M 5,2 L 4,1,5,0,6,1,5,2'/>
+			<glyph unicode='"' horiz-adv-x='14' d='M 4,21 L 4,14 M 10,21 L 10,14'/>
+			<glyph unicode='#' horiz-adv-x='21' d='M 11,25 L 4,-7 M 17,25 L 10,-7 M 4,12 L 18,12 M 3,6 L 17,6'/>
+			<glyph unicode='$' horiz-adv-x='20' d='M 16,18 Q 15,21,10,21 Q 5,21,4,17 Q 3,12,7,11 L 13,10 Q 18,9,17,4 Q 16,0,10,0 Q 4,0,3,4 M 8,25 L 6,-4 M 14,25 L 12,-4'/>
+			<glyph unicode='%' horiz-adv-x='24' d='M 21,21 L 3,0 M 7,21 Q 3,21,3,17 Q 3,13,7,13 Q 11,13,11,17 Q 11,21,7,21 M 17,8 Q 13,8,13,4 Q 13,0,17,0 Q 21,0,21,4 Q 21,8,17,8'/>
+			<glyph unicode='&#38;' horiz-adv-x='26' d='M 23,12 Q 23,14,22,14 Q 20,14,19,11 L 17,6 Q 15,0,9,0 Q 3,0,3,5 Q 3,8,7,10 L 12,13 Q 14,15,14,17 Q 14,21,11,21 Q 8,21,8,17 Q 8,14,12,8 Q 17,0,21,0 Q 23,0,23,2'/>
+			<glyph unicode='&#39;' horiz-adv-x='10' d='M 5,19 L 4,20,5,21,6,20,6,18,5,16,4,15'/>
+			<glyph unicode='(' horiz-adv-x='14' d='M 11,25 Q 4,19,4,9 Q 4,-1,11,-7'/>
+			<glyph unicode=')' horiz-adv-x='14' d='M 3,25 Q 10,19,10,9 Q 10,-1,3,-7'/>
+			<glyph unicode='*' horiz-adv-x='16' d='M 8,21 L 8,9 M 3,18 L 13,12 M 13,18 L 3,12'/>
+			<glyph unicode='+' horiz-adv-x='26' d='M 13,18 L 13,0 M 4,9 L 22,9'/>
+			<glyph unicode=',' horiz-adv-x='10' d='M 6,1 L 5,0,4,1,5,2,6,1,6,-1,5,-3,4,-4'/>
+			<glyph unicode='-' horiz-adv-x='26' d='M 4,9 L 22,9'/>
+			<glyph unicode='.' horiz-adv-x='10' d='M 5,2 L 4,1,5,0,6,1,5,2'/>
+			<glyph unicode='/' horiz-adv-x='22' d='M 20,25 L 2,-7'/>
+			<glyph unicode='0' horiz-adv-x='20' d='M 10,21 Q 3,21,3,12 L 3,9 Q 3,0,10,0 Q 17,0,17,9 L 17,12 Q 17,21,10,21'/>
+			<glyph unicode='1' horiz-adv-x='20' d='M 6,17 Q 8,18,11,21 L 11,0'/>
+			<glyph unicode='2' horiz-adv-x='20' d='M 17,0 L 3,0,13,10 Q 16,13,16,16 Q 16,21,10,21 Q 4,21,4,16'/>
+			<glyph unicode='3' horiz-adv-x='20' d='M 5,21 L 16,21,10,14 Q 17,14,17,7 Q 17,0,10,0 Q 5,0,3,4'/>
+			<glyph unicode='4' horiz-adv-x='20' d='M 13,0 L 13,21,3,7,18,7'/>
+			<glyph unicode='5' horiz-adv-x='20' d='M 15,21 L 5,21,4,12 Q 5,14,10,14 Q 17,14,17,7 Q 17,0,10,0 Q 5,0,3,4'/>
+			<glyph unicode='6' horiz-adv-x='20' d='M 16,18 Q 15,21,10,21 Q 3,21,3,12 L 3,7 Q 3,0,10,0 Q 17,0,17,7 Q 17,13,10,13 Q 3,13,3,7'/>
+			<glyph unicode='7' horiz-adv-x='20' d='M 3,21 L 17,21,7,0'/>
+			<glyph unicode='8' horiz-adv-x='20' d='M 10,13 Q 15,13,15,17 Q 15,21,10,21 Q 5,21,5,17 Q 5,13,10,13 Q 3,13,3,7 Q 3,0,10,0 Q 17,0,17,7 Q 17,13,10,13'/>
+			<glyph unicode='9' horiz-adv-x='20' d='M 17,14 Q 17,8,10,8 Q 3,8,3,14 Q 3,21,10,21 Q 17,21,17,14 L 17,9 Q 17,0,10,0 Q 5,0,4,3'/>
+			<glyph unicode=':' horiz-adv-x='10' d='M 5,14 L 4,13,5,12,6,13,5,14 M 5,2 L 4,1,5,0,6,1,5,2'/>
+			<glyph unicode=';' horiz-adv-x='10' d='M 5,14 L 4,13,5,12,6,13,5,14 M 6,1 L 5,0,4,1,5,2,6,1,6,-1,5,-3,4,-4'/>
+			<glyph unicode='&#60;' horiz-adv-x='24' d='M 20,18 L 4,9,20,0'/>
+			<glyph unicode='=' horiz-adv-x='26' d='M 4,12 L 22,12 M 4,6 L 22,6'/>
+			<glyph unicode='&#62;' horiz-adv-x='24' d='M 4,18 L 20,9,4,0'/>
+			<glyph unicode='?' horiz-adv-x='18' d='M 3,16 Q 3,21,9,21 Q 15,21,15,16 Q 15,11,10,11 Q 9,11,9,10 L 9,7 M 9,2 L 8,1,9,0,10,1,9,2'/>	
+			<glyph unicode='@' horiz-adv-x='27' d='M 21,3 Q 20,1,14,0 L 13,0 Q 4,1,3,10 L 3,11 Q 4,20,13,21 L 14,21 Q 23,20,24,11 L 24,10 Q 24,6,20,6 Q 17,6,18,10 Q 18,6,13,6 Q 8,6,9,11 Q 10,15,14,15 Q 19,15,18,10 M 18,10 L 19,14'/>
+			<glyph unicode='A' horiz-adv-x='18' d='M 1,0 L 9,21,17,0 M 4,7 L 14,7'/>
+			<glyph unicode='B' horiz-adv-x='21' d='M 4,11 L 12,11 M 13,0 L 4,0,4,21,12,21 Q 17,21,17,16 Q 17,11,12,11 Q 18,11,18,6 L 18,5 Q 18,0,13,0'/>
+			<glyph unicode='C' horiz-adv-x='21' d='M 11,21 Q 17,21,18,16 M 18,5 Q 17,0,11,0 Q 3,0,3,9 L 3,12 Q 3,21,11,21'/>
+			<glyph unicode='D' horiz-adv-x='21' d='M 11,0 L 4,0,4,21,11,21 Q 18,21,18,12 L 18,9 Q 18,0,11,0'/>
+			<glyph unicode='E' horiz-adv-x='19' d='M 17,21 L 4,21,4,0,17,0 M 4,11 L 12,11'/>
+			<glyph unicode='F' horiz-adv-x='18' d='M 17,21 L 4,21,4,0 M 4,11 L 12,11'/>
+			<glyph unicode='G' horiz-adv-x='21' d='M 11,21 Q 17,21,18,16 M 13,8 L 18,8,18,5 Q 17,0,11,0 Q 3,0,3,9 L 3,12 Q 3,21,11,21'/>
+			<glyph unicode='H' horiz-adv-x='22' d='M 4,21 L 4,0 M 18,21 L 18,0 M 4,11 L 18,11'/>
+			<glyph unicode='I' horiz-adv-x='8' d='M 4,21 L 4,0'/>
+			<glyph unicode='J' horiz-adv-x='16' d='M 12,21 L 12,5 Q 12,0,7,0 Q 2,0,2,5 L 2,7'/>
+			<glyph unicode='K' horiz-adv-x='21' d='M 4,21 L 4,0 M 18,21 L 4,7 M 9,12 L 18,0'/>
+			<glyph unicode='L' horiz-adv-x='17' d='M 4,21 L 4,0,16,0'/>
+			<glyph unicode='M' horiz-adv-x='24' d='M 4,0 L 4,21,12,0,20,21,20,0'/>
+			<glyph unicode='N' horiz-adv-x='22' d='M 4,0 L 4,21,18,0,18,21'/>
+			<glyph unicode='O' horiz-adv-x='22' d='M 11,21 Q 19,21,19,12 L 19,9 Q 19,0,11,0 Q 3,0,3,9 L 3,12 Q 3,21,11,21'/>
+			<glyph unicode='P' horiz-adv-x='21' d='M 4,10 L 13,10 Q 18,10,18,15 L 18,16 Q 18,21,13,21 L 4,21,4,0'/>
+			<glyph unicode='Q' horiz-adv-x='22' d='M 11,21 Q 19,21,19,12 L 19,9 Q 19,0,11,0 Q 3,0,3,9 L 3,12 Q 3,21,11,21 M 12,4 L 18,-2'/>
+			<glyph unicode='R' horiz-adv-x='21' d='M 4,10 L 13,10 Q 18,10,18,15 L 18,16 Q 18,21,13,21 L 4,21,4,0 M 13,10 L 18,0'/>
+			<glyph unicode='S' horiz-adv-x='20' d='M 16,18 Q 15,21,10,21 Q 5,21,4,17 Q 3,12,7,11 L 13,10 Q 18,9,17,4 Q 16,0,10,0 Q 4,0,3,4'/>
+			<glyph unicode='T' horiz-adv-x='16' d='M 8,21 L 8,0 M 1,21 L 15,21'/>
+			<glyph unicode='U' horiz-adv-x='22' d='M 4,21 L 4,6 Q 4,0,11,0 Q 18,0,18,6 L 18,21'/>
+			<glyph unicode='V' horiz-adv-x='18' d='M 1,21 L 9,0,17,21'/>
+			<glyph unicode='W' horiz-adv-x='24' d='M 2,21 L 7,0,12,21,17,0,22,21'/>
+			<glyph unicode='X' horiz-adv-x='20' d='M 3,21 L 17,0 M 17,21 L 3,0'/>
+			<glyph unicode='Y' horiz-adv-x='18' d='M 1,21 L 9,11,17,21 M 9,11 L 9,0'/>
+			<glyph unicode='Z' horiz-adv-x='20' d='M 3,21 L 17,21,3,0,17,0'/>
+			<glyph unicode='[' horiz-adv-x='14' d='M 11,25 L 4,25,4,-7,11,-7'/>
+			<glyph unicode='&#92;' horiz-adv-x='14' d='M 0,21 L 14,-3'/>
+			<glyph unicode=']' horiz-adv-x='14' d='M 3,25 L 10,25,10,-7,3,-7'/>
+			<glyph unicode='^' horiz-adv-x='16' d='M 3,16 L 8,21,13,16'/>
+			<glyph unicode='_' horiz-adv-x='16' d='M 0,-2 L 16,-2'/>
+			<glyph unicode='`' horiz-adv-x='10' d='M 6,21 L 5,20,4,18,4,16,5,15,6,16,5,17'/>
+			<glyph unicode='a' horiz-adv-x='19' d='M 15,14 L 15,0 M 10,14 L 9,14 Q 3,14,3,7 Q 3,0,9,0 L 10,0 Q 13,0,15,2 M 15,12 Q 13,14,10,14'/>
+			<glyph unicode='b' horiz-adv-x='19' d='M 4,21 L 4,0 M 10,14 L 9,14 Q 6,14,4,12 M 4,2 Q 6,0,9,0 L 10,0 Q 16,0,16,7 Q 16,14,10,14'/>
+			<glyph unicode='c' horiz-adv-x='18' d='M 10,14 L 9,14 Q 3,14,3,7 Q 3,0,9,0 L 10,0 Q 14,0,15,3 M 15,11 Q 14,14,10,14'/>
+			<glyph unicode='d' horiz-adv-x='19' d='M 15,21 L 15,0 M 10,14 L 9,14 Q 3,14,3,7 Q 3,0,9,0 L 10,0 Q 13,0,15,2 M 15,12 Q 13,14,10,14'/>
+			<glyph unicode='e' horiz-adv-x='18' d='M 9,14 Q 3,14,3,7 Q 3,0,9,0 L 10,0 Q 14,0,15,3 M 3,8 L 15,8 Q 15,14,9,14'/>
+			<glyph unicode='f' horiz-adv-x='12' d='M 10,21 Q 5,21,5,17 L 5,0 M 2,14 L 9,14'/>
+			<glyph unicode='g' horiz-adv-x='19' d='M 15,14 L 15,-2 Q 15,-7,10,-7 Q 7,-7,6,-6 M 10,14 L 9,14 Q 3,14,3,7 Q 3,0,9,0 L 10,0 Q 13,0,15,2 M 15,12 Q 13,14,10,14'/>
+			<glyph unicode='h' horiz-adv-x='19' d='M 4,21 L 4,0 M 4,10 Q 6,14,11,14 Q 15,14,15,10 L 15,0'/>
+			<glyph unicode='i' horiz-adv-x=' 8' d='M 3,21 L 4,20,5,21,4,22,3,21 M 4,14 L 4,0'/>
+			<glyph unicode='j' horiz-adv-x='10' d='M 5,21 L 6,20,7,21,6,22,5,21 M 6,14 L 6,-3 Q 6,-8,1,-7'/>
+			<glyph unicode='k' horiz-adv-x='17' d='M 4,21 L 4,0 M 14,14 L 4,4 M 8,8 L 15,0'/>
+			<glyph unicode='l' horiz-adv-x=' 8' d='M 4,21 L 4,0'/>
+			<glyph unicode='m' horiz-adv-x='26' d='M 4,14 L 4,0 M 4,10 Q 6,14,10,14 Q 13,14,13,10 L 13,0 M 13,10 Q 15,14,19,14 Q 22,14,22,10 L 22,0'/>
+			<glyph unicode='n' horiz-adv-x='19' d='M 4,14 L 4,0 M 4,10 Q 6,14,11,14 Q 15,14,15,10 L 15,0'/>
+			<glyph unicode='o' horiz-adv-x='19' d='M 10,14 L 9,14 Q 3,14,3,7 Q 3,0,9,0 L 10,0 Q 16,0,16,7 Q 16,14,10,14'/>
+			<glyph unicode='p' horiz-adv-x='19' d='M 4,14 L 4,-7 M 10,14 L 9,14 Q 6,14,4,12 M 4,2 Q 6,0,9,0 L 10,0 Q 16,0,16,7 Q 16,14,10,14'/>
+			<glyph unicode='q' horiz-adv-x='19' d='M 15,14 L 15,-7 M 10,14 L 9,14 Q 3,14,3,7 Q 3,0,9,0 L 10,0 Q 13,0,15,2 M 15,12 Q 13,14,10,14'/>
+			<glyph unicode='r' horiz-adv-x='13' d='M 4,14 L 4,0 M 4,8 Q 5,14,12,14'/>
+			<glyph unicode='s' horiz-adv-x='16' d='M 13,11 Q 13,14,8,14 Q 3,14,3,11 Q 3,8,8,7 Q 13,6,13,3 Q 13,0,8,0 Q 3,0,3,3'/>
+			<glyph unicode='t' horiz-adv-x='12' d='M 5,21 L 5,4 Q 5,-1,10,0 M 2,14 L 9,14'/>
+			<glyph unicode='u' horiz-adv-x='19' d='M 4,14 L 4,4 Q 4,0,8,0 Q 13,0,15,4 M 15,14 L 15,0'/>
+			<glyph unicode='v' horiz-adv-x='16' d='M 2,14 L 8,0,14,14'/>
+			<glyph unicode='w' horiz-adv-x='22' d='M 3,14 L 7,0,11,14,15,0,19,14'/>
+			<glyph unicode='x' horiz-adv-x='17' d='M 3,14 L 14,0 M 14,14 L 3,0'/>
+			<glyph unicode='y' horiz-adv-x='16' d='M 2,14 L 8,0 M 14,14 L 8,0 Q 5,-7,1,-7'/>
+			<glyph unicode='z' horiz-adv-x='17' d='M 3,14 L 14,14,3,0,14,0'/>
+			<glyph unicode='{' horiz-adv-x='14' d='M 9,25 Q 5,24,5,20 Q 5,17,7,16 Q 9,15,8,12 Q 7,9,4,9 Q 7,9,8,6 Q 9,3,7,2 Q 5,1,5,-2 Q 5,-6,9,-7'/>
+			<glyph unicode='|' horiz-adv-x=' 8' d='M 4,25 L 4,-7'/>
+			<glyph unicode='}' horiz-adv-x='14' d='M 5,25 Q 9,24,9,20 Q 9,17,7,16 Q 5,15,6,12 Q 7,9,10,9 Q 7,9,6,6 Q 5,3,7,2 Q 9,1,9,-2 Q 9,-6,5,-7'/>
+			<glyph unicode='~' horiz-adv-x='24' d='M 3,6 Q 3,12,10,10 L 14,8 Q 21,4,21,10'/>
+			<glyph unicode=' ' horiz-adv-x='16' d='M 0,0' />
+			<glyph unicode='¡' horiz-adv-x='10' d='M 5,10 L 5,-4 M 5,17 L 4,16,5,15,6,16,5,17'/>
+			<glyph unicode='¢' horiz-adv-x='18' d='M 9,14 L 9,18 M 9,0 L 9,-4 M 10,14 L 9,14 Q 3,14,3,7 Q 3,0,9,0 L 10,0 Q 14,0,15,3 M 15,11 Q 14,14,10,14'/>
+			<glyph unicode='£' horiz-adv-x='18' d='M 4,11 L 13,11 M 16,18 Q 15,21,11,21 Q 5,21,6,16 Q 7,8,6,2 Q 5,0,4,0 L 16,0'/>
+			<glyph unicode='¤' horiz-adv-x='19' d='M 15,3 L 17,1 M 15,13 L 17,15 M 5,3 L 3,1 M 5,13 L 3,15 M 10,14 Q 4,14,4,8 Q 4,2,10,2 Q 16,2,16,8 Q 16,14,10,14'/>
+			<glyph unicode='¥' horiz-adv-x='18' d='M 4,7 L 14,7 M 4,11 L 14,11 M 1,21 L 9,11,17,21 M 9,11 L 9,0'/>
+			<glyph unicode='¦' horiz-adv-x=' 8' d='M 4,25 L 4,12 M 4,6 L 4,-7'/>
+			<glyph unicode='§' horiz-adv-x='20' d='M 16,18 Q 16,21,10,21 Q 4,21,4,18 Q 4,15,10,14 Q 16,13,16,10 Q 16,6,10,7 M 10,14 Q 4,15,4,11 Q 4,8,10,7 Q 16,6,16,3 Q 16,0,10,0 Q 4,0,4,3'/>
+			<glyph unicode='¨' horiz-adv-x='16' d='M 4,25 L 4,23 M 12,25 L 12,23'/>
+			<glyph unicode='©' horiz-adv-x='27' d='M 18,13 Q 17,15,14,15 Q 9,15,9,11 L 9,10 Q 9,6,14,6 Q 17,6,18,8 M 24,10 Q 24,0,14,0 L 13,0 Q 3,0,3,10 L 3,11 Q 3,21,13,21 L 14,21 Q 24,21,24,11 L 24,10'/>
+			<glyph unicode='ª' horiz-adv-x='14' d='M 4,12 L 10,12 M 10,21 L 10,15 M 4,18 Q 4,15,7,15 Q 10,15,10,18 Q 10,21,7,21 Q 4,21,4,18'/>
+			<glyph unicode='«' horiz-adv-x='24' d='M 12,16 L 3,9,12,2 M 21,16 L 12,9,21,2'/>
+			<glyph unicode='¬' horiz-adv-x='22' d='M 4,12 L 18,12,18,8'/>
+			<glyph unicode='­' horiz-adv-x='22' d='M 4,9 L 18,9'/>
+			<glyph unicode='®' horiz-adv-x='27' d='M 9,6 L 9,15,16,15 M 9,10 L 16,10,18,6 M 16,10 Q 18,10,18,12 L 18,13 Q 18,15,16,15 M 24,10 Q 24,0,14,0 L 13,0 Q 3,0,3,10 L 3,11 Q 3,21,13,21 L 14,21 Q 24,21,24,11 L 24,10'/>
+			<glyph unicode='¯' horiz-adv-x='16' d='M 0,24 L 16,24'/>
+			<glyph unicode='°' horiz-adv-x='10' d='M 3,23 Q 3,21,5,21 Q 7,21,7,23 Q 7,25,5,25 Q 3,25,3,23'/>
+			<glyph unicode='±' horiz-adv-x='22' d='M 11,18 L 11,6 M 4,12 L 18,12 M 4,2 L 18,2'/>
+			<glyph unicode='²' horiz-adv-x='14' d='M 10,11 L 4,11 Q 4,15,7,15 Q 10,15,10,18 Q 10,21,7,21 Q 4,21,4,18'/>
+			<glyph unicode='³' horiz-adv-x='14' d='M 4,14 Q 4,11,7,11 Q 10,11,10,14 Q 10,17,7,17 L 10,21,4,21'/>
+			<glyph unicode='´' horiz-adv-x='19' d='M 9,18 L 12,20'/>
+			<glyph unicode='µ' horiz-adv-x='19' d='M 4,14 L 4,-6 M 4,4 Q 4,0,8,0 Q 13,0,15,4 M 15,14 L 15,0'/>
+			<glyph unicode='¶' horiz-adv-x='18' d='M 8,11 Q 3,11,3,16 Q 3,21,9,21 M 9,0 L 9,21,15,21,15,0'/>
+			<glyph unicode='·' horiz-adv-x='10' d='M 5,14 L 4,13,5,12,6,13,5,14'/>
+			<glyph unicode='¸' horiz-adv-x='18' d='M 10,0 L 10,-2,7,-4'/>
+			<glyph unicode='¹' horiz-adv-x='10' d='M 4,19 L 6,21,6,11'/>
+			<glyph unicode='º' horiz-adv-x='14' d='M 4,12 L 10,12 M 4,18 Q 4,15,7,15 Q 10,15,10,18 Q 10,21,7,21 Q 4,21,4,18'/>
+			<glyph unicode='»' horiz-adv-x='24' d='M 3,16 L 12,9,3,2 M 12,16 L 21,9,12,2'/>
+			<glyph unicode='¼' horiz-adv-x='24' d='M 4,19 L 6,21,6,11 M 16,15 L 6,5 M 19,0 L 19,10,14,4,20,4'/>
+			<glyph unicode='½' horiz-adv-x='24' d='M 4,19 L 6,21,6,11 M 16,15 L 6,5 M 20,0 L 14,0 Q 14,4,17,4 Q 20,4,20,7 Q 20,10,17,10 Q 14,10,14,7'/>
+			<glyph unicode='¾' horiz-adv-x='24' d='M 4,14 Q 4,11,7,11 Q 10,11,10,14 Q 10,17,7,17 L 10,21,4,21 M 18,15 L 8,5 M 19,0 L 19,10,14,4,20,4'/>
+			<glyph unicode='¿' horiz-adv-x='18' d='M 9,21 L 8,20,9,19,10,20,9,21 M 9,14 L 9,10 Q 3,10,3,5 Q 3,0,9,0 Q 15,0,15,5'/>	
+			<glyph unicode='À' horiz-adv-x='18' d='M 7,25 L 10,23 M 1,0 L 9,21,17,0 M 4,7 L 14,7'/>
+			<glyph unicode='Á' horiz-adv-x='18' d='M 8,23 L 11,25 M 1,0 L 9,21,17,0 M 4,7 L 14,7'/>
+			<glyph unicode='Â' horiz-adv-x='18' d='M 7,23 L 9,25,11,23 M 1,0 L 9,21,17,0 M 4,7 L 14,7'/>
+			<glyph unicode='Ã' horiz-adv-x='18' d='M 6,23 L 8,25,10,23,12,25 M 1,0 L 9,21,17,0 M 4,7 L 14,7'/>
+			<glyph unicode='Ä' horiz-adv-x='18' d='M 5,25 L 5,23 M 13,25 L 13,23 M 1,0 L 9,21,17,0 M 4,7 L 14,7'/>
+			<glyph unicode='Å' horiz-adv-x='18' d='M 7,23 Q 7,21,9,21 Q 11,21,11,23 Q 11,25,9,25 Q 7,25,7,23 M 1,0 L 9,21,17,0 M 4,7 L 14,7'/>
+			<glyph unicode='Æ' horiz-adv-x='18' d='M 9,21 L 1,0 M 4,7 L 9,7 M 9,21 L 9,0 M 9,21 L 17,21 M 9,11 L 17,11 M 9,0 L 17,0'/>
+			<glyph unicode='Ç' horiz-adv-x='21' d='M 11,0 L 11,-2,8,-4 M 11,21 Q 17,21,18,16 M 18,5 Q 17,0,11,0 Q 3,0,3,9 L 3,12 Q 3,21,11,21'/>
+			<glyph unicode='È' horiz-adv-x='19' d='M 7,25 L 10,23 M 17,21 L 4,21,4,0,17,0 M 4,11 L 12,11'/>
+			<glyph unicode='É' horiz-adv-x='19' d='M 9,23 L 12,25 M 17,21 L 4,21,4,0,17,0 M 4,11 L 12,11'/>
+			<glyph unicode='Ê' horiz-adv-x='19' d='M 8,23 L 10,25,12,23 M 17,21 L 4,21,4,0,17,0 M 4,11 L 12,11'/>
+			<glyph unicode='Ë' horiz-adv-x='19' d='M 6,25 L 6,23 M 15,25 L 15,23 M 17,21 L 4,21,4,0,17,0 M 4,11 L 12,11'/>
+			<glyph unicode='Ì' horiz-adv-x='8' d='M 3,25 L 6,23 M 4,21 L 4,0'/>
+			<glyph unicode='Í' horiz-adv-x='8' d='M 2,23 L 5,25 M 4,21 L 4,0'/>
+			<glyph unicode='Î' horiz-adv-x='8' d='M 2,23 L 4,25,6,23 M 4,21 L 4,0'/>
+			<glyph unicode='Ï' horiz-adv-x='8' d='M 2,25 L 2,23 M 6,25 L 6,23 M 4,21 L 4,0'/>
+			<glyph unicode='Ð' horiz-adv-x='21' d='M 2,10 L 11,10 M 11,0 L 4,0,4,21,11,21 Q 18,21,18,12 L 18,9 Q 18,0,11,0'/>
+			<glyph unicode='Ñ' horiz-adv-x='22' d='M 8,23 L 10,25,12,23,14,25 M 4,0 L 4,21,18,0,18,21'/>
+			<glyph unicode='Ò' horiz-adv-x='22' d='M 8,25 L 11,23 M 11,21 Q 19,21,19,12 L 19,9 Q 19,0,11,0 Q 3,0,3,9 L 3,12 Q 3,21,11,21'/>
+			<glyph unicode='Ó' horiz-adv-x='22' d='M 10,23 L 13,25 M 11,21 Q 19,21,19,12 L 19,9 Q 19,0,11,0 Q 3,0,3,9 L 3,12 Q 3,21,11,21'/>
+			<glyph unicode='Ô' horiz-adv-x='22' d='M 9,23 L 11,25,13,23 M 11,21 Q 19,21,19,12 L 19,9 Q 19,0,11,0 Q 3,0,3,9 L 3,12 Q 3,21,11,21'/>
+			<glyph unicode='Õ' horiz-adv-x='22' d='M 8,23 L 10,25,12,23,14,25 M 11,21 Q 19,21,19,12 L 19,9 Q 19,0,11,0 Q 3,0,3,9 L 3,12 Q 3,21,11,21'/>
+			<glyph unicode='Ö' horiz-adv-x='22' d='M 6,25 L 6,23 M 16,25 L 16,23 M 11,21 Q 19,21,19,12 L 19,9 Q 19,0,11,0 Q 3,0,3,9 L 3,12 Q 3,21,11,21'/>
+			<glyph unicode='×' horiz-adv-x='12' d='M 2,16 L 10,6 M 10,16 L 2,6'/>
+			<glyph unicode='Ø' horiz-adv-x='22' d='M 3,1 L 19,20 M 11,21 Q 19,21,19,12 L 19,9 Q 19,0,11,0 Q 3,0,3,9 L 3,12 Q 3,21,11,21'/>
+			<glyph unicode='Ù' horiz-adv-x='22' d='M 8,25 L 11,23 M 4,21 L 4,6 Q 4,0,11,0 Q 18,0,18,6 L 18,21'/>
+			<glyph unicode='Ú' horiz-adv-x='22' d='M 10,23 L 13,25 M 4,21 L 4,6 Q 4,0,11,0 Q 18,0,18,6 L 18,21'/>
+			<glyph unicode='Û' horiz-adv-x='22' d='M 9,23 L 11,25,13,23 M 4,21 L 4,6 Q 4,0,11,0 Q 18,0,18,6 L 18,21'/>
+			<glyph unicode='Ü' horiz-adv-x='22' d='M 7,25 L 7,23 M 15,25 L 15,23 M 4,21 L 4,6 Q 4,0,11,0 Q 18,0,18,6 L 18,21'/>
+			<glyph unicode='Ý' horiz-adv-x='18' d='M 8,23 L 11,25 M 1,21 L 9,11,9,0 M 17,21 L 9,11'/>
+			<glyph unicode='Þ' horiz-adv-x='19' d='M 4,18 L 4,-5 M 4,14 L 9,14 Q 16,14,16,7 Q 16,0,9,0 L 4,0'/>
+			<glyph unicode='ß' horiz-adv-x='21' d='M 8,0 L 11,0 Q 17,0,17,5 L 17,6 Q 17,10,11,12 Q 16,13,16,16 Q 16,21,10,21 Q 4,21,4,16 L 4,0'/>
+			<glyph unicode='à' horiz-adv-x='19' d='M 7,20 L 10,18 M 15,14 L 15,0 M 10,14 L 9,14 Q 3,14,3,7 Q 3,0,9,0 L 10,0 Q 13,0,15,2 M 15,12 Q 13,14,10,14'/>
+			<glyph unicode='á' horiz-adv-x='19' d='M 9,18 L 12,20 M 15,14 L 15,0 M 10,14 L 9,14 Q 3,14,3,7 Q 3,0,9,0 L 10,0 Q 13,0,15,2 M 15,12 Q 13,14,10,14'/>
+			<glyph unicode='â' horiz-adv-x='19' d='M 7,18 L 9,20,11,18 M 15,14 L 15,0 M 10,14 L 9,14 Q 3,14,3,7 Q 3,0,9,0 L 10,0 Q 13,0,15,2 M 15,12 Q 13,14,10,14'/>
+			<glyph unicode='ã' horiz-adv-x='19' d='M 7,18 L 9,20,11,18,13,20 M 15,14 L 15,0 M 10,14 L 9,14 Q 3,14,3,7 Q 3,0,9,0 L 10,0 Q 13,0,15,2 M 15,12 Q 13,14,10,14'/>
+			<glyph unicode='ä' horiz-adv-x='19' d='M 4,20 L 4,18 M 15,20 L 15,18 M 15,14 L 15,0 M 10,14 L 9,14 Q 3,14,3,7 Q 3,0,9,0 L 10,0 Q 13,0,15,2 M 15,12 Q 13,14,10,14'/>
+			<glyph unicode='å' horiz-adv-x='19' d='M 7,18 Q 7,16,9,16 Q 11,16,11,18 Q 11,20,9,20 Q 7,20,7,18 M 15,14 L 15,0 M 10,14 L 9,14 Q 3,14,3,7 Q 3,0,9,0 L 10,0 Q 13,0,15,2 M 15,12 Q 13,14,10,14'/>
+			<glyph unicode='æ' horiz-adv-x='21' d='M 11,14 L 11,0 M 11,8 L 18,8 Q 18,14,12,14 L 9,14 Q 3,14,3,7 Q 3,0,9,0 L 13,0 Q 17,0,18,3'/>
+			<glyph unicode='ç' horiz-adv-x='18' d='M 10,0 L 10,-2,7,-4 M 10,14 L 9,14 Q 3,14,3,7 Q 3,0,9,0 L 10,0 Q 14,0,15,3 M 15,11 Q 14,14,10,14'/>
+			<glyph unicode='è' horiz-adv-x='18' d='M 7,20 L 10,18 M 9,14 Q 3,14,3,7 Q 3,0,9,0 L 10,0 Q 14,0,15,3 M 3,8 L 15,8 Q 15,14,9,14'/>
+			<glyph unicode='é' horiz-adv-x='18' d='M 9,18 L 12,20 M 9,14 Q 3,14,3,7 Q 3,0,9,0 L 10,0 Q 14,0,15,3 M 3,8 L 15,8 Q 15,14,9,14'/>
+			<glyph unicode='ê' horiz-adv-x='18' d='M 7,18 L 9,20,11,18 M 9,14 Q 3,14,3,7 Q 3,0,9,0 L 10,0 Q 14,0,15,3 M 3,8 L 15,8 Q 15,14,9,14'/>
+			<glyph unicode='ë' horiz-adv-x='18' d='M 4,20 L 4,18 M 15,20 L 15,18 M 9,14 Q 3,14,3,7 Q 3,0,9,0 L 10,0 Q 14,0,15,3 M 3,8 L 15,8 Q 15,14,9,14'/>
+			<glyph unicode='ì' horiz-adv-x='8' d='M 3,20 L 6,18 M 4,14 L 4,0'/>
+			<glyph unicode='í' horiz-adv-x='8' d='M 2,18 L 5,20 M 4,14 L 4,0'/>
+			<glyph unicode='î' horiz-adv-x='8' d='M 2,18 L 4,20,6,18 M 4,14 L 4,0'/>
+			<glyph unicode='ï' horiz-adv-x='8' d='M 2,20 L 2,18 M 6,20 L 6,18 M 4,14 L 4,0'/>
+			<glyph unicode='ð' horiz-adv-x='19' d='M 8,17 L 10,21 M 7,20 L 11,18 Q 16,16,16,8 M 10,14 L 9,14 Q 3,14,3,7 Q 3,0,9,0 L 10,0 Q 16,0,16,7 Q 16,14,10,14'/>
+			<glyph unicode='ñ' horiz-adv-x='19' d='M 7,18 L 9,20,11,18,13,20 M 4,14 L 4,0 M 4,10 Q 6,14,11,14 Q 15,14,15,10 L 15,0'/>
+			<glyph unicode='ò' horiz-adv-x='19' d='M 7,20 L 10,18 M 10,14 L 9,14 Q 3,14,3,7 Q 3,0,9,0 L 10,0 Q 16,0,16,7 Q 16,14,10,14'/>
+			<glyph unicode='ó' horiz-adv-x='19' d='M 9,18 L 12,20 M 10,14 L 9,14 Q 3,14,3,7 Q 3,0,9,0 L 10,0 Q 16,0,16,7 Q 16,14,10,14'/>
+			<glyph unicode='ô' horiz-adv-x='19' d='M 7,18 L 9,20,11,18 M 10,14 L 9,14 Q 3,14,3,7 Q 3,0,9,0 L 10,0 Q 16,0,16,7 Q 16,14,10,14'/>
+			<glyph unicode='õ' horiz-adv-x='19' d='M 7,18 L 9,20,11,18,13,20 M 10,14 L 9,14 Q 3,14,3,7 Q 3,0,9,0 L 10,0 Q 16,0,16,7 Q 16,14,10,14'/>
+			<glyph unicode='ö' horiz-adv-x='19' d='M 4,20 L 4,18 M 15,20 L 15,18 M 10,14 L 9,14 Q 3,14,3,7 Q 3,0,9,0 L 10,0 Q 16,0,16,7 Q 16,14,10,14'/>
+			<glyph unicode='÷' horiz-adv-x='18' d='M 9,15 L 9,14 M 4,9 L 14,9 M 9,4 L 9,3'/>
+			<glyph unicode='ø' horiz-adv-x='19' d='M 3,1 L 15,14 M 10,14 L 9,14 Q 3,14,3,7 Q 3,0,9,0 L 10,0 Q 16,0,16,7 Q 16,14,10,14'/>
+			<glyph unicode='ù' horiz-adv-x='19' d='M 7,20 L 10,18 M 4,14 L 4,4 Q 4,0,8,0 Q 13,0,15,4 M 15,14 L 15,0'/>
+			<glyph unicode='ú' horiz-adv-x='19' d='M 9,18 L 12,20 M 4,14 L 4,4 Q 4,0,8,0 Q 13,0,15,4 M 15,14 L 15,0'/>
+			<glyph unicode='û' horiz-adv-x='19' d='M 7,18 L 9,20,11,18 M 4,14 L 4,4 Q 4,0,8,0 Q 13,0,15,4 M 15,14 L 15,0'/>
+			<glyph unicode='ü' horiz-adv-x='19' d='M 4,20 L 4,18 M 15,20 L 15,18 M 4,14 L 4,4 Q 4,0,8,0 Q 13,0,15,4 M 15,14 L 15,0'/>
+			<glyph unicode='ý' horiz-adv-x='16' d='M 7,18 L 10,20 M 2,14 L 8,0 M 14,14 L 8,0 Q 5,-7,1,-7'/>
+			<glyph unicode='þ' horiz-adv-x='19' d='M 4,21 L 4,-7 M 10,14 L 9,14 Q 6,14,4,12 M 4,2 Q 6,0,9,0 L 10,0 Q 16,0,16,7 Q 16,14,10,14'/>
+			<glyph unicode='ÿ' horiz-adv-x='16' d='M 2,20 L 2,18 M 14,20 L 14,18 M 2,14 L 8,0 M 14,14 L 8,0 Q 5,-7,1,-7'/>
+		</font>
+	</defs>
+</svg>

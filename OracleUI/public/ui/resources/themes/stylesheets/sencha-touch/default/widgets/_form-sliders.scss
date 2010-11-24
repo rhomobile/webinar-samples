@@ -1,0 +1,132 @@
+@import '../global';
+
+$form_slider_size: .8em;
+
+@mixin sencha-form-sliders {
+
+  .x-slider {
+    position: relative;
+    height: $thumbsize;
+    margin: $form_spacing;
+    min-height: 0;
+  }
+  
+  .x-thumb {
+    position: absolute;
+    height: $thumbsize;
+    width: $thumbsize;
+    
+    // The actual thumb
+    &:before {
+      @include insertion($togglesize, $togglesize, $thumbspace, $thumbspace);
+      border: .1em solid darken($form_light, 30%);
+      @include border-radius($togglesize/2);
+      // overflow: visible;
+      @include bg_gradient($form_light);
+      -webkit-box-shadow: inset rgba(#fff, .5) 0 0 .1em, inset rgba(#fff, .3) 0 -.1em 0;
+      @include background-clip(padding-box);
+    }
+
+    &.x-dragging {
+      &:before {
+        @include bg_gradient(darken($form_light, 5%));
+      }
+      opacity: 1;
+    }
+    
+    // Used to animate the thumb. class added/removed by javascript when needed.
+    &.x-animate {
+      -webkit-transition: left .2s ease-in-out;
+    }
+  }
+  
+  .x-input-slider {
+    width: auto;
+  }
+  
+  
+  // Create the slider track
+  .x-input-slider:after {
+    @include insertion(auto, $form_slider_size, $togglesize / 2 - $form_slider_size/2 + $form_spacing/2 - $thumbspace / 2, 0);
+    right: 0;
+    margin: 0 $togglesize/2;
+    @include bg_gradient($form_light, 'recessed');
+    border: .1em solid rgba(#000, .1);
+    border-bottom: 0;
+    -webkit-box-shadow: rgba(#fff,.7) 0 .1em 0;
+    @include border-radius($form_slider_size/2);
+  }
+  
+  .x-field-toggle, .x-field-slider {
+    background-color: #fff;
+    @extend .x-input-el;
+  }
+
+  .x-field-toggle .x-slider {
+    padding: 0 .3em;
+    width: $thumbsize * 2;
+    @include border-radius($thumbsize/2);
+    overflow: hidden;
+    border: .1em solid darken($form_light, 15%);
+    -webkit-transform: translate3d(0px, 0px, 0px);
+    @include bg_gradient($form_light, 'recessed');
+    z-index: 2;
+    
+    // Masking the slider doesn't work in iOS 3, so we're fake-masking the outer area
+    // UPDATED: Doesnt fly on Android...
+    // &:after {
+    //   @include insertion($thumbsize*2, $thumbsize, 0, 0);
+    //   -webkit-mask: theme_image($theme_name, "trackmask_outer.png");
+    //   background-color: white;
+    //   -webkit-mask-size: $thumbsize*2 $thumbsize;
+    //   pointer-events: none;
+    //   z-index: 4;
+    // }
+    
+    .x-thumb {
+      
+      .x-toggle-thumb-off, .x-toggle-thumb-on {
+        display: none;
+      }
+
+      &.x-dragging {
+        opacity: 1;
+      }
+      
+      &:before {
+        top: ($thumbsize - $togglesize) / 2;
+      }
+      
+      // Actual thumb
+      // &:after {
+      //   @include insertion($thumbsize, $thumbsize, 0, 0);
+      //   -webkit-box-shadow: rgba(0,0,0,.5) 0 0 .15em;
+      //   @include border-radius($thumbsize/2);
+      //   -webkit-transform: scale(.65);
+      //   @include bg_gradient($complement_light, 'glossy');
+      //   border: 1px solid $complement;
+      //   overflow: visible;
+      //   z-index: 2;
+      // }
+      
+      // &.x-dragging {
+      //   &:after {
+      //     -webkit-transform: scale(.75);
+      //   }
+      // }
+      // 
+      // Used to animate the thumb. class added/removed by javascript when needed.
+      // &.x-animate {
+      //   -webkit-transition: left .2s ease-in-out;
+      // }
+    }
+    
+    &.x-toggle-on {
+      @include bg_gradient($bright_color, 'recessed');
+    }
+  }
+
+  .x-android .x-field-toggle .x-slider {
+    -webkit-transform: translate(0px, 0px);
+  }
+}

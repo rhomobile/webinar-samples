@@ -1,0 +1,33 @@
+# Startup page for your application
+start_path = '/app/Settings/my_login'
+
+# Path to the options page (in this case handled by javascript)
+options_path = '/app/Settings'
+
+# Location of bundle url (i.e. from rhohub.com)
+rhobundle_zip_url = ''
+
+# Optional password to access bundle (usually not required)
+rhobundle_zip_pwd = nil
+
+# Rhodes runtime properties
+MinSeverity  = 0
+LogToOutput = 1
+LogCategories = *
+ExcludeLogCategories =
+KeepTrackOfLastVisitedPage = 0 
+LastVisitedPage = ''
+MaxLogSize=0
+# Sync server url. Typically this will look like 'http://<hostname>:<port>/application'
+# For example: 'http://localhost:9292/application'
+syncserver = 'http://rhohub-allennguyen-eb10e829.rhosync.com/application'
+
+# To disable auto sync, uncomment the following line.
+# sync_poll_interval=0
+
+logserver = 'http://rhologs.heroku.com'
+logname='TheOracle'
+
+# Hides forward button and animates back button transition
+jqtouch_mode=0
+local_server_port=2000

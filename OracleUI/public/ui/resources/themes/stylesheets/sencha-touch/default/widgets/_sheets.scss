@@ -1,0 +1,22 @@
+@import '../global';
+
+$sheet_bg_color: transparentize(darken($base_color, 40%), .1);
+$sheet_button_spacing: .5em;
+
+$sheet_padding: .7em;
+
+@mixin sencha-sheet {
+  .x-sheet {
+    padding: $sheet_padding;
+    border-top: 1px solid darken($base_color, 30%);
+    @include bg_gradient($sheet_bg_color, 'bevel');
+
+    .x-sheet-body .x-button {
+      margin-bottom: $sheet_button_spacing;
+    }
+  }
+
+  .x-sheet-body {
+    position: relative;
+  }
+}

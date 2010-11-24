@@ -1,0 +1,80 @@
+@import '../global';
+
+@mixin sencha-carousel {
+
+  $carousel_indicator_size: .5em !default;
+  $carousel_indicator_spacing: .2em !default;
+  $carousel_track_size: 1.5em !default;
+  
+  .x-carousel-body {
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .x-carousel-item {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-transform: translate3d(0px, 0px, 0px);
+    
+    // This declares the default state (non-moving) for carousel items
+    @include transition(translate3d, 0, ease-out);
+  }
+  
+  .x-android .x-carousel-item {
+    -webkit-transform: translate(0px, 0px);
+    @include transition(translate, 0, ease-out);
+  }
+
+  .x-carousel-indicator {
+    position: absolute;
+    z-index: 1;
+    vertical-align: middle;
+    text-align: center;
+    @include display-box;
+    @include box-pack(center);
+    @include box-align(center);
+
+    span {
+      display: block;
+      width: $carousel_indicator_size;
+      height: $carousel_indicator_size;
+      @include border-radius($carousel_indicator_size / 2);
+      margin: $carousel_indicator_spacing;
+    }
+  }
+  
+  .x-carousel-indicator-horizontal {
+    height: $carousel_track_size;
+    bottom: 0;
+    left: 0;      
+    width: 100%;
+    @include box-orient(horizontal);
+  }
+  
+  .x-carousel-indicator-vertical {
+    width: $carousel_track_size;
+    height: 100%;
+    right: 0;
+    top: 0;
+    @include box-orient(vertical);
+  }
+  
+  $indicator_light: rgba(#fff, .1);
+  $indicator_light_active: rgba(#fff, .3);
+  $indicator_dark: rgba(#000, .1);
+  $indicator_dark_active: rgba(#000, .3);
+
+  @include sencha-carousel-indicator-ui('light', $indicator_light, 'flat', $indicator_light_active, 'flat');
+  @include sencha-carousel-indicator-ui('dark', $indicator_dark, 'flat', $indicator_dark_active, 'flat');
+}
+
+@mixin sencha-carousel-indicator-ui($ui_label, $color, $gradient, $active_color, $active_gradient) {
+  .x-carousel-indicator-#{$ui_label} span {
+    @include bg_gradient($color, $gradient);
+    
+    &.x-carousel-indicator-active {
+      @include bg_gradient($active_color, $active_gradient)
+    }
+  }
+}

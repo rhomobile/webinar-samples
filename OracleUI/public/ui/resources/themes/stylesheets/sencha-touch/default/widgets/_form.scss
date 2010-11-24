@@ -1,0 +1,362 @@
+@import '../global';
+@import 'form-sliders';
+
+$form_bg_color: #eee;
+$form_light: #ddd;
+$form_dark: #333;
+
+$form_input_fields: '.x-input-text, .x-input, .x-input-number, .x-spinner-body, .x-input-radio, .x-input-checkbox, .x-input-email, .x-input-url, .x-input-password, .x-input-slider';
+$form_masked_fields: '.x-input-radio, .x-input-checkbox';
+$form_scrollable_fields: '.x-field-slider, .x-field-toggle, .x-field-checkbox, .x-field-radio';
+
+$form_label_width: 6em !default;
+$form_field_height: 2.5em !default;
+
+$form_spacing: .6em;
+
+$thumbsize: 2.2em !default;
+$togglesize: $thumbsize - .35em;
+$checkheight: $thumbsize - 1em;
+$thumbspace: ( $thumbsize - $togglesize ) / 2;
+
+$form_fieldset_radius: .4em !default;
+
+@mixin label {
+  text-shadow: #fff 0 1px 1px;
+  color: $form_dark; 
+}
+
+@mixin sencha-form($include_sliders: $include_form_sliders) {
+  
+  .x-form .x-panel-body {
+    padding: 1em;
+    background-color: $form_bg_color;
+  }
+  
+  .x-input-el {
+    min-height: $form_field_height;
+    width: 100%;
+    display: block;
+    background: #fff none;
+    -webkit-appearance: none;
+  }
+  
+  .x-field {
+    overflow: hidden;
+    position: relative;
+    min-height: $form_field_height;
+    border-bottom: 1px solid $form_light;
+    
+    input, textarea, select, .x-field-slider {
+      @extend .x-input-el;
+      @include border-radius(0);
+      padding: .4em;
+      border: 0;
+    }
+  }
+  
+  .x-field:last-child {
+    border-bottom: 0;
+  }
+  
+  .x-field-mask {
+    @include stretch;
+  }
+  
+  #{$form_scrollable_fields} {
+    .x-field-mask {
+      @extend .x-hidden-display;
+    }
+  }
+
+  // Hidden fields
+
+  .x-field-hidden {
+    @extend .x-hidden-display;
+  }
+
+  .x-form-fieldset {
+    
+    margin: 1em 0 1.5em;
+    
+    .x-panel-body {
+      border: 1px solid $form_light;
+      padding: 0;
+      @if $include_highlights {
+        -webkit-box-shadow: rgba(255,255,255,.7) 0 1px 0;
+      }
+      @include border-radius($form_fieldset_radius);
+      overflow: hidden;
+    }
+  }
+  
+  .x-form-fieldset-title {
+    @include label;
+    margin: 1em ( $form_spacing + .1em ) .3em;
+    color: $form_dark;
+    font-weight: bold;
+  }
+  
+  .x-form-fieldset-instructions {
+    @include label;
+    color: lighten($form_dark, 30%);
+    margin: 1em ( $form_spacing + .1em ) .3em;
+    font-size: .8em;
+    text-align: center;
+  }
+  
+  .x-form-label {
+    @include label;
+    @include bevel_text('light');
+    background-color: lighten($form_light, 10%);
+    padding: $form_spacing;
+    border-top: 1px solid lighten($form_light, 20%);
+    display: block;
+
+    span {
+      font-size: .8em;
+      font-weight: bold;
+    }
+  }
+  
+  .x-field {
+    @include display-box;
+  }
+  
+  #{$form_input_fields} {
+    @include box-flex(1);
+  }
+  
+  .x-label-align-left, .x-label-align-right {
+    @include box-orient(horizontal);
+    @include box-align(stretch);
+    
+    label {
+      width: $form_label_width;
+    }
+  }
+  
+  // Round the corners on fieldsets.
+  // Warning: It ain't pretty
+  
+  $form_rounded_elements: #{$form_input_fields};
+  
+  .x-form-fieldset .x-field:first-child {
+    #{$form_rounded_elements}, &.x-field-toggle, &.x-field-slider {
+      @include border-top-radius($form_fieldset_radius);
+    }
+  }
+  .x-form-fieldset .x-field:last-child {
+    #{$form_rounded_elements}, &.x-field-toggle, &.x-field-slider {
+      @include border-bottom-radius($form_fieldset_radius);
+    }
+  }
+  
+  .x-form-fieldset .x-label-align-left {
+    &:first-child {
+      .x-form-label {
+        @include border-top-left-radius($form_fieldset_radius);
+      }
+      #{$form_rounded_elements}, &.x-field-toggle, &.x-field-slider {
+        @include border-top-left-radius(0);
+      }
+    }
+    &:last-child {
+      .x-form-label {
+        @include border-bottom-left-radius($form_fieldset_radius);
+      }
+      #{$form_rounded_elements}, &.x-field-toggle, &.x-field-slider {
+        @include border-bottom-left-radius(0);
+      }
+    }
+  }
+  
+  .x-label-align-right {
+    @include box-direction(reverse);
+    @include box-pack(end);
+  }
+  
+  .x-form-fieldset .x-label-align-right {
+    &:first-child {
+      .x-form-label {
+        @include border-top-right-radius($form_fieldset_radius);
+      }
+      #{$form_rounded_elements} {
+        @include border-top-right-radius(0);
+      }
+    }
+    &:last-child {
+      .x-form-label {
+        @include border-bottom-right-radius($form_fieldset_radius);
+      }
+      #{$form_rounded_elements} {
+        @include border-bottom-right-radius(0);
+      }
+    }
+  }
+  
+  .x-label-align-top, .x-label-align-bottom {
+    @include box-orient(vertical);
+  }
+  .x-label-align-bottom {
+    @include box-direction(reverse);
+  }
+  
+  // Required fields
+  
+  .x-field-required {
+    label:after {
+      content: "*";
+      display: inline;
+    }
+    label {
+      // color: $base_color;
+    }
+  }
+
+  // Create the dropdown arrow
+  // for select fields
+  .x-field-select {
+    
+    // Tip
+    &:after {
+      @include insertion(0,0,0,auto);
+      right: 0;
+      position: absolute;
+      display: block;
+      margin: 1em;
+      border: .4em solid transparent;
+      border-top-color: $form_light;
+      z-index: 1;
+    }
+
+    &.x-label-align-right:after {
+      right: $form_label_width;
+    }
+
+    &.x-label-align-top:after {
+      top: auto;
+      bottom: 0;
+    }
+  }
+  
+  .x-item-disabled {
+    label span, input, .x-spinner-body, select, textarea {
+      opacity: .5;
+    }
+  }
+  
+  .x-field-textarea {
+    textarea {
+      min-height: $txtareaheight;
+      padding-top: .5em;
+    }
+  }
+  
+  .x-field .x-input-radio, .x-field .x-input-checkbox {
+    &:after {
+      @include insertion(1.3em, 1.3em, .8em, auto);
+      right: $form_spacing;
+      -webkit-mask: theme-image($theme_name, 'check.png') no-repeat;
+      -webkit-mask-size: 1.3em auto;
+      @include bg_gradient($form_light, 'flat');
+    }
+    
+    &:checked:after {
+      @include bg_gradient($active_color, 'flat');
+    }
+  }
+  
+  .x-label-align-right .x-input-radio:after, .x-label-align-right .x-input-checkbox:after {
+    right: auto;
+    left: $form_spacing;
+  }
+
+  // Spinner
+  .x-spinner {
+    border-bottom: 1px solid $form_light;
+  }
+  
+  .x-spinner .x-spinner-body {
+    @include display-box;
+    @include box-direction(normal);
+  }
+  
+  .x-spinner-body {
+    @include box-orient(horizontal);
+    @include box-align(stretch);
+    width: 100%;
+    text-align: center;
+    
+    span {
+      font-size: 1.3em;
+      font-weight: bold;
+      @include bevel_text('light');
+    }
+    
+    input {
+      width: 3em;
+      padding: 0;
+      border-right: 0;
+      border-left: 0;
+      @include border-radius(0);
+      border-color: $form_light;
+      text-align: center;
+    }
+
+    .x-spinner-down, .x-spinner-up {
+      @include box-flex(1);
+      font-weight: bold;
+      padding: .3em 0;
+      @include toolbar_button($form_light);
+    }
+    .x-spinner-down {
+      border-left: 0;
+    }
+    .x-spinner-up {
+      border-right: 0;
+    }
+  }
+
+  $form_clear_size: 1.1em;
+
+  .x-field-clear {
+    width: $form_clear_size;
+    height: $form_clear_size;
+    @include border-radius($form_clear_size/2);
+    background-color: rgba(#000, .15);
+    color: #fff;
+    position: absolute;
+    font-weight: bold;
+    line-height: .9em;
+    text-align: center;
+  }
+  
+  .x-field-clearable input.x-field-clearable {
+    padding-right: $form_clear_size + $form_spacing;
+  }
+
+  .x-label-align-left, .x-label-align-top, .x-label-align-bottom {
+    .x-field-clear {
+      right: .4em;
+      top: .7em;
+    }
+  }
+  .x-label-align-top .x-field-clear {
+    top: auto;
+    bottom: .7em;
+  }
+  
+  .x-label-align-right .x-field-clear {
+    top: $form_spacing;
+    right: $form_spacing + $form_label_width;
+  }
+
+  @if $include_sliders {
+    @include sencha-form-sliders;
+  }
+  
+  .x-select-overlay {
+    min-width: 200px;
+  }
+}

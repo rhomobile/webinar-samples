@@ -1,0 +1,185 @@
+body {
+  height: 747px;
+  overflow: hidden;
+}
+
+.contacts {
+  border-right: 1px solid #000;
+  margin-top: 42px;
+}
+
+.contacts .x-tabbar {
+}
+
+.x-indexbar span {
+  padding: 4px;
+}
+
+.x-list .x-disclosure,
+.x-list .x-item-selected .x-disclosure {
+  top: 0;
+  left: 0;
+  width: 225px;
+  height: 80px;
+  background: none;
+}
+
+.x-toolbar .x-field {
+  margin: 6px;
+}
+
+.position {
+  font-size: 12px;
+}
+
+.x-panel.network-popup {
+  margin: -35px 0 0 100px;
+}
+
+.x-panel.network-popup .x-html {
+  padding: 0;
+}
+
+.x-panel.contact-info {
+}
+
+.x-panel.contact-info > .x-toolbar {
+	background-color: #1d5e96;
+  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, color-stop(0%, #69aae3), color-stop(2%, #2578c1), color-stop(100%, #174b78));
+  background-image: linear-gradient(top, #69aae3 0%, #2578c1 2%, #174b78 100%);
+}
+
+.x-panel.contact-info .x-anchor-left {
+  margin-left: -9px;
+}
+
+.x-panel.contact-info .x-toolbar-title {
+  text-align: left;
+  padding-left: 15px;
+}
+
+.workspace {
+  margin-left: 250px;
+}
+
+.tray {
+  margin-left: 250px;
+}
+
+.tray .x-tabbar {
+	padding: 0;
+}
+
+.workspace.call-activity {
+	margin-left: 0;
+}
+
+#placeable {
+  -webkit-border-radius: 10px;
+  margin: 3px;
+  border: 2px dashed #c7c7c7;
+  width: 99%;
+  height: 122px;
+  overflow: hidden;
+}
+
+#placeable .placed {
+  width: 180px;
+  height: 115px;
+  color: #fff;
+  float: left;
+  margin: 1px 5px 1px 1px;
+  padding: 10px;
+  font-weight: bold;
+  
+  -webkit-border-radius: 8px;
+  background-image: -webkit-gradient(
+      linear,
+      left bottom,
+      left top,
+      color-stop(0.48, rgb(255,170,0)),
+      color-stop(1, rgb(255,207,112))
+  );
+}
+
+#placeable .placed .name,
+.workspace .calendar .hour .placed .name {
+  font-weight: bold;
+}
+
+#placeable .placed .position {
+  font-size: 20px;
+	opacity: 0.8;
+}
+
+#placeable .placed.selected {
+  width: 180px;
+  height: 115px;
+  color: #fff;
+  float: left;
+  margin: 1px 5px 1px 1px;
+  padding: 10px;
+  font-weight: bold;
+  
+  -webkit-border-radius: 8px;
+  background-image: -webkit-gradient(
+      linear,
+      left bottom,
+      left top,
+      color-stop(0.48, rgb(45,92,22)),
+      color-stop(1, rgb(81,158,74))
+  );
+}
+
+#placeable .placed-selected .name,
+.workspace .calendar .hour .placed .name {
+  font-weight: bold;
+}
+
+#placeable .placed-selected .position {
+  font-size: 20px;
+  opacity: 0.8;
+}
+
+.workspace .calendar .hour {
+  width: 99%;
+  height: 50px;
+  border-bottom: 2px dashed #c7c7c7;
+  margin: 3px;
+}
+
+.workspace .calendar .hour .label {
+  color: #a1a1a1;
+  font-size: 20px;
+  padding: 3px;
+  float: left;
+  width: 120px;
+}
+
+.workspace .calendar .hour .placed {
+  width: 600px;
+  height: 45px;
+  color: #fff;
+  float: right;
+  margin: 1px 5px 1px 10px;
+  padding: 5px 5px 5px 10px;
+  font-weight: bold;
+  
+  -webkit-border-radius: 8px;
+  background-image: -webkit-gradient(
+      linear,
+      left bottom,
+      left top,
+      color-stop(0.21, rgb(45,92,22)),
+      color-stop(1, rgb(81,158,74))
+  );
+}
+
+.workspace .calendar .hour .placed .position {
+  font-size: 12px;
+  color: #bdeaaa;
+}
+
+#network-map {
+	margin: 5px;
+}

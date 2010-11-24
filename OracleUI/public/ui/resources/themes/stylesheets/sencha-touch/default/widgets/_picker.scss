@@ -1,0 +1,112 @@
+@import '../global';
+
+@mixin sencha-picker {
+  $picker_row_height: 2.5em;
+  $picker_active_border: .12em solid $active_color;
+  
+  $picker_sheet_radius: .4em;
+
+  $picker_title_color: darken(desaturate($base_color, 10%), 25%) !default;
+  $picker_title_bg_color: lighten(saturate($base_color, 10%), 5%) !default;
+  $picker_title_bg_gradient: $base_gradient !default;
+  $picker_highlights: $include_highlights !default;
+  
+  .x-sheet.x-picker {
+    padding: 0;
+  }
+  
+  .x-sheet.x-picker > .x-sheet-body {
+    position: relative;
+    background-color: #fff;
+    @include border-radius($picker_sheet_radius);
+    @include background-clip(padding-box);
+    overflow: hidden;
+    margin: $sheet_padding;
+
+    &:before, &:after {
+      z-index: 1;
+      @include insertion(100%, 30%, 0, 0);
+    }
+    @if $include_highlights {
+      &:before {
+        top: auto;
+        @include border-bottom-radius($picker_sheet_radius);
+        bottom: 0;
+        @include linear-gradient(color-stops(#fff, #bbb));
+      }
+      &:after {
+        @include border-top-radius($picker_sheet_radius);
+        @include linear-gradient(color-stops(#bbb, #fff));
+      }
+    }
+  }
+
+  .x-picker-mask {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 3;
+    @include display-box;
+    @include box-align(stretch);
+    @include box-orient(vertical);
+    @include box-pack(center);
+    pointer-events: none;
+  }
+
+  .x-picker-bar {
+    border-top: $picker_active_border;
+    border-bottom: $picker_active_border;
+    height: $picker_row_height;
+    @include bg_gradient(rgba(21, 108, 182, 0.55), 'glossy');
+    @if $include_highlights {
+      -webkit-box-shadow: rgba(#000,0.2) 0 .2em .2em;
+    }
+  }
+  
+  .x-picker-slot {
+    z-index: 2;
+    @if $include_highlights {
+      -webkit-box-shadow: rgba(#000,.4) -1px 0 1px;
+    }
+    &:first-child {
+      -webkit-box-shadow: none;
+    }
+  }
+  
+  .x-picker-slot-title {
+    @include bg_gradient($picker_title_bg_color, $picker_title_bg_gradient);
+    border-top: 1px solid $picker_title_bg_color;  
+    border-bottom: 1px solid darken($picker_title_bg_color, 20%);  
+    font-weight: bold;
+    font-size: 0.8em;
+    color: $picker_title_color;
+    padding: 0.2em 1.02em;
+    @if $picker_highlights {
+      -webkit-box-shadow: 0px .1em .3em rgba(0, 0, 0, 0.3);
+      @include bevel_text('light');
+    }
+  }
+  
+  .x-picker-item {
+    vertical-align: middle;
+    height: $picker_row_height;
+    line-height: $picker_row_height;
+    font-weight: bold;
+    padding: 0 10px 0 10px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+  
+  .x-picker-right {
+      text-align: right;
+  }
+  .x-picker-center {
+      text-align: center;
+  }
+  .x-picker-left {
+      text-align: left;
+  }
+}

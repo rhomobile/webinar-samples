@@ -1,0 +1,57 @@
+@import '../global';
+
+$toolbar_input_bg: #f6f6f6;
+$toolbar_input_color: #000;
+$toolbar_input_height: 1.5em;
+
+@mixin sencha-toolbar-forms {
+  .x-toolbar {
+    
+    .x-field {
+      margin: .3em .5em;
+      min-height: 0;
+      border-bottom: 0;
+    }
+    
+    .x-input-text, .x-input-search {
+      height: $toolbar_input_height;
+      min-height: 0;
+      line-height: 1.3em;
+      -webkit-appearance: none;
+      @include border-radius(.3em);
+      @include bg_gradient($toolbar_input_bg, 'recessed');
+      padding: .2em;
+      margin: 0;
+      @include background-clip(padding-box);
+      -webkit-box-shadow: inset rgba(#000, .5) 0 .3em .8em;
+      color: lighten($toolbar_input_color, 50%);
+      border: .1em solid rgba(#000, .3);
+      @include bevel_box('light');
+      
+      &:focus {
+        color: $toolbar_input_color;
+      }
+    }
+    
+    .x-input-search, .x-field-select .x-input-text {
+      padding: .2em $toolbar_input_height/4;
+      @include border-radius($toolbar_input_height/2);
+    }
+    
+    .x-field-select {
+      &:after {
+        top: -.5em;
+        right: -.5em;
+      }
+      .x-input-text {
+        display: block;
+        padding-right: 2em;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+      }
+      
+    }
+
+  }
+}
