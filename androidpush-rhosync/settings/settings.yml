@@ -1,0 +1,18 @@
+#Sources 
+:sources: 
+  Product: 
+    :poll_interval: 300
+ 
+:test: 
+  :syncserver: http://localhost:9292/application/
+  :licensefile: settings/license.key
+  :redis: localhost:6379
+:production: 
+  :syncserver: http://localhost:9292/application/
+  :licensefile: settings/license.key
+  :redis: localhost:6379
+:development: 
+  :syncserver: http://localhost:9292/application/
+  :licensefile: settings/license.key
+  :redis: localhost:6379
+  :authtoken: DQAAAKcAAACxakiZPufSW8c7NJbQ_UqbOk3eAGMU1nirgdcbIN-zKlBIg47-b2H2cmCvnlFQ_9TZxtKHVcLLqRxuO5i6nPaYbwM-XlhjmWnY8aQN4X8Xc40TgIHKkVwLW4BNvUEH5R7oefk9hG5chwLgcuGVHPFpVxUDDS50J8eI7ZVAjz5p05vWTp9lMwpbLkIbwx-umiAZuRUFqhrlY1MJJKwP-KVtYuRF1Dy-vO9pLbDalce_Aw

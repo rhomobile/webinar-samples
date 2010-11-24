@@ -1,0 +1,36 @@
+<div id="pageTitle">
+	<h1><%= @scontact.name%></h1>
+</div>
+
+<div id="toolbar">
+        <%= link_to "Back", :action => :index %>
+        <%= link_to "Edit", :action => :edit, :id => @scontact.object %>
+</div>
+
+
+<div id="content">
+
+    <table>
+      
+      <tr>
+    	<td class="itemLabel">Name</td>
+        <td class="itemValue"><%= @scontact.name%></td>
+      </tr>
+      
+      <tr>
+    	<td class="itemLabel">Phone</td>
+        <td class="itemValue"><%= @scontact.phone%></td>
+      </tr>
+      
+      <tr>
+    	<td class="itemLabel">Email</td>
+        <td class="itemValue"><%= @scontact.email%></td>
+      </tr>
+      
+      <tr>
+    	<td class="itemLabel">AccountId</td>
+        <td class="itemValue"><%= @scontact.account_id%></td>
+      </tr>
+      
+    </table>
+</div>

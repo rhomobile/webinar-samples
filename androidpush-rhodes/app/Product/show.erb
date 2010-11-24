@@ -1,0 +1,43 @@
+<div class="pageTitle">
+  <h1><%= @product.name %></h1>
+</div>
+
+<div class="toolbar">
+  <div class="leftItem backButton">
+    <a href="<%= url_for :action => :index %>">Back</a>
+  </div>
+  <div class="rightItem regularButton">
+    <a href="<%= url_for :action => :edit, :id => @product.object %>">Edit</a>
+  </div>
+</div>
+
+<div class="content">
+  <ul>
+    
+        <li>
+          <div class="itemLabel">Name</div>
+          <div class="itemValue"><%= @product.name %></div>
+        </li>
+    
+        <li>
+          <div class="itemLabel">Brand</div>
+          <div class="itemValue"><%= @product.brand %></div>
+        </li>
+    
+        <li>
+          <div class="itemLabel">Price</div>
+          <div class="itemValue"><%= @product.price %></div>
+        </li>
+    
+        <li>
+          <div class="itemLabel">Quantity</div>
+          <div class="itemValue"><%= @product.quantity %></div>
+        </li>
+    
+        <li>
+          <div class="itemLabel">Sku</div>
+          <div class="itemValue"><%= @product.sku %></div>
+        </li>
+    
+  </ul>
+</div>

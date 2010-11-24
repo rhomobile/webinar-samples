@@ -1,0 +1,19 @@
+#Sources 
+:sources: 
+  Scontact: 
+    :poll_interval: 300
+  Saccount: 
+    :poll_interval: 300
+ 
+:test: 
+  :licensefile: settings/license.key
+  :redis: localhost:6379
+  :syncserver: http://localhost:9292/application/
+:production: 
+  :licensefile: settings/license.key
+  :redis: localhost:6379
+  :syncserver: http://localhost:9292/application/
+:development: 
+  :licensefile: settings/license.key
+  :redis: localhost:6379
+  :syncserver: http://localhost:9292/application/

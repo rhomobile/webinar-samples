@@ -1,0 +1,39 @@
+<div class="pageTitle">
+  <h1><%= @saccount.name %></h1>
+</div>
+
+<div class="toolbar">
+  <div class="leftItem backButton">
+    <a href="<%= url_for :action => :index %>">Back</a>
+  </div>
+  <div class="rightItem regularButton">
+    <a href="<%= url_for :action => :edit, :id => @saccount.object %>">Edit</a>
+  </div>
+</div>
+
+<div class="content">
+  <ul>
+    
+        <li>
+          <div class="itemLabel">Name</div>
+          <div class="itemValue"><%= @saccount.name %></div>
+        </li>
+    
+        <li>
+          <div class="itemLabel">Phone</div>
+          <div class="itemValue"><%= @saccount.phone %></div>
+        </li>
+    
+        <li>
+          <div class="itemLabel">Website</div>
+          <div class="itemValue"><%= @saccount.website %></div>
+        </li>
+
+        <li>
+          <a href="<%= url_for :controller => :Scontact, :action => :index, :query => {:account => @saccount.object} %>">
+            <span class="title">Contacts</span><span class="disclosure_indicator"></span>
+          </a>
+        </li>
+    
+  </ul>
+</div>
