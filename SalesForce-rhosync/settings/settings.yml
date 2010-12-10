@@ -1,9 +1,9 @@
 #Sources 
 :sources: 
   Scontact: 
-    :poll_interval: 300
+    :poll_interval: 0
   Saccount: 
-    :poll_interval: 300
+    :poll_interval: 0
  
 :test: 
   :licensefile: settings/license.key

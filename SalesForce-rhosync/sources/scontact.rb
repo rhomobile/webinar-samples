@@ -38,13 +38,22 @@ class Scontact < SourceAdapter
     # TODO: Create a new record in your backend data source
     # If your rhodes rhom object contains image/binary data 
     # (has the image_uri attribute), then a blob will be provided
-    raise "Please provide some code to create a single record in the backend data source using the create_hash"
+
   end
  
   def update(update_hash)
     # TODO: Update an existing record in your backend data source
-    raise "Please provide some code to update a single record in the backend data source using the update_hash"
-  end
+    contact = Contact.new
+    names = update_hash["name"].split(' ') if update_hash["name"]
+    
+    contact.id = update_hash["id"]
+    contact.firstName = names[0] if update_hash["name"]
+    contact.lastName = names[1] if update_hash["name"]
+    contact.phone = update_hash["phone"]
+    contact.email = update_hash["email"]
+    result = @force.update(Update.new([contact]))
+    puts result.inspect
+ end
  
   def delete(object_id)
     # TODO: write some code here if applicable
