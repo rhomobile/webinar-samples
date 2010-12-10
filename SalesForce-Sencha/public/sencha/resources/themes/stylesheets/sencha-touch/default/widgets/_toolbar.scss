@@ -1,0 +1,61 @@
+@import '../global';
+
+$toolbar-spacing: .2em !default;
+$toolbar-gradient: $base-gradient !default;
+$include-toolbar-uis: $include-default-uis !default;
+
+@mixin sencha-toolbar {
+  
+  .x-toolbar {
+    height: $global-row-height;
+    padding: 0 $toolbar-spacing * 2;
+    overflow: hidden;
+    position: relative;
+    
+    & > * {
+      z-index: 1;
+    }
+    
+    &.x-docked-top {
+      border-bottom: .1em solid;
+    }
+
+    &.x-docked-bottom {
+      border-top: .1em solid;
+    } 
+  }
+  
+  .x-toolbar-title {
+    @include stretch;
+    z-index: 0;
+    line-height: $global-row-height - .5em;
+    font-size: 1.2em;
+    text-align: center;
+    font-weight: bold;
+  }
+  
+  @if $include-toolbar-uis {
+    @include sencha-toolbar-ui('dark', darken($base-color, 10%));
+    @include sencha-toolbar-ui('light', $base-color);
+  }
+}
+
+@mixin sencha-toolbar-ui($ui-label, $color, $gradient: $toolbar-gradient) {
+  
+  $toolbar-border-color: darken($color, 50%);
+  $toolbar-button-color: darken($color, 10%);
+  
+  .x-toolbar-#{$ui-label} {
+    @include background-gradient($color, $gradient);
+    border-color: $toolbar-border-color;
+    
+    .x-toolbar-title {
+      @include color-by-background($color);
+      @include bevel-by-background($color);
+    }
+    
+    .x-button, .x-field-select .x-input-text {
+      @include toolbar-button($toolbar-button-color, $gradient);
+    }
+  }
+}

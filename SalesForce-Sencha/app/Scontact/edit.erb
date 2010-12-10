@@ -1,0 +1,42 @@
+<div class="pageTitle">
+  <h1>Edit <%= @scontact.name %></h1>
+</div>
+
+<div class="toolbar">
+  <div class="leftItem backButton">
+    <a href="<%= url_for :action => :show, :id => @scontact.object %>">Cancel</a>
+  </div>
+  <div class="rightItem regularButton">
+    <a class="button" href="<%= url_for :action => :delete, :id => @scontact.object %>">Delete</a>
+  </div>
+</div>
+
+<div class="content">
+  <form method="POST" action="<%= url_for :action => :update %>">
+    <input type="hidden" name="id" value="<%= @scontact.object %>"/>
+    <ul>
+      
+          <li>
+            <label for="scontact[name]" class="fieldLabel">Name</label>
+            <input type="text" name="scontact[name]" value="<%= @scontact.name %>" <%= placeholder( "Name" ) %> />
+          </li>
+      
+          <li>
+            <label for="scontact[phone]" class="fieldLabel">Phone</label>
+            <input type="text" name="scontact[phone]" value="<%= @scontact.phone %>" <%= placeholder( "Phone" ) %> />
+          </li>
+      
+          <li>
+            <label for="scontact[email]" class="fieldLabel">Email</label>
+            <input type="text" name="scontact[email]" value="<%= @scontact.email %>" <%= placeholder( "Email" ) %> />
+          </li>
+      
+          <li>
+            <label for="scontact[account_id]" class="fieldLabel">Account</label>
+            <input type="text" name="scontact[account_id]" value="<%= @scontact.account_id %>" <%= placeholder( "Account" ) %> />
+          </li>
+      
+    </ul>
+    <input type="submit" class="standardButton" value="Update"/>
+  </form>
+</div>

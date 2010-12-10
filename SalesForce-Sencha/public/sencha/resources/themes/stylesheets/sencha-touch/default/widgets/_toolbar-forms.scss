@@ -1,0 +1,58 @@
+@import '../global';
+
+$toolbar-input-bg: #f6f6f6 !default;
+$toolbar-input-color: #000 !default;
+$toolbar-input-height: 1.5em !default;
+
+@mixin sencha-toolbar-forms {
+  .x-toolbar {
+    
+    .x-field {
+      margin: .3em .5em;
+      min-height: 0;
+      border-bottom: 0;
+      width: auto;
+    }
+    
+    .x-input-text, .x-input-search, .x-input-number {
+      height: $toolbar-input-height;
+      min-height: 0;
+      line-height: 1.3em;
+      -webkit-appearance: none;
+      @include border-radius(.3em);
+      @include background-gradient($toolbar-input-bg, 'recessed');
+      padding: .2em;
+      margin: 0;
+      @include background-clip(padding-box);
+      -webkit-box-shadow: inset rgba(#000, .5) 0 .3em .8em;
+      color: lighten($toolbar-input-color, 50%);
+      border: .1em solid rgba(#000, .3);
+      @include bevel-box('light');
+      
+      &:focus {
+        color: $toolbar-input-color;
+      }
+    }
+    
+    .x-input-search, .x-field-select .x-input-text {
+      padding: .2em $toolbar-input-height/4;
+      @include border-radius($toolbar-input-height/2);
+    }
+    
+    .x-field-select {
+      &:after {
+        top: -.5em;
+        right: -.5em;
+      }
+      .x-input-text {
+        display: block;
+        padding-right: 2em;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+      }
+      
+    }
+
+  }
+}

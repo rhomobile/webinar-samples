@@ -1,0 +1,181 @@
+// Tab icons used with permission from Drew Wilson
+// http://pictos.drewwilson.com/
+// Pictos icons are (c) 2010 Drew Wilson
+
+@import '../global';
+
+$tabs-light: lighten(desaturate($base-color, 10%), 5%) !default;
+$tabs-light-active: saturate($active-color, 20%) !default;
+$tabs-dark: darken($base-color, 20%) !default;
+$tabs-dark-active-color: saturate(lighten($active-color, 30%), 70%) !default;
+
+$include-tabbar-uis: $include-default-uis !default;
+$include-top-tabs: true !default;
+$include-bottom-tabs: true !default;
+
+$tabs-bar-gradient: $base-gradient !default;
+$tabs-bottom-radius: .25em !default;
+$tabs-bottom-icon-size: 1.65em !default;
+$tabs-bottom-active-gradient: 'glossy' !default;
+
+$tabs-top-height: $global-row-height - .8em;
+
+@mixin sencha-tabs {
+  @if $include-top-tabs {
+    @include sencha-top-tabs;
+  }
+  @if $include-bottom-tabs {
+    @include sencha-bottom-tabs;
+  }
+  
+  @if $include-tabbar-uis {
+    @include sencha-tabbar-ui('light', $tabs-light, $tabs-bar-gradient, $tabs-light-active);
+    @include sencha-tabbar-ui('dark', $tabs-dark, $tabs-bar-gradient, $tabs-dark-active-color);
+  }
+  
+  // Rules for all tabs
+  .x-tab.x-item-disabled span.x-button-label, .x-tab.x-item-disabled img {
+    opacity: .5;
+  }
+  .x-tab.x-draggable {
+    opacity: .7;
+  }
+}
+
+
+@mixin sencha-top-tabs {
+  
+  .x-tabbar.x-docked-top {
+    border-bottom: .1em solid;
+    height: $global-row-height;
+    padding: 0 .8em;
+    
+    .x-tab {
+      margin: .4em .2em;
+      padding: (($tabs-top-height - 1em) / 2) .8em;
+      height: $tabs-top-height;
+      @include border-radius($tabs-top-height / 2);
+    }
+    .x-tab-active {
+      -webkit-box-shadow: rgba(#fff, .2) 0 .1em .1em, inset rgba(#000, .3) 0 .1em .2em;
+    }
+    .x-button-label {
+      font-size: .8em;
+      line-height: 1.2em;
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
+    }
+  }
+}
+
+
+@mixin sencha-bottom-tabs {
+  .x-tabbar.x-docked-bottom {
+    border-top: .1em solid;
+    height: 3em;
+    
+    .x-tab {
+      @include display-box;
+      @include box-direction(reverse);
+      @include box-orient(vertical);
+      @include border-radius($tabs-bottom-radius);
+      margin: .15em;
+      min-width: 3.3em;
+      position: relative;
+
+      img {
+        -webkit-mask-size: $tabs-bottom-icon-size;
+        width: $tabs-bottom-icon-size;
+        height: $tabs-bottom-icon-size;
+        display: block;
+        margin: .4em auto .1em;
+        position: relative;
+      }
+      
+      // Start of automatic tab icon shadows...
+      // &:before {
+      //   @include insertion;
+      //   background: red;
+      //   width: $tabs-bottom-icon-size;
+      //   height: $tabs-bottom-icon-size;
+      //   position: absolute;
+      //   top: -.1em;
+      // }
+
+      .x-button-label {
+        margin: 0;
+        font-size: 9px;
+        line-height: 12px;
+        text-rendering: optimizeLegibility;
+        -webkit-font-smoothing: antialiased;
+      }
+    }
+    
+    @if ($include-highlights) {
+      .x-tab-active {
+        -webkit-box-shadow: inset rgba(#fff, .3) 0 0 .1em;
+      }
+    }
+  }
+  
+  @if $include-default-icons {
+    @include pictos-iconmask('bookmarks');
+    @include pictos-iconmask('download');
+    @include pictos-iconmask('favorites');
+    @include pictos-iconmask('info');
+    @include pictos-iconmask('more');
+    @include pictos-iconmask('time');
+    @include pictos-iconmask('user');
+    @include pictos-iconmask('team');
+  }
+}
+
+@mixin sencha-tabbar-ui($ui-label, $bar-color, $bar-gradient, $tab-active-color) {
+  .x-tabbar-#{$ui-label} {
+    @include background-gradient($bar-color, $bar-gradient);
+    border-color: darken($bar-color, 5%);
+    
+    .x-tab {
+      @include color-by-background($bar-color, 40%);
+    }
+    
+    .x-tab-active {
+      @include color-by-background($bar-color, 90%);
+    }
+    
+    .x-tab-pressed {
+      @include color-by-background($bar-color, 100%);
+    }
+  }
+  
+  // Bottom tab colors
+  @if $include-bottom-tabs {
+    .x-tabbar-#{$ui-label}.x-docked-bottom {
+      .x-tab {
+        @include bevel-by-background($bar-color);
+        img {
+          @include mask-by-background($bar-color, 20%, $tabs-bar-gradient);
+        }
+      }
+
+      .x-tab-active {
+        @include background-gradient(lighten($bar-color, 5%), $tabs-bar-gradient);
+        @include bevel-by-background(lighten($bar-color, 10%));
+
+        img {
+          @include background-gradient($tab-active-color, $tabs-bottom-active-gradient);
+        }
+      }
+    }
+  }
+  
+  @if $include-top-tabs {
+    .x-tabbar-#{$ui-label}.x-docked-top {
+      
+      .x-tab-active {
+        @include background-gradient(darken($bar-color, 5%), 'recessed');
+        @include color-by-background(darken($bar-color, 5%));
+      }
+    }
+  }
+}

@@ -1,0 +1,12 @@
+.x-indexbar-item {
+	font-size: 0.7em;
+	line-height: 1.75em;
+}
+
+body, html {
+	overflow:hidden;
+}
+
+.detailpanel {
+	border-left: 3px solid gray;
+}

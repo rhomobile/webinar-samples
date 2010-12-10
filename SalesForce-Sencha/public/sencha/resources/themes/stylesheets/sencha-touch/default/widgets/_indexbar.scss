@@ -1,0 +1,39 @@
+@import '../global';
+
+$index-bar-width: 2.1em !default;
+$index-bar-bg-color: rgba(lighten(desaturate($base-color, 5%), 5%), .8) !default;
+$index-bar-color: darken(desaturate($base-color, 5%), 15%) !default;
+
+@mixin sencha-indexbar {
+  .x-indexbar {
+    padding: 0 .3em;
+    width: $index-bar-width;
+    @include display-box;
+    @include box-orient(vertical);
+    @include box-align(stretch);
+    @include box-pack(center);
+    position: absolute;
+    top: 1.5em;
+    right: 0;
+    bottom: 1em;
+    z-index: 3;
+  }
+  
+  .x-indexbar-body {
+    padding: .3em 0;
+  }
+  
+  .x-indexbar-pressed .x-indexbar-body {
+    @include border-radius(($index-bar-width - .6em)/2);
+    background-color: $index-bar-bg-color;
+  }
+  
+  .x-indexbar-item {
+    color: $index-bar-color;
+    font-size: 0.6em;
+    text-align: center;
+    line-height: 1.1em;
+    font-weight: bold;
+    display: block;
+  }
+}

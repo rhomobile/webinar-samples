@@ -1,0 +1,131 @@
+@import '../global';
+
+$list-color: #000 !default;
+$list-bg-color: #f7f7f7 !default;
+
+$include-list-highlights: $include-highlights !default;
+
+$list-pressed-color: lighten($active-color, 50%) !default;
+$list-active-color: $active-color !default;
+$list-active-gradient: $base-gradient !default;
+
+$list-header-color: darken(desaturate($base-color, 10%), 25%) !default;
+$list-header-bg-color: lighten(saturate($base-color, 10%), 10%) !default;
+$list-header-gradient: $base-gradient !default;
+
+$list-disclosure-size: 1.7em;
+
+@mixin sencha-list {
+  .x-list {
+    background-color: $list-bg-color;
+    position: relative;
+
+    .x-list-disclosure {
+      margin-right: 1em;
+      overflow: visible;
+      -webkit-mask: 0 0 theme_image($theme-name, "disclosure.png") no-repeat;
+      -webkit-mask-size: $list-disclosure-size;
+      @include background-gradient(saturate($active-color, 10%));
+      width: $list-disclosure-size;
+      height: $list-disclosure-size;
+    }
+    
+    &.x-list-indexed .x-list-disclosure {
+      margin-right: 2em;
+    }
+
+    .x-item-selected .x-list-disclosure {
+      background: #fff none;
+    }
+
+    .x-list-item {
+      position: relative;
+      color: $list-color;
+      padding: 0.5em 0.8em;
+      border-bottom: 1px solid darken($list-bg-color, 15%);
+      min-height: $global-row-height;
+      display: -webkit-box;
+
+      .x-list-item-body {
+/*        padding: 0.3em;*/
+        -webkit-box-flex: 1;
+      }
+      
+/*      @if $include-list-highlights {
+        border-top: 1px solid lighten($list-bg-color, 15%);
+      }*/
+      
+      span {
+        font-size: .9em;
+      }
+
+      &.x-item-pressed {
+        @if $include-list-highlights {
+          border-top-color: $list-pressed-color;
+        }
+        
+        background: $list-pressed-color none;
+      }
+      
+      &.x-item-selected {
+        @include background-gradient($list-active-color, $list-active-gradient);
+        @include color-by-background($list-active-color);
+        @include bevel-by-background($list-active-color);
+        
+        @if $include-list-highlights {
+          border-top-color: lighten($list-active-color, 10%);
+          border-bottom-color: darken($list-active-color, 15%);
+        }
+      }
+    }
+  }
+  
+  .x-list-header {   
+    @include background-gradient($list-header-bg-color, $list-header-gradient);
+    border-top: 1px solid $list-header-bg-color;  
+    border-bottom: 1px solid darken($list-header-bg-color, 20%);  
+    font-weight: bold;
+    font-size: 0.8em;
+    color: $list-header-color;
+    padding: 0.2em 1.02em;
+    @include bevel-by-background($list-header-bg-color);
+    @if $include-list-highlights {
+      -webkit-box-shadow: 0px .1em .3em rgba(0, 0, 0, 0.3);
+    }
+  }
+  
+  .x-list-header-swap {
+    z-index: 1;
+    position: absolute;
+    //-webkit-transform: translate3d(0px, 0px, 0px);
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
+  
+  .x-android .x-list-header-swap {
+    //-webkit-transform: translate(0px, 0px);
+  }
+  
+  .x-list-round {
+    background-color: darken($list-bg-color, 5%);
+    .x-list-group-items > *, 
+    &.x-list-flat .x-list-parent > * {
+      border-right: 1px solid darken($list-bg-color, 15%);
+      border-left: 1px solid darken($list-bg-color, 15%);
+      background-color: $list-bg-color;
+      margin: 0 1.2em;
+      &:first-child {
+        margin: 1.2em 1.2em 0;
+        border-top: 1px solid darken($list-bg-color, 15%);
+        @include border-top-radius(.4em);
+      }
+      &:last-child {
+        margin: 0 1.2em 1.2em;
+        border-bottom: 1px solid darken($list-bg-color, 15%);
+        @include border-bottom-radius(.4em)
+      }
+    }
+  }
+  
+}
