@@ -1,0 +1,39 @@
+<div id="pageTitle">
+		<h1>Edit <%= @scontact.name%></h1>
+</div>
+
+<div id="toolbar">
+    <%= link_to "Back", :action => :show, :id => @scontact.object %>
+    <%= link_to "Delete", :action => :delete, :id => @scontact.object %>
+</div>
+
+
+<div id="content">
+    <form method="POST" action="<%= url_for :action => :update %>">
+    	<input type="hidden" name="id" value="<%= @scontact.object %>"/>
+            <table>
+        		
+                    <tr>
+            			<td class="itemLabel">Name: </td>
+              			<td class="itemValue"><input type="text" name="scontact[name]" value="<%= @scontact.name %>"/></td>
+          		    </tr>
+        		
+                    <tr>
+            			<td class="itemLabel">Phone: </td>
+              			<td class="itemValue"><input type="text" name="scontact[phone]" value="<%= @scontact.phone %>"/></td>
+          		    </tr>
+        		
+                    <tr>
+            			<td class="itemLabel">Email: </td>
+              			<td class="itemValue"><input type="text" name="scontact[email]" value="<%= @scontact.email %>"/></td>
+          		    </tr>
+        		
+                    <tr>
+            			<td class="itemLabel">Account: </td>
+              			<td class="itemValue"><input type="text" name="scontact[account_id]" value="<%= @scontact.account_id %>"/></td>
+          		    </tr>
+        		
+            </table>
+            <input type="submit" class="standardButton" value="Update" />
+    </form>
+</div>

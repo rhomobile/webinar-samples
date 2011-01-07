@@ -21,7 +21,7 @@ LastVisitedPage = ''
 # Sync server url. Typically this will look like 'http://<hostname>:<port>/application'
 # For example: 'http://localhost:9292/application'
 #syncserver = 'http://rhohub-brian-77bb16e4.rhosync.com/application'
-syncserver = 'http://192.168.1.108:9292/application'
+syncserver = 'http://192.168.1.11:9292/application'
 
 # To disable auto sync, uncomment the following line.
 # sync_poll_interval=0

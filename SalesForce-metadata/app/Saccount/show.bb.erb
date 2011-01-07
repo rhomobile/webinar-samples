@@ -1,0 +1,31 @@
+<div id="pageTitle">
+	<h1><%= @saccount.name%></h1>
+</div>
+
+<div id="toolbar">
+        <%= link_to "Back", :action => :index %>
+        <%= link_to "Edit", :action => :edit, :id => @saccount.object %>
+</div>
+
+
+<div id="content">
+
+    <table>
+      
+      <tr>
+    	<td class="itemLabel">Name</td>
+        <td class="itemValue"><%= @saccount.name%></td>
+      </tr>
+      
+      <tr>
+    	<td class="itemLabel">Phone</td>
+        <td class="itemValue"><%= @saccount.phone%></td>
+      </tr>
+      
+      <tr>
+    	<td class="itemLabel">Website</td>
+        <td class="itemValue"><%= @saccount.website%></td>
+      </tr>
+      
+    </table>
+</div>

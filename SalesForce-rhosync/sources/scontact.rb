@@ -1,5 +1,7 @@
 gem 'soap4r'
 require 'defaultDriver'
+require 'json'
+require 'rest_client'
 
 class Scontact < SourceAdapter
   def initialize(source,credential)
@@ -9,20 +11,79 @@ class Scontact < SourceAdapter
   def login
 
     auth = ClientAuthHeaderHandler.new
-    auth.sessionid = Store.get_value("#{current_user.login}:session")
+    @sessionid = Store.get_value("#{current_user.login}:session")
+    auth.sessionid =  @sessionid
     endpoint_url = Store.get_value("#{current_user.login}:endpoint_url")
     @force = Soap.new(endpoint_url)
     @force.headerhandler << auth
 
+    resturl = endpoint_url.gsub(/services.*/,"services/data/v20.0/sobjects")
+
+    @customfields = []
+    puts "#{resturl}/Contact/describe/"
+    puts "Authorization: OAuth #{@sessionid.split('!')[1]}"
+    parsed=
+    JSON.parse(
+      RestClient.get(
+        "#{resturl}/Contact/describe/", 
+        {
+          "Accept" => "*/*", 
+          "Authorization" => "OAuth #{@sessionid.split('!')[1]}", 
+          "X-PrettyPrint" => "1"
+        }
+      ).body
+    )
+    
+    parsed["fields"].each do |field|
+      @customfields << field if field["name"] =~ /__c/
+    end
+
   end
- 
+
+  def metadata
+    show = []
+    edit = []
+    @customfields.each do |f|
+      key = f["name"]
+      key[0] = key[0,1].downcase
+      
+      field = {
+        :label => f["label"],
+        :value => "{{@scontact/#{key}}}",
+        :type => 'labeledvalueli'
+      }
+      editfield = {
+         :label => f["label"],
+         :value => "{{@scontact/#{key}}}",
+         :name => "scontact[#{key}]",
+         :type => 'labeledinputli'
+       }      
+      show << field
+      edit << editfield
+    end
+    
+    {'showfields' => {:type => 'view', :children => show}, 'editfields' => {:type => 'view', :children => edit} }.to_json
+  end
+  
   def query(params=nil)
+    
     @result = {}
     
-    querystr = QueryAll.new("SELECT Id,AccountId,Name,Phone,Email from Contact")
+    fieldquery = ""
+    @customfields.each do |f|
+      fieldquery << ",#{f["name"]}"
+    end
+    
+    querystr = QueryAll.new("SELECT Id,AccountId,Name,Phone,Email#{fieldquery} from Contact")
     contacts = @force.query(querystr).result.records
     contacts.each do |a|
-      @result[a.id] = { "id" => a.id, "name" => a.name, "phone" => a.phone, "email" => a.email, "account_id" => a.accountId } 
+      puts a.inspect
+      @result[a.id] = { "id" => a.id, "name" => a.name, "phone" => a.phone, "email" => a.email, "account_id" => a.accountId }
+      @customfields.each do |f|
+        key = f["name"]
+        key[0] = key[0,1].downcase
+        @result[a.id][f["name"]] = a[key]
+      end
     end
     
   end

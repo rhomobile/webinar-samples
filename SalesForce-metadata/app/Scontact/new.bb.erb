@@ -1,0 +1,39 @@
+<div id="pageTitle">
+    <h1>New Scontact</h1>
+</div>
+
+<div id="toolbar">
+    <%= link_to "Back", :action => :index %>
+</div>
+
+
+<div id="content">
+
+    <form method="POST" action="<%= url_for :action => :create %>">
+	    <input type="hidden" name="id" value="<%= @scontact.object %>"/>
+        <table>
+    		
+    		  <tr>
+    			  <td class="itemLabel">Name: </td>
+    			  <td class="itemValue"><input type="text" name="scontact[name]"/></td>
+    		  </tr>
+    		
+    		  <tr>
+    			  <td class="itemLabel">Phone: </td>
+    			  <td class="itemValue"><input type="text" name="scontact[phone]"/></td>
+    		  </tr>
+    		
+    		  <tr>
+    			  <td class="itemLabel">Email: </td>
+    			  <td class="itemValue"><input type="text" name="scontact[email]"/></td>
+    		  </tr>
+    		
+    		  <tr>
+    			  <td class="itemLabel">Account: </td>
+    			  <td class="itemValue"><input type="text" name="scontact[account_id]"/></td>
+    		  </tr>
+    		
+        </table>
+        <input type="submit" class="standardButton" value="Create" />
+    </form>
+</div>

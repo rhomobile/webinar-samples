@@ -17,3 +17,6 @@
   :licensefile: settings/license.key
   :redis: localhost:6379
   :syncserver: http://localhost:9292/application/
+  :iphonecertfile: settings/apple_push_cert.pem
+  :iphoneserver: gateway.sandbox.push.apple.com
+  :iphoneport: 2195

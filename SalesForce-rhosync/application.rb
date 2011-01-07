@@ -15,13 +15,15 @@ class Application < Rhosync::Base
 
       begin
         result = obj.login(login).result
-        
+        puts result.inspect
+        Store.put_value("#{username}:metadata_url",result.serverUrl)
         Store.put_value("#{username}:endpoint_url",result.serverUrl)
         Store.put_value("#{username}:session",result.sessionId)
         
         success = true
       rescue Exception => e
         puts "Login Error"
+        raise e
       end
       
       success     

@@ -11,6 +11,10 @@ class SObject
     @fieldsToNull = fieldsToNull
     @id = id
   end
+  
+  def [](variable)
+    return self.instance_variable_get "@#{variable}"
+  end
 end
 
 # {urn:sobject.enterprise.soap.sforce.com}AggregateResult

@@ -1,0 +1,45 @@
+<div class="pageTitle">
+  <h1>New <%= @scontact.title %></h1>
+</div>
+
+<div class="toolbar">
+  <div class="leftItem backButton">
+    <a class="cancel" href="<%= url_for :action => :index %>">Cancel</a>
+  </div>
+</div>
+
+<div class="content">
+  <form method="POST" action="<%= url_for :action => :create %>">
+    <input type="hidden" name="id" value="<%= @scontact.object %>"/>
+    <ul>
+      
+          <li>
+            <label for="scontact[name]" class="fieldLabel">Name</label>
+            <input type="text" name="scontact[name]" <%=
+            placeholder("Name") %> />
+          </li>
+      
+          <li>
+            <label for="scontact[phone]" class="fieldLabel">Phone</label>
+            <input type="text" name="scontact[phone]" <%=
+            placeholder("Phone") %> />
+          </li>
+      
+          <li>
+            <label for="scontact[email]" class="fieldLabel">Email</label>
+            <input type="text" name="scontact[email]" <%=
+            placeholder("Email") %> />
+          </li>
+      
+          <li>
+            <label for="scontact[account_id]" class="fieldLabel">Account</label>
+            <input type="text" name="scontact[account_id]" <%=
+            placeholder("Account") %> />
+          </li>
+
+					<%= render_metadata('editfields') %>
+      
+    </ul>
+    <input type="submit" class="standardButton" value="Create"/>
+  </form>
+</div>

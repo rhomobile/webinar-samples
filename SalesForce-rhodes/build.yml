@@ -2,7 +2,7 @@
 extensions: 
 - json
 - another-extension
-name: SalesForce-rhodes
+name: salesforce
 bbver: 4.6
 sdk: /Users/brian/work/rhodes
 applog: rholog.txt
@@ -13,7 +13,10 @@ vendor: rhomobile
 sdkversion: 2.2.3
 iphone: 
   provisionprofile: 
-  sdk: iphonesimulator4.0
+  sdk: iphoneos4.0
   entitlements: 
   codesignidentity: 
   configuration: Debug
+capabilities:
+- push
+- vibrate
