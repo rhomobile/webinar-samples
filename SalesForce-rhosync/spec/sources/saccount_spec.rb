@@ -8,7 +8,7 @@ describe "Saccount" do
   end
   
   it "should process Saccount query" do
-    Application.authenticate('brian@rhomobile.com','password123',"")
+    Application.authenticate('brian@rhomobile.com','',"")
     result = test_query
     puts test_query.inspect
     test_query.length.should > 0

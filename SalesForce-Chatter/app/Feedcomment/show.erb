@@ -1,0 +1,23 @@
+<div class="pageTitle">
+  <h1><%= @feedcomment.foo %></h1>
+</div>
+
+<div class="toolbar">
+  <div class="leftItem backButton">
+    <a href="<%= url_for :action => :index %>">Back</a>
+  </div>
+  <div class="rightItem regularButton">
+    <a href="<%= url_for :action => :edit, :id => @feedcomment.object %>">Edit</a>
+  </div>
+</div>
+
+<div class="content">
+  <ul>
+    
+        <li>
+          <div class="itemLabel">Foo</div>
+          <div class="itemValue"><%= @feedcomment.foo %></div>
+        </li>
+    
+  </ul>
+</div>

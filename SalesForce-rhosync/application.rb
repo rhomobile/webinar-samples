@@ -19,6 +19,7 @@ class Application < Rhosync::Base
         Store.put_value("#{username}:metadata_url",result.serverUrl)
         Store.put_value("#{username}:endpoint_url",result.serverUrl)
         Store.put_value("#{username}:session",result.sessionId)
+        Store.put_value("#{username}:uid",result.userId)
         
         success = true
       rescue Exception => e

@@ -1,0 +1,27 @@
+<div class="pageTitle">
+  <h1>Edit <%= @feed.foo %></h1>
+</div>
+
+<div class="toolbar">
+  <div class="leftItem backButton">
+    <a href="<%= url_for :action => :show, :id => @feed.object %>">Cancel</a>
+  </div>
+  <div class="rightItem regularButton">
+    <a class="button" href="<%= url_for :action => :delete, :id => @feed.object %>">Delete</a>
+  </div>
+</div>
+
+<div class="content">
+  <form method="POST" action="<%= url_for :action => :update %>">
+    <input type="hidden" name="id" value="<%= @feed.object %>"/>
+    <ul>
+      
+          <li>
+            <label for="feed[foo]" class="fieldLabel">Foo</label>
+            <input type="text" name="feed[foo]" value="<%= @feed.foo %>" <%= placeholder( "Foo" ) %> />
+          </li>
+      
+    </ul>
+    <input type="submit" class="standardButton" value="Update"/>
+  </form>
+</div>

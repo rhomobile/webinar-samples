@@ -1,0 +1,25 @@
+<div class="pageTitle">
+  <h1>New <%= @feedcomment.title %></h1>
+</div>
+
+<div class="toolbar">
+  <div class="leftItem backButton">
+    <a class="cancel" href="<%= url_for :action => :index %>">Cancel</a>
+  </div>
+</div>
+
+<div class="content">
+  <form method="POST" action="<%= url_for :action => :create %>">
+    <input type="hidden" name="id" value="<%= @feedcomment.object %>"/>
+    <ul>
+      
+          <li>
+            <label for="feedcomment[foo]" class="fieldLabel">Foo</label>
+            <input type="text" name="feedcomment[foo]" <%=
+            placeholder("Foo") %> />
+          </li>
+      
+    </ul>
+    <input type="submit" class="standardButton" value="Create"/>
+  </form>
+</div>

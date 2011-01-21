@@ -1,0 +1,52 @@
+.x-indexbar-item {
+	font-size: 0.7em;
+	line-height: 1.75em;
+}
+
+body, html {
+	overflow:hidden;
+}
+
+.detailpanel {
+	border-left: 3px solid gray;
+}
+
+.fieldin {
+	margin: 6px 0 0 0;
+}
+
+.statusform {
+	padding: 5px;
+}
+
+.feedlist {
+	border-top: 1px solid gray;
+}
+
+.feeditem {
+	line-height: 0.8em;
+	margin-bottom: 5px;
+}
+.creator, .message, .comments {
+	font-family: Arial, Helvetica;
+	font-size: 13px;
+	color: #222;
+}
+
+.creator {
+	font-weight: bold;
+}
+
+.comments {
+	font-style: underline;
+	color: blue;
+	margin-top: -2px;
+	margin-bottom: 2px;
+}
+
+.timestring {
+	font-family: Arial, Helvetica;
+	font-size: 11px;
+	color: #666;
+}
+
