@@ -36,3 +36,6 @@ local_server_port = 8081
 
 
 splash_screen='zoom'
+
+test_user=test@rhomobile.com
+test_password=password123

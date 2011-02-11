@@ -1,0 +1,39 @@
+<div id="pageTitle">
+		<h1>Edit <%= @issue.ticket%></h1>
+</div>
+
+<div id="toolbar">
+    <%= link_to "Back", :action => :show, :id => @issue.object %>
+    <%= link_to "Delete", :action => :delete, :id => @issue.object %>
+</div>
+
+
+<div id="content">
+    <form method="POST" action="<%= url_for :action => :update %>">
+    	<input type="hidden" name="id" value="<%= @issue.object %>"/>
+            <table>
+        		
+                    <tr>
+            			<td class="itemLabel">Ticket: </td>
+              			<td class="itemValue"><input type="text" name="issue[ticket]" value="<%= @issue.ticket %>"/></td>
+          		    </tr>
+        		
+                    <tr>
+            			<td class="itemLabel">Description: </td>
+              			<td class="itemValue"><input type="text" name="issue[description]" value="<%= @issue.description %>"/></td>
+          		    </tr>
+        		
+                    <tr>
+            			<td class="itemLabel">Status: </td>
+              			<td class="itemValue"><input type="text" name="issue[status]" value="<%= @issue.status %>"/></td>
+          		    </tr>
+        		
+                    <tr>
+            			<td class="itemLabel">Priority: </td>
+              			<td class="itemValue"><input type="text" name="issue[priority]" value="<%= @issue.priority %>"/></td>
+          		    </tr>
+        		
+            </table>
+            <input type="submit" class="standardButton" value="Update" />
+    </form>
+</div>

@@ -1,0 +1,23 @@
+<div data-role="page">
+
+<div data-role="header"  data-backbtn="false">
+  <h1>Jqmobilestore</h1>
+
+  <% if SyncEngine::logged_in > 0 %>
+      <a data-icon="check" href="<%= url_for :controller => :Settings, :action => :do_sync %>">Sync</a>
+      <a data-icon="delete" href="<%= url_for :controller => :Settings, :action => :logout %>">Logout</a>
+  <% else %>
+      <a data-icon="gear"  class="ui-btn-right" href="<%= url_for :controller => :Settings, :action => :login %>">Login</a>
+  <% end %>
+</div>
+
+<div data-role="content">
+  <ul data-role="listview">
+    <li>
+      <a href="/app/Product"><span class="title">Products</span></a>
+    </li>
+  </ul>
+</div>
+
+	
+</div><!-- /page -->

@@ -24,10 +24,19 @@ class Feed < SourceAdapter
  
   def query(params=nil)
     #pull the comments and the feeds
-    requesturl = @resturl + "/query/?q=" + CGI::escape("SELECT Id,ParentId,Parent.Type,Parent.Name,Type,CreatedDate,CreatedBy.name,FeedPost.body,FeedPost.Title,FeedPost.LinkURL,(SELECT FieldName,OldValue,NewValue FROM FeedTrackedChanges),(SELECT Id,CommentBody,CreatedDate,CreatedById,CreatedBy.FirstName,CreatedBy.LastName,FeedItemId FROM FeedComments ORDER BY CreatedDate) FROM NewsFeed ORDER BY CreatedDate DESC")
-    
-    raw_data = RestClient.get(requesturl, @restheaders).body
-    
+    requesturl = @resturl + "/query/?q=" + CGI::escape("SELECT Id,ParentId,Parent.Type,Parent.Name,Type,CreatedDate,CreatedBy.name,FeedPost.body,FeedPost.Title,FeedPost.LinkURL,(SELECT FieldName,OldValue,NewValue FROM FeedTrackedChanges),(SELECT Id,CommentBody,CreatedDate,CreatedById,CreatedBy.FirstName,CreatedBy.LastName,FeedItemId FROM FeedComments ORDER BY CreatedDate) FROM NewsFeed ORDER BY CreatedDate DESC LIMIT 999")
+
+    raw_data = RestClient.get(requesturl, @restheaders) do |response,request, result, &block| 
+        case response.code 
+        when 200 
+          p "It worked !" 
+          response.body
+        when 400
+          p "It failed !"
+          p response.body
+          raise "400 error"
+        end
+    end
     #store in the redis datastore for the feedcomment adapter
     Store.put_value("#{current_user.login}:feeddata", raw_data)
 

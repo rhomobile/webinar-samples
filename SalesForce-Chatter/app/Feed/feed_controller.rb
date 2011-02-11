@@ -1,5 +1,6 @@
 require 'rho/rhocontroller'
 require 'helpers/browser_helper'
+require 'json'
 
 class FeedController < Rho::RhoController
   include BrowserHelper

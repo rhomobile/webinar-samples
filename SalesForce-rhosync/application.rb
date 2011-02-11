@@ -15,7 +15,7 @@ class Application < Rhosync::Base
 
       begin
         result = obj.login(login).result
-        puts result.inspect
+        #puts result.inspect
         Store.put_value("#{username}:metadata_url",result.serverUrl)
         Store.put_value("#{username}:endpoint_url",result.serverUrl)
         Store.put_value("#{username}:session",result.sessionId)

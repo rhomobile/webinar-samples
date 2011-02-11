@@ -1,0 +1,44 @@
+<div data-role="page"  data-cache="never">
+
+<div data-role="header">
+  <h1><%= @product.name %></h1>
+	<a data-icon="back"  href="<%= url_for :action => :index %>">Back</a>
+
+  <a data-icon="check" class="ui-btn-right" href="<%= url_for :action => :edit, :id => @product.object %>">Edit</a>
+</div>
+
+<div data-role="content">
+	<ul data-role="listview" >
+		<li>
+					<div class="ui-grid-a">
+	          <div class="ui-block-a"><b>Name</b></div>
+	          <div class="ui-block-b"><%= @product.name %></div>
+					</div>
+		</li>
+		<li>
+					<div class="ui-grid-a">
+	          <div class="ui-block-a"><b>Brand</b></div>
+	          <div class="ui-block-b"><%= @product.brand %></div>
+					</div>
+				</li>
+				<li>
+					<div class="ui-grid-a">
+	          <div class="ui-block-a"><b>Price</b></div>
+	          <div class="ui-block-b"><%= @product.price %></div>
+					</div>
+				</li>
+				<li>
+					<div class="ui-grid-a">
+	          <div class="ui-block-a"><b>Quantity</b></div>
+	          <div class="ui-block-b"><%= @product.quantity %></div>
+					</div>
+				</li>
+				<li>
+					<div class="ui-grid-a">
+          	<div class="ui-block-a"><b>Sku</b></div>
+	          <div class="ui-block-b"><%= @product.sku %></div>
+					</div>
+				</li>
+		</ul>
+</div>
+</div>

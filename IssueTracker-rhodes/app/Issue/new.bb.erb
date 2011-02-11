@@ -1,0 +1,39 @@
+<div id="pageTitle">
+    <h1>New Issue</h1>
+</div>
+
+<div id="toolbar">
+    <%= link_to "Back", :action => :index %>
+</div>
+
+
+<div id="content">
+
+    <form method="POST" action="<%= url_for :action => :create %>">
+	    <input type="hidden" name="id" value="<%= @issue.object %>"/>
+        <table>
+    		
+    		  <tr>
+    			  <td class="itemLabel">Ticket: </td>
+    			  <td class="itemValue"><input type="text" name="issue[ticket]"/></td>
+    		  </tr>
+    		
+    		  <tr>
+    			  <td class="itemLabel">Description: </td>
+    			  <td class="itemValue"><input type="text" name="issue[description]"/></td>
+    		  </tr>
+    		
+    		  <tr>
+    			  <td class="itemLabel">Status: </td>
+    			  <td class="itemValue"><input type="text" name="issue[status]"/></td>
+    		  </tr>
+    		
+    		  <tr>
+    			  <td class="itemLabel">Priority: </td>
+    			  <td class="itemValue"><input type="text" name="issue[priority]"/></td>
+    		  </tr>
+    		
+        </table>
+        <input type="submit" class="standardButton" value="Create" />
+    </form>
+</div>

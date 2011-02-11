@@ -1,0 +1,20 @@
+<!DOCTYPE html> 
+<html> 
+	<head> 
+	<title>Store</title> 
+	<link rel="stylesheet" href="/public/jquery.mobile-1.0a3.min.css" />
+	<script type="text/javascript" src="/public/jquery-1.5.min.js"></script>
+	<script type="text/javascript">
+	$(document).bind("mobileinit", function(){
+	  $.extend(  $.mobile , {
+	    loadingMessage: false
+	  });
+	});
+	</script>	<script type="text/javascript" src="/public/jquery.mobile-1.0a3.min.js"></script>
+
+</head> 
+<body>
+    <%= @content %>
+</body>
+
+</html>

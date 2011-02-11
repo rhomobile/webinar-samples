@@ -1,0 +1,23 @@
+<div data-role="page">
+
+<div data-role="header">
+  <h1>Products</h1>
+  <a data-icon="back"  href="<%= Rho::RhoConfig.start_path %>">Home</a>
+  <a data-icon="check" href="<%= url_for :action => :new %>">New</a>
+</div>
+
+<div data-role="content">
+  <ul  data-role="listview">
+    <% @products.each do |product| %>
+    
+        <li>
+          <a href="<%= url_for :action => :show, :id => product.object %>">
+            <span class="title"><%= product.name %></span></span>
+          </a>
+        </li>
+    
+    <% end %>
+  </ul>
+</div>
+
+</div>

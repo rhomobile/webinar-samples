@@ -1,0 +1,19 @@
+sdk: "/Users/brian/work/rhodes"
+sdkversion: 2.3.0
+name: jqmobilestore
+version: 1.0
+vendor: rhomobile
+build: debug
+bbver: 4.6
+wmsdk: "Windows Mobile 6 Professional SDK (ARMV4I)"
+applog: rholog.txt
+iphone:
+  configuration: Debug
+  sdk: iphonesimulator4.0
+  provisionprofile:
+  codesignidentity:
+  entitlements:
+  BundleIdentifier: com.rhomobile.jqmobilestore
+  BundleURLScheme: jqmobilestore
+
+extensions: ["json", "another-extension"]

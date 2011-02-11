@@ -1,0 +1,38 @@
+<div class="pageTitle">
+  <h1><%= @issue.ticket %></h1>
+</div>
+
+<div class="toolbar">
+  <div class="leftItem backButton">
+    <a href="<%= url_for :action => :index %>">Back</a>
+  </div>
+  <div class="rightItem regularButton">
+    <a href="<%= url_for :action => :edit, :id => @issue.object %>">Edit</a>
+  </div>
+</div>
+
+<div class="content">
+  <ul>
+    
+        <li>
+          <div class="itemLabel">Ticket</div>
+          <div class="itemValue"><%= @issue.ticket %></div>
+        </li>
+    
+        <li>
+          <div class="itemLabel">Description</div>
+          <div class="itemValue"><%= @issue.description %></div>
+        </li>
+    
+        <li>
+          <div class="itemLabel">Status</div>
+          <div class="itemValue"><%= @issue.status %></div>
+        </li>
+    
+        <li>
+          <div class="itemLabel">Priority</div>
+          <div class="itemValue"><%= @issue.priority %></div>
+        </li>
+    
+  </ul>
+</div>

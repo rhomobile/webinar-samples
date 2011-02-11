@@ -13,6 +13,8 @@
   :licensefile: settings/license.key
   :redis: localhost:6379
   :syncserver: http://localhost:9292/application/
+  :username: test@rhomobile.com
+  :password: password123
 :production: 
   :licensefile: settings/license.key
   :redis: localhost:6379

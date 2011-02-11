@@ -1,0 +1,36 @@
+<div id="pageTitle">
+	<h1><%= @issue.ticket%></h1>
+</div>
+
+<div id="toolbar">
+        <%= link_to "Back", :action => :index %>
+        <%= link_to "Edit", :action => :edit, :id => @issue.object %>
+</div>
+
+
+<div id="content">
+
+    <table>
+      
+      <tr>
+    	<td class="itemLabel">Ticket</td>
+        <td class="itemValue"><%= @issue.ticket%></td>
+      </tr>
+      
+      <tr>
+    	<td class="itemLabel">Description</td>
+        <td class="itemValue"><%= @issue.description%></td>
+      </tr>
+      
+      <tr>
+    	<td class="itemLabel">Status</td>
+        <td class="itemValue"><%= @issue.status%></td>
+      </tr>
+      
+      <tr>
+    	<td class="itemLabel">Priority</td>
+        <td class="itemValue"><%= @issue.priority%></td>
+      </tr>
+      
+    </table>
+</div>

@@ -1,0 +1,42 @@
+<div class="pageTitle">
+  <h1>Edit <%= @issue.ticket %></h1>
+</div>
+
+<div class="toolbar">
+  <div class="leftItem backButton">
+    <a href="<%= url_for :action => :show, :id => @issue.object %>">Cancel</a>
+  </div>
+  <div class="rightItem regularButton">
+    <a class="button" href="<%= url_for :action => :delete, :id => @issue.object %>">Delete</a>
+  </div>
+</div>
+
+<div class="content">
+  <form method="POST" action="<%= url_for :action => :update %>">
+    <input type="hidden" name="id" value="<%= @issue.object %>"/>
+    <ul>
+      
+          <li>
+            <label for="issue[ticket]" class="fieldLabel">Ticket</label>
+            <input type="text" name="issue[ticket]" value="<%= @issue.ticket %>" <%= placeholder( "Ticket" ) %> />
+          </li>
+      
+          <li>
+            <label for="issue[description]" class="fieldLabel">Description</label>
+            <input type="text" name="issue[description]" value="<%= @issue.description %>" <%= placeholder( "Description" ) %> />
+          </li>
+      
+          <li>
+            <label for="issue[status]" class="fieldLabel">Status</label>
+            <input type="text" name="issue[status]" value="<%= @issue.status %>" <%= placeholder( "Status" ) %> />
+          </li>
+      
+          <li>
+            <label for="issue[priority]" class="fieldLabel">Priority</label>
+            <input type="text" name="issue[priority]" value="<%= @issue.priority %>" <%= placeholder( "Priority" ) %> />
+          </li>
+      
+    </ul>
+    <input type="submit" class="standardButton" value="Update"/>
+  </form>
+</div>

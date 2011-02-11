@@ -23,12 +23,21 @@ class Feedcomment < SourceAdapter
  
   def query(params=nil)
     raw_data = Store.get_value("#{current_user.login}:feeddata")
-    if raw_data == ""
-      requesturl = @resturl + "/query/?q=" + CGI::escape("SELECT Id,ParentId,Parent.Type,Parent.Name,Type,CreatedDate,CreatedBy.name,FeedPost.body,FeedPost.Title,FeedPost.LinkURL,(SELECT FieldName,OldValue,NewValue FROM FeedTrackedChanges),(SELECT Id,CommentBody,CreatedDate,CreatedById,CreatedBy.FirstName,CreatedBy.LastName,FeedItemId FROM FeedComments ORDER BY CreatedDate) FROM NewsFeed ORDER BY CreatedDate DESC")
-      raw_data = RestClient.get(requesturl, @restheaders).body      
+    if raw_data == "" or raw_data == nil
+      requesturl = @resturl + "/query/?q=" + CGI::escape("SELECT Id,ParentId,Parent.Type,Parent.Name,Type,CreatedDate,CreatedBy.name,FeedPost.body,FeedPost.Title,FeedPost.LinkURL,(SELECT FieldName,OldValue,NewValue FROM FeedTrackedChanges),(SELECT Id,CommentBody,CreatedDate,CreatedById,CreatedBy.FirstName,CreatedBy.LastName,FeedItemId FROM FeedComments ORDER BY CreatedDate) FROM NewsFeed ORDER BY CreatedDate DESC LIMIT 999")
+      raw_data = RestClient.get(requesturl, @restheaders) do |response,request, result, &block| 
+          case response.code 
+          when 200 
+            p "It worked !" 
+            response.body
+          when 400
+            p "It failed !"
+            p response.body
+            raise "400 error"
+          end
+      end     
     end
     parsed_data = JSON.parse raw_data
-    
     
     @result = {}
     

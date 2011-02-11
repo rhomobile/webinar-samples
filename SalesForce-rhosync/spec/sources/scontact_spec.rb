@@ -4,11 +4,12 @@ describe "Scontact" do
   it_should_behave_like "SpecHelper"
   
   before(:each) do
-    setup_test_for Scontact,'brian@rhomobile.com'
-  end
+    settings_file = File.join('settings','settings.yml')
+    settings = YAML.load_file(settings_file) if settings_file and File.exist?(settings_file)
+    setup_test_for Scontact,settings[:test][:username]
+    Application.authenticate(settings[:test][:username],settings[:test][:password],"")  end
   
   it "should process Scontact query" do
-    Application.authenticate('brian@rhomobile.com','password123',"")
     result = test_query
     puts result.inspect
     test_query.length.should > 0

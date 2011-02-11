@@ -16,4 +16,4 @@ iphone:
   BundleIdentifier: com.rhomobile.SalesForce
   BundleURLScheme: SalesForce
 
-extensions: ["json", "another-extension"]
+extensions: ["json", "fileutils", "mspec"]
