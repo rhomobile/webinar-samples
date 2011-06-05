@@ -1,0 +1,24 @@
+<script type="text/javascript">
+function setLog(log) {
+  document.getElementById("id_log").value = log;
+}
+
+function onLogClear() {
+  document.getElementById("id_log").value = "";
+}
+</script>
+
+<div class="pageTitle">
+  <h1>Nfcs</h1>
+</div>
+
+<div class="content">
+  <ul>
+    <li>
+	NFC Enabled: <span class="title"><%= @nfc_status %></span>
+	</li>
+	<li>Log:</li>
+	<input type="text" style="font-style: bold" id="id_log" value="" />  
+  	<input type="button" value="Clear" onClick="onLogClear();"/>
+  </ul>
+</div>
