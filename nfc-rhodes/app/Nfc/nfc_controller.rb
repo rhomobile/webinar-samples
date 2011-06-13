@@ -10,9 +10,42 @@ class NfcController < Rho::RhoController
     render :back => '/app'
   end
   
+  def start_nfc_push
+    puts "Sending #{@params['push'].inspect}..."
+    payload = Rho::NFCManager.make_payload_with_well_known_text("en", @params['push'])
+    hash = { 
+      'id' => [0], 
+      'type' => Rho::NdefRecord:: RTD_TEXT, 
+      'tnf' => Rho::NdefRecord::TNF_WELL_KNOWN, 
+      'payload' => payload
+    }
+    record = Rho::NFCManager.make_NdefRecord_from_hash(hash)
+    records = [record]
+    msg = Rho::NFCManager.make_NdefMessage_from_array_of_NdefRecord(records)
+    
+    # start push message
+    Rho::NFCManager.p2p_enable_foreground_nde_push(msg)
+    @notice = "Started push."
+    render :action => :index
+  end
+  
+  def stop_nfc_push
+    Rho::NFCManager.p2p_disable_foreground_nde_push
+    @notice = "Stopped push."
+    render :action => :index
+  end
+  
   def nfc_callback
-    @log = "TAG received: #{Time.now.strftime('%H:%M:%S')}"
-    add_to_log(@log)
+    if @params['messages'].size > 0 and @params['messages'][0]['records'].size > 0
+      @msg = @params['messages'][0]['records'][0]['payload_as_string']
+    else
+      @msg = "No payload"
+    end
+    Alert.show_popup( {
+        :message => @msg, 
+        :title => "NFC P2P", 
+        :buttons => ["Close"] } 
+    )
   end
   
   def add_to_log(msg)
