@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+    <title>MobiStore</title>
+
+    <% is_bb6 = System::get_property('platform') == 'Blackberry' && (System::get_property('os_version').split('.')[0].to_i >= 6) %>
+
+    <% if is_bb6 %>
+        <meta name="viewport" content="width=device-width; height=device-height; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;"/>
+    <% else %>
+        <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;"/>
+    <% end %>
+
+    <% if System::get_property('platform') == 'WP7' %>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <% end %>
+    
+<!-- The version of jqmobi used here is a beta. Look for the official 1.0.2 release on the jqmobi.com website -->
+<link rel="stylesheet" type="text/css" href="/public/jqmobi/kitchensink/icons.css" />
+<link rel="stylesheet" type="text/css" href="/public/jqmobi/kitchensink/jq.ui.css" title="default"/>
+    
+<script type="text/javascript" charset="utf-8" src="/public/jqmobi/jq.mobi.js"></script> 
+
+<script type="text/javascript" charset="utf-8" src="/public/jqmobi/ui/jq.ui.js"></script> 
+<!-- transitions -->
+<script type="text/javascript" charset="utf-8" src="/public/jqmobi/ui/transitions/all.js"></script> 
+
+<script type="text/javascript">
+    $.ui.openLinksNewTab=false;
+    $.ui.loadDefaultHash=false; //Do not load the panel from the hash
+    $.ui.isAjaxApp=true;
+    $.ui.showLoading=false; //Do not show the loading ajax spinner
+    $.ui.backButtonText="Back";  //Make the back button always say "Back"
+    $.ui.autoLaunch = true;
+</script>
+    
+
+</head>
+
+<body
+<% if is_bb6 %>
+	data-do-fix-forms="true"
+<% elsif System::get_property('platform') == 'WP7' %>
+	onload="wp7_change_forms_action_to_get()"
+<% end %>
+	>
+<div id="jQUi">
+<div id="header">
+  <h1 id="pageTitle">MobiStore</h1>
+  <% if SyncEngine::logged_in > 0 %>
+  <a href="<%= url_for :controller => :Settings, :action => :do_sync %>" class="button" style="float:left">
+    Sync
+  </a>
+  <a href="<%= url_for :controller => :Settings, :action => :logout %>"  class="button" style="float:right">
+    Logout
+  </a>
+  <% else %>
+      <a href="<%= url_for :controller => :Settings, :action => :login %>"  class="button" style="float:right">Login</a>
+  <% end %>
+</div>
+  <div id="content">
+    <div class="panel"  id="mainpanel" title="JQMobiStore" selected="true">
+    <%= @content %>
+    </div>
+  </div>
+ <div id="navbar"> <!-- your footer goes here--></div>
+</div>
+</body>
+
+</html>

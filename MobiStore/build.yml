@@ -1,0 +1,25 @@
+#sdk: "/Library/Ruby/Gems/1.8/gems/rhodes-3.2.2"
+sdkversion: 3.2.1
+name: MobiStore
+version: 1.0
+vendor: rhomobile
+build: debug
+bbver: 4.6
+wmsdk: "Windows Mobile 6 Professional SDK (ARMV4I)"
+applog: rholog.txt
+iphone:
+  configuration: Release
+  sdk: iphonesimulator5.0
+  provisionprofile:
+  codesignidentity:
+  entitlements:
+  BundleIdentifier: com.rhomobile.mobistore
+  BundleURLScheme: mobistore
+wp:
+  productid: 'ba581120-67b1-012f-7fb1-549a2006c04e'
+symbian:
+  uid: '0xe83e2497'
+android:
+  version: 2.1
+
+extensions: ["json", "another-extension"]

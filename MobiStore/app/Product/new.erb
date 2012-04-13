@@ -1,0 +1,36 @@
+
+  <header>
+    <h1>New <%= @product.title %></h1>
+    <a href="<%= url_for :action => :index %>" class="button" style="float:left;">
+      Cancel
+    </a>
+  </header>
+
+    <form method="POST" action="<%= url_for :action => :create %>">
+      <input type="hidden" name="id" value="<%= @product.object %>"/>
+
+      
+          <div>
+            <label for="product[name]" class="fieldLabel">Name</label>
+            <input class="jq-ui-forms" type="text" id="product[name]" name="product[name]" <%= placeholder("Name") %> />
+          </div>
+      
+          <div>
+            <label for="product[brand]" class="fieldLabel">Brand</label>
+            <input class="jq-ui-forms" type="text" id="product[brand]" name="product[brand]" <%= placeholder("Brand") %> />
+          </div>
+      
+          <div>
+            <label for="product[price]" class="fieldLabel">Price</label>
+            <input class="jq-ui-forms" type="text" id="product[price]" name="product[price]" <%= placeholder("Price") %> />
+          </div>
+      
+          <div>
+            <label for="product[quantity]" class="fieldLabel">Quantity</label>
+            <input class="jq-ui-forms" type="text" id="product[quantity]" name="product[quantity]" <%= placeholder("Quantity") %> />
+          </div>
+      
+
+      <input type="submit" value="Create"/>
+    </form>
+

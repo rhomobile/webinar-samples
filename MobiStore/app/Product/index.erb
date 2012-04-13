@@ -1,0 +1,22 @@
+	<header>
+    <h1>Products</h1>
+    <a href="<%= Rho::RhoConfig.start_path %>" class="button" style="float:left;">
+      Home
+    </a>
+    <a href="<%= url_for :action => :new %>" class="button" style="float:right;">
+      New
+    </a>
+	</header>
+
+    <ul>
+      <% @products.each do |product| %>
+      
+          <li>
+            <a href="<%= url_for :action => :show, :id => product.object %>">
+              <%= product.name %>
+            </a>
+          </li>
+      
+      <% end %>
+    </ul>
+
