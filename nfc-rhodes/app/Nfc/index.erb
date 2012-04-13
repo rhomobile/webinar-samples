@@ -1,0 +1,39 @@
+<script type="text/javascript">
+function setLog(log) {
+  document.getElementById("id_log").value = log;
+}
+
+function onLogClear() {
+  document.getElementById("id_log").value = "";
+}
+</script>
+
+<div class="pageTitle">
+  <h1>NFC Demo</h1>
+</div>
+
+<div class="content">
+  <% if @notice %>
+    <p style="color: red"><%= @notice %></p>
+  <% end %>
+  <ul>
+    <li>
+	NFC Enabled: <span class="title"><%= @nfc_status %></span>
+	</li>
+	<li>NFC Log:</li>
+	<input type="text" style="font-style: bold" id="id_log" value="" />  
+  	<input type="button" value="Clear" onClick="onLogClear();"/>
+  </ul>
+  <form method="POST" action="<%= url_for :action => :start_nfc_push %>">
+	<ul>
+	  <li>
+		<label for="text" class="fieldLabel">Push Message</label>
+		<input type="text" name="push" value="Hello from NFC!"/>
+	  </li>
+	</ul>
+	<input type="submit" class="standardButton" value="Start Message Push!"/>
+  </form>
+  <form method="POST" action="<%= url_for :action => :stop_nfc_push %>">
+	<input type="submit" class="standardButton" value="Stop Message Push!"/>
+  </form>
+</div>

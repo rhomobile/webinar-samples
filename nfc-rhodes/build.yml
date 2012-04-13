@@ -1,0 +1,25 @@
+sdk: "/Users/lars/.rvm/gems/ruby-1.8.7-p334/gems/rhodes-3.0.1"
+sdkversion: 3.0.1
+name: nfc-rhodes
+version: 1.0
+vendor: rhomobile
+build: debug
+bbver: 4.6
+wmsdk: "Windows Mobile 6 Professional SDK (ARMV4I)"
+applog: rholog.txt
+iphone:
+  configuration: Debug
+  sdk: iphonesimulator4.3
+  provisionprofile:
+  codesignidentity:
+  entitlements:
+  BundleIdentifier: com.rhomobile.nfc_rhodes
+  BundleURLScheme: nfc_rhodes
+wp:
+  productid: '7f375a90-702a-012e-85bf-482a141043d9'
+android:
+  version: 2.3.3
+  extensions:
+  - nfc
+
+extensions: ["json", "another-extension"]
